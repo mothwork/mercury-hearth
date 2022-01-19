@@ -16,7 +16,7 @@ const addOneProject = project => ({
 
 export const getProjects = () => async dispatch => {
     const response = await fetch(`/api/projects/`)
-
+    console.log('INSIDE THUNK', response)
     if (response.ok) {
         const projectArray = await response.json()
         dispatch(load(projectArray))
