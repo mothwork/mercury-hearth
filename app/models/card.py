@@ -12,5 +12,5 @@ class Card(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     pageId = db.Column(db.Integer, db.ForeignKey(Page.id), nullable=False)
 
-    userRelation = db.relationship('User', back_populates='card_relation')
-    pageRelation = db.relationship('Page', back_populates='card_relation')
+    user_relation = db.relationship('User', back_populates='card_relation')
+    page_relation = db.relationship('Page', back_populates='card_relation')

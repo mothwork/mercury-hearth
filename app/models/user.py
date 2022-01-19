@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
 
     project_relation = db.relationship('Project', back_populates='user_relation', cascade='all, delete')
     page_relation = db.relationship('Page', back_populates='user_relation', cascade='all, delete')
-    card_relation = db.relationship('Card', back_populates='user_relations', cascade='all, delete')
+    card_relation = db.relationship('Card', back_populates='user_relation', cascade='all, delete')
 
     @property
     def password(self):
