@@ -1,0 +1,41 @@
+
+
+nav ul {
+    padding: 0;
+}
+
+nav li {
+    list-style: None;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover {
+    color: gray;
+}
+
+nav {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+    /* border: solid black 1px; */
+    text-align: center;
+}
+
+
+.logo {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    box-sizing: border-box;
+}

@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Project from './components/Projects';
+import Splash from './components/Splash';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,8 +28,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+
       <Switch>
+        <Route path='/' exact={true}>
+          <NavBar />
+          <Splash/>
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -38,11 +43,9 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>Inside Home</h1>
+        <ProtectedRoute path='/projects' exact={true} >
+
+
           <Project/>
         </ProtectedRoute>
       </Switch>

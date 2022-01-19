@@ -1,15 +1,16 @@
 import React from 'react';
-import {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {NavLink, Redirect} from 'react-router-dom';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
 import { getProjects } from '../../store/project';
-
+import LogoutButton from '../auth/LogoutButton';
+import './Projects.css'
 
 const Project = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
-    useEffect(async() => {
+    useEffect(async () => {
         await dispatch(getProjects())
     }, [dispatch])
 
@@ -29,7 +30,12 @@ const Project = () => {
     if (projects) {
         return (
             <>
+                <div className='user-nav'>
+                    <LogoutButton/>
+                </div>
                 <div className='project-container'>
+                    <h1>Projects</h1>
+                    <button>Add Project</button>
                     <ul>
                         {projects.map(project => {
                             return (
