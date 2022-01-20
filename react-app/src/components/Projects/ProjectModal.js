@@ -10,7 +10,7 @@ function ProjectModal() {
     }
     return (
         <>
-            <button className='project-button new-project-button' onClick={() => setShowModal(true)}>New Project</button>
+            <button className='project-button new-project-button' onClick={() => setShowModal(true)}>+ New Project</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <ProjectForm modalSetter={modalSetter} />

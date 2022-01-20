@@ -19,6 +19,7 @@ const ProjectForm = ({modalSetter}) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const userId = user.id
+
         const newProject = {
             title,
             description,
@@ -65,7 +66,6 @@ const ProjectForm = ({modalSetter}) => {
                     name='description'
                     onChange={updateDescription}
                     value={description}
-                    required
                     autoComplete='off'
                     cols={50}
                     rows={10}
