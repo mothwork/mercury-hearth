@@ -41,7 +41,7 @@ const Project = () => {
                         {projects.map(project => {
                             return (
                                 <li>
-                                    <NavLink to={`/project/${project.id}/`}>
+                                    <NavLink to={`/projects/${project.id}`}>
                                         <button className='project-button'>{project.title}</button>
                                     </NavLink>
                                 </li>

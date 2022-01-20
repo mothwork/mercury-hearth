@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Project from './components/Projects';
 import Splash from './components/Splash';
 import ProjectModal from './components/Projects/ProjectModal';
+import InsideProject from './components/InsideProject'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +48,10 @@ function App() {
         <ProtectedRoute path='/projects' exact={true} >
           <Project/>
         </ProtectedRoute>
+        <Route path='/projects/:projectId'>
+          
+          <InsideProject/>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

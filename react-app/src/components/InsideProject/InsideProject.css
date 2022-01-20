@@ -1,0 +1,9 @@
+.project-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-right: black 1px solid;
+    max-width: 200px;
+    height: 100vh;
+    padding-right: 8px;
+}
