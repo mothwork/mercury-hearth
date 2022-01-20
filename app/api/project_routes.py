@@ -1,3 +1,4 @@
+import json
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
 from app.models import db, Project
@@ -9,11 +10,11 @@ project_routes = Blueprint('projects', __name__)
 # All projects
 @project_routes.route('/')
 def all_projects():
-    # if current_user:
-    #     user = current_user.to_dict()
+    if current_user:
+        user = current_user.to_dict()
 
-    # projects = Project.query.filter(Project.userId == user.id).all()
-    projects = Project.query.all()
+    projects = Project.query.filter(Project.userId == user['id']).all()
+    # projects = Project.query.all()
     if projects:
         project_list = [{'id': project.id, 'title':project.title, 'description':project.description, 'userId':project.userId} for project in projects]
         return jsonify(project_list)
@@ -50,3 +51,36 @@ def new_project():
         return jsonify(new_project_return)
     except IntegrityError as e:
         return jsonify('Data error'), 400
+
+@project_routes.route('/<int:project_id>', methods=['PUT'])
+def edit_project(project_id):
+    try:
+        project = Project.query.filter(Project.id == project_id).first()
+
+        data = request.json
+
+        title = data["title"]
+        if len(title) < 1:
+            return jsonify('Title is required.')
+        project.title = title
+        project.description = data['description']
+
+        db.session.commit()
+        return jsonify('Project details updated')
+    except TypeError as e:
+        print(e)
+        return jsonify('Bad data')
+
+@project_routes.route('/<int:project_id>', methods=['DELETE'])
+def delete_project(project_id):
+    print('____INSIDE ROUTE')
+    if current_user.is_authenticated:
+        project = Project.query.filter(Project.id == project_id).first()
+        user = current_user.to_dict()
+        print('USER+++++++++++++', user)
+        if user['id'] == project.userId:
+            db.session.delete(project)
+            db.session.commit()
+            return jsonify('Project successfully deleted')
+        return jsonify('Error: Unauthorized'), 401
+    return jsonify('Error: Unauthorized'), 401

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
-import { createProject } from '../../store/project';
+
 import { getProjects } from '../../store/project';
+import { editProject } from '../../store/project';
 
 const ProjectForm = ({modalSetter}) => {
     const { projectId } = useParams()
@@ -26,17 +27,18 @@ const ProjectForm = ({modalSetter}) => {
         e.preventDefault()
         const userId = user.id
         const editedProject = {
+            id,
             title,
             description,
             userId
         }
 
-        if (newProject) {
+        if (editedProject) {
             const newProjectRes = await dispatch(editProject(editedProject))
             await dispatch(getProjects())
         }
         modalSetter()
-        return history.push('/projects')
+        // return history.push('/projects')
     }
 
     const updateTitle = (e) => {

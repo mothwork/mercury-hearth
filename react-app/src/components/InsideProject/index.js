@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { getProjects } from "../../store/project";
 import EditProjectModal from "../Projects/EditProjectModal";
+import { deleteProject } from '../../store/project';
+
 
 
 
@@ -19,11 +21,14 @@ const InsideProject = () => {
     console.log(projectsContainer)
     const projects = projectsContainer?.projects
     const project = projects?.[id]
-    const handleEdit = async () => {
 
-    }
     const handleDelete = async () => {
-
+        const confirmed = window.confirm('Deleting a project will delete all pages and cards associated with it. Are you sure?')
+        if (confirmed) {
+            await dispatch(deleteProject(project))
+            await dispatch(getProjects())
+            history.push('/projects/')
+        }
     }
 
     useEffect(() => {
