@@ -9,6 +9,18 @@ def seed_pages():
         userId=1,
         projectId=1
     )
+    mahir2 = Page(
+        title='Great Mahirum',
+        content='{"name":"Mahirum", "capital":"Mahir","population":"2 million","content":"A great deal of ink has been spilled..."}',
+        userId=1,
+        projectId=1
+    )
+    mahir3 = Page(
+        title='Great Mahirum',
+        content='{"name":"Mahirum", "capital":"Mahir","population":"2 million","content":"A great deal of ink has been spilled..."}',
+        userId=1,
+        projectId=1
+    )
     malimon = Page(
         title='Malimon',
         content='{"name":"Malimon", "capital":"No known","population":"Unknown", "content":"The shaded desert Malimon is home to many..."}',
@@ -23,6 +35,8 @@ def seed_pages():
     )
 
     db.session.add(mahir)
+    db.session.add(mahir2)
+    db.session.add(mahir3)
     db.session.add(malimon)
     db.session.add(lastRedoubt)
 
