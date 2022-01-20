@@ -1,7 +1,7 @@
 import json
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
-from app.models import db, Project
+from app.models import db, Project, Page
 from flask_login import current_user
 
 project_routes = Blueprint('projects', __name__)
@@ -73,14 +73,22 @@ def edit_project(project_id):
 
 @project_routes.route('/<int:project_id>', methods=['DELETE'])
 def delete_project(project_id):
-    print('____INSIDE ROUTE')
     if current_user.is_authenticated:
         project = Project.query.filter(Project.id == project_id).first()
         user = current_user.to_dict()
-        print('USER+++++++++++++', user)
         if user['id'] == project.userId:
             db.session.delete(project)
             db.session.commit()
             return jsonify('Project successfully deleted')
         return jsonify('Error: Unauthorized'), 401
     return jsonify('Error: Unauthorized'), 401
+
+
+@project_routes.route('/<int:project_id>/pages')
+def all_pages(project_id):
+    print('project_id!!!!!!!!!', project_id)
+    pages = Page.query.filter(Page.projectId == int(project_id)).all()
+    print('PAGES+++++++++++++++++', pages)
+    if pages:
+        page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
+        return jsonify(page_list)
