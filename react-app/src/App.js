@@ -49,8 +49,9 @@ function App() {
           <Project/>
         </ProtectedRoute>
         <Route path='/projects/:projectId'>
-          
+
           <InsideProject/>
+          
         </Route>
       </Switch>
     </BrowserRouter>

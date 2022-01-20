@@ -4,7 +4,7 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 import { getProjects } from "../../store/project";
 import EditProjectModal from "../Projects/EditProjectModal";
 import { deleteProject } from '../../store/project';
-
+import Pages from "../Pages";
 
 
 
@@ -34,6 +34,7 @@ const InsideProject = () => {
     useEffect(() => {
         dispatch(getProjects())
     },[dispatch])
+
     if (project){
         return (
             <>
@@ -45,6 +46,8 @@ const InsideProject = () => {
                 <p className="project-description">{project.description}</p>
                 <EditProjectModal/>
                 <button className='project-button' onClick={()=> {handleDelete()}}>Delete</button>
+                <h2>Pages</h2>
+                <Pages/>
             </div>
             Inside Project
             </>
