@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import { getProjects } from '../../store/project';
 import LogoutButton from '../auth/LogoutButton';
+import ProjectModal from './ProjectModal';
 import './Projects.css'
 
 const Project = () => {
@@ -35,7 +36,7 @@ const Project = () => {
                 </div>
                 <div className='project-container'>
                     <h1>Projects</h1>
-                    <button>Add Project</button>
+                    <ProjectModal/>
                     <ul>
                         {projects.map(project => {
                             return (

@@ -16,13 +16,20 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    transition-property: background-color;
+    transition-timing-function: ease-in;
+    transition-duration: 2s;
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  #modal-background:hover:after {
+      background-color: black;
   }
 
   #modal-content {
     box-sizing: border-box;
     position: absolute;
-    background-color: #2f2f2f;
+    background-color: white;
     border-radius: 5px;
     padding: 50px 100px 50px 100px;
 
@@ -30,7 +37,7 @@
 
   .modal-label {
     font-family: sans-serif;
-    color: white;
+    color: black;
     padding: 0;
     margin: 0 0 10px 0
   }
