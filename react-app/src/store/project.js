@@ -1,6 +1,6 @@
 const LOAD = 'projects/LOAD'
 const ADD_ONE = 'projects/ADD_ONE'
-
+const EDIT_ONE = 'projects/EDIT_ONE'
 
 
 const load = projectArray => ({
@@ -10,6 +10,11 @@ const load = projectArray => ({
 
 const addOneProject = project => ({
     type: ADD_ONE,
+    project
+})
+
+const editOneProject = project => ({
+    type: EDIT_ONE,
     project
 })
 

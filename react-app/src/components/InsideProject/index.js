@@ -37,10 +37,9 @@ const InsideProject = () => {
                     <button className='project-button'>Back</button>
                 </NavLink>
                 <h1>{project.title}</h1>
+                <p className="project-description">{project.description}</p>
                 <EditProjectModal/>
-                <button className='project-button'>Edit</button>
-                <button className='project-button'>Delete</button>
-                <p>{project.description}</p>
+                <button className='project-button' onClick={()=> {handleDelete()}}>Delete</button>
             </div>
             Inside Project
             </>

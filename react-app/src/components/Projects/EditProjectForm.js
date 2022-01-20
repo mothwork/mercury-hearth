@@ -25,14 +25,14 @@ const ProjectForm = ({modalSetter}) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const userId = user.id
-        const newProject = {
+        const editedProject = {
             title,
             description,
             userId
         }
 
         if (newProject) {
-            const newProjectRes = await dispatch(createProject(newProject))
+            const newProjectRes = await dispatch(editProject(editedProject))
             await dispatch(getProjects())
         }
         modalSetter()
@@ -66,15 +66,17 @@ const ProjectForm = ({modalSetter}) => {
                     autoComplete='off'
                     ></input>
                 <label>Description</label>
-                <input
+                <textarea
                     type='textarea'
                     name='description'
                     onChange={updateDescription}
                     value={description}
                     required
                     autoComplete='off'
-                    ></input>
-                <button className='new-project-submit'>Save Changes</button>
+                    cols={50}
+                    rows={10}
+                    ></textarea>
+                <button className='new-project-submit project-button'>Save Changes</button>
             </form>
         </>
     )

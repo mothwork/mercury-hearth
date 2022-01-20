@@ -60,14 +60,16 @@ const ProjectForm = ({modalSetter}) => {
                     autoComplete='off'
                     ></input>
                 <label>Description</label>
-                <input
+                <textarea
                     type='textarea'
                     name='description'
                     onChange={updateDescription}
                     value={description}
                     required
                     autoComplete='off'
-                    ></input>
+                    cols={50}
+                    rows={10}
+                    ></textarea>
                 <button className='new-project-submit'>Create Project</button>
             </form>
         </>
