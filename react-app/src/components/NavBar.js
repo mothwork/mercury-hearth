@@ -5,8 +5,17 @@ import LoginFormModal from './auth/LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
 import SignUpModal from './auth/SignUpModal';
 import "./NavBar.css"
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../store/session';
 
 const NavBar = () => {
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const demoLogin = async () => {
+    await dispatch(login('demo@aa.io', 'password'));
+    return history.push(`/projects`);
+};
   return (
     <nav>
       <ul>
@@ -14,15 +23,13 @@ const NavBar = () => {
           <div className='logo'></div>
         </li>
         <li>
-          <NavLink to='/projects/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
           <LoginFormModal/>
         </li>
         <li>
           <SignUpModal/>
+        </li>
+        <li>
+          <button className='nav-buttons' onClick={demoLogin}>Demo Now</button>
         </li>
       </ul>
     </nav>

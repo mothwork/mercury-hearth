@@ -34,8 +34,10 @@ function App() {
 
       <Switch>
         <Route path='/' exact={true}>
+          <div className='splash-container'>
           <NavBar />
           <Splash/>
+          </div>
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
