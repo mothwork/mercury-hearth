@@ -39,15 +39,7 @@ function App() {
           <Splash/>
           </div>
         </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
+
         <ProtectedRoute path='/projects' exact={true} >
           <Project/>
         </ProtectedRoute>
