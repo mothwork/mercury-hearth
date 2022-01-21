@@ -43,7 +43,9 @@ export const createPage = (newPage) => async (dispatch) => {
     const page = await response.json()
     if (response.ok){
         dispatch(addOnePage(page))
+        return page
     }
+
 }
 
 export const deletePage = (pageToDelete) => async (dispatch) => {
@@ -59,6 +61,24 @@ export const deletePage = (pageToDelete) => async (dispatch) => {
     }
 }
 
+export const editPage = (pageToEdit) => async (dispatch) => {
+    const pageId = pageToEdit.id
+    const projectId = pageToEdit.projectId
+    console.log('PAGE TO EDIT', pageToEdit)
+    console.log(JSON.stringify(pageToEdit))
+    const response = await fetch(`/api/projects/${projectId}/${pageId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pageToEdit)
+    })
+
+    const page = await response.json()
+    if (response.ok) {
+        dispatch(editOnePage(pageToEdit))
+        return page
+    }
+}
+
 const initialState = {}
 
 const pageReducer = (state=initialState, action) => {
@@ -68,7 +88,6 @@ const pageReducer = (state=initialState, action) => {
         case LOAD: {
             const pages = {}
             const pageArray = action.pageArray
-            console.log(action.pageArray)
             action.pageArray.forEach(page => {
                 pages[page.id] = page
             })
@@ -81,6 +100,18 @@ const pageReducer = (state=initialState, action) => {
             const id = page.id
             const newState = Object.assign({}, state);
             delete newState[id];
+            return newState
+        }
+        case ADD_ONE: {
+            const page = action.page
+            const newState = Object.assign({}, state);
+            newState[page.id] = page;
+            return newState
+        }
+        case EDIT_ONE: {
+            const page = action.page
+            const newState = Object.assign({}, state);
+            newState[page.id] = page;
             return newState
         }
     }

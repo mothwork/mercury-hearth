@@ -13,8 +13,8 @@ const ProjectForm = ({modalSetter}) => {
     const project = projects?.[id]
 
     const [errors, setErrors] = useState([]);
-    const [title, setTitle] = useState(project.title)
-    const [description, setDescription] = useState(project.description)
+    const [title, setTitle] = useState(project?.title)
+    const [description, setDescription] = useState(project?.description)
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()

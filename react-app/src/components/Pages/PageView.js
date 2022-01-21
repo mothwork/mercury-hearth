@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
 import { deletePage } from '../../store/page';
 
@@ -26,7 +26,7 @@ const PageView = () => {
         if (confirmed) {
             await dispatch(deletePage(page))
             await dispatch(getPages())
-            history.push('/projects/')
+            history.push(`/projects/${projectId}`)
         }
     }
 
@@ -36,7 +36,10 @@ const PageView = () => {
             <div className='page-view-container'>
                 <div className='page-header'>
                 <h1>{page.title}</h1>
-                <button className='project-button'>Edit</button>
+                <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
+                    <button className='project-button'>Edit</button>
+                </NavLink>
+
                 <button className='project-button' onClick={handleDelete}>Delete</button>
             <div>
                 {page.content}

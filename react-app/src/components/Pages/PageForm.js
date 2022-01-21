@@ -34,9 +34,10 @@ const PageForm = () => {
         if (newPage) {
             const newPageRes = await dispatch(createPage(newPage))
             await dispatch(getPages())
+            console.log(newPageRes)
+            return history.push(`/projects/${projectId}/${newPageRes.id}`)
         }
 
-        return history.push(`/projects/${projectId}`)
     }
 
     const updateTitle = (e) => {

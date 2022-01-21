@@ -12,6 +12,7 @@ import Splash from './components/Splash';
 import InsideProject from './components/InsideProject'
 import PageForm from './components/Pages/PageForm';
 import PageView from './components/Pages/PageView'
+import EditPageForm from './components/Pages/EditPageForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +62,12 @@ function App() {
           <div className='new-page-container'>
           <InsideProject/>
           <PageView/>
+          </div>
+        </Route>
+        <Route path='/projects/:projectId/:pageId/edit' exact={true}>
+          <div className='new-page-container'>
+          <InsideProject/>
+          <EditPageForm/>
           </div>
         </Route>
       </Switch>

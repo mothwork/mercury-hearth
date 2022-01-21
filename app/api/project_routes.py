@@ -133,3 +133,29 @@ def delete_page(project_id, page_id):
             return jsonify('Project successfully deleted')
         return jsonify('Error: Unauthorized'), 401
     return jsonify('Error: Unauthorized'), 401
+
+@project_routes.route('/<int:project_id>/<int:page_id>', methods=['PUT'])
+def edit_page(project_id, page_id):
+    if current_user.is_authenticated:
+        data = request.json
+        print('DATA++++++++++++',data)
+        page = Page.query.filter(Page.id == page_id).first()
+        print('PAGEFROMQUERY+++++++++++++++',page)
+        user = current_user.to_dict()
+        if user['id'] == page.userId:
+            print('PAGE TITLE +++++++++++',page.title)
+            page.title = data['title']
+            page.content = data['content']
+            db.session.commit()
+
+            edit_page_return = {
+                'id': page.id,
+                'title': page.title,
+                'content': page.content,
+                'projectId': page.projectId,
+                'userId': page.userId
+            }
+
+            return jsonify(edit_page_return)
+        return jsonify('Error: Unauthorized'), 401
+    return jsonify('Error: Unauthorized'), 401
