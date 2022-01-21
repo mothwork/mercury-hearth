@@ -119,3 +119,17 @@ def new_page(project_id):
         return jsonify(new_page_return)
     except IntegrityError as e:
         return jsonify('Data error'), 400
+
+@project_routes.route('/<int:project_id>/<int:page_id>', methods=['DELETE'])
+def delete_page(project_id, page_id):
+    # data = request.json
+    if current_user.is_authenticated:
+        page = Page.query.filter(Page.id == page_id).first()
+        print(page)
+        user = current_user.to_dict()
+        if user['id'] == page.userId:
+            db.session.delete(page)
+            db.session.commit()
+            return jsonify('Project successfully deleted')
+        return jsonify('Error: Unauthorized'), 401
+    return jsonify('Error: Unauthorized'), 401
