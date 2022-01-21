@@ -83,12 +83,39 @@ def delete_project(project_id):
         return jsonify('Error: Unauthorized'), 401
     return jsonify('Error: Unauthorized'), 401
 
-
+# Get pages
 @project_routes.route('/<int:project_id>/pages')
 def all_pages(project_id):
-    print('project_id!!!!!!!!!', project_id)
     pages = Page.query.filter(Page.projectId == int(project_id)).all()
-    print('PAGES+++++++++++++++++', pages)
     if pages:
         page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
         return jsonify(page_list)
+
+@project_routes.route('/<int:project_id>', methods=['POST'])
+def new_page(project_id):
+    data = request.json
+    title = data['title']
+    try:
+        new_page = {
+            'title': data['title'],
+            'content': data['content'],
+            'userId': data['userId'],
+            'projectId': data['projectId']
+        }
+
+        new_page_db = Page(
+            **new_page
+        )
+        db.session.add(new_page_db)
+        db.session.commit()
+
+        new_page_return = {
+            'id': new_page_db.id,
+            'title':new_page_db.title,
+            'userId':new_page_db.userId,
+            'projectId':new_page_db.projectId,
+            'content':new_page_db.content,
+        }
+        return jsonify(new_page_return)
+    except IntegrityError as e:
+        return jsonify('Data error'), 400

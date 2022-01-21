@@ -6,12 +6,12 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
 import Project from './components/Projects';
 import Splash from './components/Splash';
-import ProjectModal from './components/Projects/ProjectModal';
 import InsideProject from './components/InsideProject'
+import PageForm from './components/Pages/PageForm';
+import PageView from './components/Pages/PageView'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,10 +48,20 @@ function App() {
         <ProtectedRoute path='/projects' exact={true} >
           <Project/>
         </ProtectedRoute>
-        <Route path='/projects/:projectId'>
-
+        <Route path='/projects/:projectId' exact={true}>
           <InsideProject/>
-          
+        </Route>
+        <Route path='/projects/:projectId/new'>
+          <div className='new-page-container'>
+          <InsideProject/>
+          <PageForm/>
+          </div>
+        </Route>
+        <Route path='/pages/:pageId'>
+          <div className='page-container'>
+          <InsideProject/>
+          <PageView/>
+          </div>
         </Route>
       </Switch>
     </BrowserRouter>

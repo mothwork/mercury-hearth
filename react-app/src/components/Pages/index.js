@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
-
+import './Pages.css'
 
 const Pages = () => {
     const dispatch = useDispatch()
@@ -22,6 +22,9 @@ const Pages = () => {
         return (
             <>
                 <div className='page-container'>
+                    <NavLink to={`/projects/${id}/new`}>
+                        <button className='project-button'>+ New Page</button>
+                    </NavLink>
                     <ul>
                         {pages.map(page => {
                             return (

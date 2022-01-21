@@ -49,7 +49,7 @@ const InsideProject = () => {
                 <h2>Pages</h2>
                 <Pages/>
             </div>
-            Inside Project
+            
             </>
         )
     }

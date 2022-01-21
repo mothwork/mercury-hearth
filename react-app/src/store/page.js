@@ -33,6 +33,19 @@ export const getPages = (projectId) => async (dispatch) => {
     }
 }
 
+export const createPage = (newPage) => async (dispatch) => {
+    const projectId = newPage.projectId
+    const response = await fetch(`/api/projects/${projectId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newPage)
+    })
+    const page = await response.json()
+    if (response.ok){
+        dispatch(addOnePage(page))
+    }
+}
+
 const initialState = {}
 
 const pageReducer = (state=initialState, action) => {
