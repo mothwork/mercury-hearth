@@ -1,7 +1,7 @@
 import json
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
-from app.models import db, Project
+from app.models import db, Project, Page
 from flask_login import current_user
 
 project_routes = Blueprint('projects', __name__)
@@ -73,14 +73,89 @@ def edit_project(project_id):
 
 @project_routes.route('/<int:project_id>', methods=['DELETE'])
 def delete_project(project_id):
-    print('____INSIDE ROUTE')
     if current_user.is_authenticated:
         project = Project.query.filter(Project.id == project_id).first()
         user = current_user.to_dict()
-        print('USER+++++++++++++', user)
         if user['id'] == project.userId:
             db.session.delete(project)
             db.session.commit()
             return jsonify('Project successfully deleted')
+        return jsonify('Error: Unauthorized'), 401
+    return jsonify('Error: Unauthorized'), 401
+
+# Get pages
+@project_routes.route('/<int:project_id>/pages')
+def all_pages(project_id):
+    pages = Page.query.filter(Page.projectId == int(project_id)).all()
+    if pages:
+        page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
+        return jsonify(page_list)
+
+@project_routes.route('/<int:project_id>', methods=['POST'])
+def new_page(project_id):
+    data = request.json
+    title = data['title']
+    try:
+        new_page = {
+            'title': data['title'],
+            'content': data['content'],
+            'userId': data['userId'],
+            'projectId': data['projectId']
+        }
+
+        new_page_db = Page(
+            **new_page
+        )
+        db.session.add(new_page_db)
+        db.session.commit()
+
+        new_page_return = {
+            'id': new_page_db.id,
+            'title':new_page_db.title,
+            'userId':new_page_db.userId,
+            'projectId':new_page_db.projectId,
+            'content':new_page_db.content,
+        }
+        return jsonify(new_page_return)
+    except IntegrityError as e:
+        return jsonify('Data error'), 400
+
+@project_routes.route('/<int:project_id>/<int:page_id>', methods=['DELETE'])
+def delete_page(project_id, page_id):
+    # data = request.json
+    if current_user.is_authenticated:
+        page = Page.query.filter(Page.id == page_id).first()
+        print(page)
+        user = current_user.to_dict()
+        if user['id'] == page.userId:
+            db.session.delete(page)
+            db.session.commit()
+            return jsonify('Project successfully deleted')
+        return jsonify('Error: Unauthorized'), 401
+    return jsonify('Error: Unauthorized'), 401
+
+@project_routes.route('/<int:project_id>/<int:page_id>', methods=['PUT'])
+def edit_page(project_id, page_id):
+    if current_user.is_authenticated:
+        data = request.json
+        print('DATA++++++++++++',data)
+        page = Page.query.filter(Page.id == page_id).first()
+        print('PAGEFROMQUERY+++++++++++++++',page)
+        user = current_user.to_dict()
+        if user['id'] == page.userId:
+            print('PAGE TITLE +++++++++++',page.title)
+            page.title = data['title']
+            page.content = data['content']
+            db.session.commit()
+
+            edit_page_return = {
+                'id': page.id,
+                'title': page.title,
+                'content': page.content,
+                'projectId': page.projectId,
+                'userId': page.userId
+            }
+
+            return jsonify(edit_page_return)
         return jsonify('Error: Unauthorized'), 401
     return jsonify('Error: Unauthorized'), 401

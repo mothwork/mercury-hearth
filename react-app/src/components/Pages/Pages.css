@@ -1,0 +1,25 @@
+.new-page-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.page-form {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+
+.page-view-container{
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.page-header {
+    display: flex;
+    flex-direction: column;
+
+}
