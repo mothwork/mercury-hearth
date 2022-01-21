@@ -46,6 +46,19 @@ export const createPage = (newPage) => async (dispatch) => {
     }
 }
 
+export const deletePage = (pageToDelete) => async (dispatch) => {
+    const pageId = pageToDelete.id
+    const projectId = pageToDelete.projectId
+    const response = await fetch(`/api/projects/${projectId}/${pageId}`, {
+        method: 'DELETE',
+        body: JSON.stringify(pageToDelete)
+    })
+    const page = await response.json()
+    if (response.ok) {
+        dispatch(deleteOnePage(pageToDelete))
+    }
+}
+
 const initialState = {}
 
 const pageReducer = (state=initialState, action) => {
@@ -62,6 +75,13 @@ const pageReducer = (state=initialState, action) => {
             return {
                 ...state, pages, pageArray
             }
+        }
+        case DELETE_ONE: {
+            const page = action.page
+            const id = page.id
+            const newState = Object.assign({}, state);
+            delete newState[id];
+            return newState
         }
     }
 }
