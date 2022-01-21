@@ -29,7 +29,7 @@ const Pages = () => {
                         {pages.map(page => {
                             return (
                                 <li>
-                                    <NavLink to={`/pages/${page.id}`}>
+                                    <NavLink to={`/projects/${id}/${page.id}`}>
                                         <button className='project-button'>{page.title}</button>
                                     </NavLink>
                                 </li>

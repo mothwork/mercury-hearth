@@ -57,8 +57,8 @@ function App() {
           <PageForm/>
           </div>
         </Route>
-        <Route path='/pages/:pageId'>
-          <div className='page-container'>
+        <Route path='/projects/:projectId/:pageId' exact={true}>
+          <div className='new-page-container'>
           <InsideProject/>
           <PageView/>
           </div>
