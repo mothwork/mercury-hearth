@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
 import { deletePage } from '../../store/page';
-
+import CountryTemplate from '../Templates/CountryTemplateRender';
 
 const PageView = () => {
     const dispatch = useDispatch()
@@ -30,26 +30,44 @@ const PageView = () => {
         }
     }
 
+    // if (page) {
+    // return (
+    //     <>
+    //         <div className='page-view-container'>
+    //             <div className='page-header'>
+    //             <h1>{page.title}</h1>
+    //             <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
+    //                 <button className='project-button'>Edit</button>
+    //             </NavLink>
+
+    //             <button className='project-button' onClick={handleDelete}>Delete</button>
+    //         <div>
+    //             {page.content}
+    //         </div>
+    //             </div>
+    //         </div>
+
+    //     </>
+    // )
+    // }
     if (page) {
-    return (
-        <>
-            <div className='page-view-container'>
-                <div className='page-header'>
-                <h1>{page.title}</h1>
-                <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
-                    <button className='project-button'>Edit</button>
-                </NavLink>
-
-                <button className='project-button' onClick={handleDelete}>Delete</button>
-            <div>
-                {page.content}
-            </div>
+        return (
+            <>
+                <div className='page-view-container'>
+                    <div className='page-header'>
+                    <h1>{page.title}</h1>
+                    <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
+                        <button className='project-button'>Edit</button>
+                    </NavLink>
+                    <button className='project-button' onClick={handleDelete}>Delete</button>
+                    <CountryTemplate country={page.content}/>
+                    </div>
                 </div>
-            </div>
 
-        </>
-    )
-    }
+            </>
+        )
+        }
+
     return (<>Loading</>)
 }
 

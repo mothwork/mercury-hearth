@@ -5,6 +5,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
 import './Pages.css'
 
+
 const Pages = () => {
     const dispatch = useDispatch()
     const { projectId } = useParams()
