@@ -13,8 +13,8 @@ const EditPageForm = () => {
     pageId = parseInt(pageId)
 
     useEffect(() => {
-        dispatch(getPages())
-    }, [dispatch])
+        dispatch(getPages(projectId))
+    }, [dispatch, projectId])
 
     const pagesContainer = useSelector(state => state.pages)
     const pages  = pagesContainer.pages
@@ -37,10 +37,10 @@ const EditPageForm = () => {
             userId,
             projectId
         }
-        
+
         if (editedPage) {
             const newPageRes = await dispatch(editPage(editedPage))
-            await dispatch(getPages())
+            await dispatch(getPages(projectId))
             return history.push(`/projects/${projectId}/${newPageRes.id}`)
         }
 

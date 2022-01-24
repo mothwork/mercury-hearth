@@ -17,8 +17,8 @@ const PageForm = () => {
 
 
     useEffect(() => {
-        dispatch(getPages())
-    }, [dispatch])
+        dispatch(getPages(projectId))
+    }, [dispatch, projectId])
 
     const handleSubmit = async (e) => {
         e.preventDefault()

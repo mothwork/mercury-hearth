@@ -14,7 +14,7 @@ const PageView = () => {
 
     useEffect(async ()=>{
         await dispatch(getPages(projectId))
-    }, [dispatch])
+    }, [dispatch, projectId])
 
     const pages = useSelector(state => state.pages.pages)
 
@@ -24,7 +24,7 @@ const PageView = () => {
         const confirmed = window.confirm('Deleting a page will delete all cards associated with it. Are you sure?')
         if (confirmed) {
             await dispatch(deletePage(page))
-            await dispatch(getPages())
+            await dispatch(getPages(projectId))
             history.push(`/projects/${projectId}`)
         }
     }
