@@ -1,8 +1,8 @@
 import json
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
-from app.models import db, Project, Page
-from flask_login import current_user
+from app.models import db, Project, Page, project
+from flask_login import current_user, login_required
 
 project_routes = Blueprint('projects', __name__)
 
@@ -10,6 +10,7 @@ project_routes = Blueprint('projects', __name__)
 # All projects
 @project_routes.route('/')
 def all_projects():
+    # Can I get current_user.id instead?
     if current_user:
         user = current_user.to_dict()
 
@@ -92,6 +93,7 @@ def all_pages(project_id):
         return jsonify(page_list)
 
 @project_routes.route('/<int:project_id>', methods=['POST'])
+# @login_required Implement this?
 def new_page(project_id):
     data = request.json
     title = data['title']
@@ -100,8 +102,9 @@ def new_page(project_id):
             'title': data['title'],
             'content': data['content'],
             'userId': data['userId'],
-            'projectId': data['projectId']
+            'projectId': project_id
         }
+        # Clean up so the userId comes from the current_user instead
 
         new_page_db = Page(
             **new_page

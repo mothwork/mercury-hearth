@@ -78,16 +78,19 @@ const projectReducer = (state = initialState, action) => {
                 ...state, projects, projectArray
             }
         }
-        case ADD_ONE: {
+        case ADD_ONE:
+            case EDIT_ONE:
+             {
             let newState = Object.assign({}, state)
             newState[action.project.id] = action.project
             return newState
         }
-        case EDIT_ONE: {
-            let newState = Object.assign({}, state)
-            newState[action.project.id] = action.project
-            return newState
-        }
+        // See how this works
+        // case EDIT_ONE: {
+        //     let newState = Object.assign({}, state)
+        //     newState[action.project.id] = action.project
+        //     return newState
+        // }
     }
 }
 

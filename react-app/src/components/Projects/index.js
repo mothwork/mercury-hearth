@@ -36,6 +36,7 @@ const Project = () => {
                 </div>
                 <div className='project-container'>
                     <h1>Projects</h1>
+                    {/* Move outside */}
                     <ProjectModal/>
                     <ul>
                         {projects.map(project => {
@@ -53,6 +54,7 @@ const Project = () => {
             </>
         )
     } else {
+        // move inside to ul??
         return ('No projects')
     }
 
