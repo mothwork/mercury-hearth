@@ -33,8 +33,7 @@ const PageForm = () => {
 
         if (newPage) {
             const newPageRes = await dispatch(createPage(newPage))
-            await dispatch(getPages())
-            console.log(newPageRes)
+            await dispatch(getPages(projectId))
             return history.push(`/projects/${projectId}/${newPageRes.id}`)
         }
 

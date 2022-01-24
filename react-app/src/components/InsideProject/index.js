@@ -16,9 +16,9 @@ const InsideProject = () => {
     const { projectId } = useParams()
     const id = parseInt(projectId)
     const user = useSelector(state => state.session.user);
-    console.log('User',user)
+
     const projectsContainer = useSelector(state => state.project)
-    console.log(projectsContainer)
+
     const projects = projectsContainer?.projects
     const project = projects?.[id]
 
@@ -49,7 +49,7 @@ const InsideProject = () => {
                 <h2>Pages</h2>
                 <Pages/>
             </div>
-            
+
             </>
         )
     }

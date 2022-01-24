@@ -18,7 +18,7 @@ const Pages = () => {
     const pages = useSelector(state=> state.pages.pageArray)
 
 
-    console.log(pages)
+    
     if (pages) {
         return (
             <>

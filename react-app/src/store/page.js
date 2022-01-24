@@ -64,8 +64,7 @@ export const deletePage = (pageToDelete) => async (dispatch) => {
 export const editPage = (pageToEdit) => async (dispatch) => {
     const pageId = pageToEdit.id
     const projectId = pageToEdit.projectId
-    console.log('PAGE TO EDIT', pageToEdit)
-    console.log(JSON.stringify(pageToEdit))
+
     const response = await fetch(`/api/projects/${projectId}/${pageId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
