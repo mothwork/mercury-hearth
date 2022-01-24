@@ -4,10 +4,10 @@ import CountryTemplate from "./CountryTemplateRender"
 const TemplateEngine = ({page}) => {
     console.log('TE Page',page.content)
     const pageObj = JSON.parse(page.content)
-    switch(pageObj.name){
+    switch(pageObj.pageType){
         default:
             return 'Hitting default'
-        case 'Malimon':
+        case 'country':
             return (<CountryTemplate country={pageObj}/>)
         case 'city':
 

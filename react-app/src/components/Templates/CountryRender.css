@@ -1,0 +1,30 @@
+.detail-box {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 20px;
+    border: 1px solid black;
+
+}
+
+.detail-box > h3 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    border-bottom: 1px solid black;
+}
+
+.detail-title {
+    font-weight: bold;
+}
+
+.detail-box p {
+    font-size: 15px;
+    margin: 0;
+}
+
+.content-box {
+    max-width: 80%vw;
+    margin: 10px;
+}

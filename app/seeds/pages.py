@@ -5,7 +5,7 @@ from app.models import db, Page
 def seed_pages():
     mahir = Page(
         title='The Mahirid Empire',
-        content='''{"pageType":"country"
+        content='''{"pageType":"country",
                     "name":"Mahirid Empire",
                     "capital":"Grand Mahir",
                     "region":"Mahirum",
@@ -20,7 +20,7 @@ def seed_pages():
     )
     sciiot = Page(
         title='Sciiot',
-        content='''{"pageType":"country"
+        content='''{"pageType":"country",
                     "name":"sciiot",
                     "capital":"Ris Sciiot",
                     "region":"Nar-Loro Desert",
@@ -35,7 +35,7 @@ def seed_pages():
     )
     actreatylands = Page(
         title='Alton-Capurra Treatylands',
-        content='''{"pageType":"country"
+        content='''{"pageType":"country",
                     "name":"Alton-Capurra Treatylands",
                     "capital":"Alton",
                     "region":"Mistvaal/Vaalcoast",
@@ -50,7 +50,7 @@ def seed_pages():
     )
     tessigen = Page(
         title='Tessigen',
-        content='''{"pageType":"country"
+        content='''{"pageType":"country",
                     "name":"Tessigen",
                     "capital":"Volen",
                     "region":"Southern Tessegia",
@@ -65,7 +65,7 @@ def seed_pages():
     )
     lastRedoubt = Page(
         title='The Last Redoubt',
-        content='''{"pageType":"country"
+        content='''{"pageType":"country",
                     "name":"The Last Redoubt",
                     "capital":"Itself",
                     "region":"The Night Lands",
