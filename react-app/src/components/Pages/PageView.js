@@ -4,6 +4,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
 import { deletePage } from '../../store/page';
 import CountryTemplate from '../Templates/CountryTemplateRender';
+import TemplateEngine from '../Templates/TemplateEngine'
 
 const PageView = () => {
     const dispatch = useDispatch()
@@ -59,7 +60,8 @@ const PageView = () => {
                         <button className='project-button'>Edit</button>
                     </NavLink>
                     <button className='project-button' onClick={handleDelete}>Delete</button>
-                    <CountryTemplate country={page.content}/>
+                    <TemplateEngine page={page}/>
+                    {/* <CountryTemplate country={page.content}/> */}
                     </div>
                 </div>
 

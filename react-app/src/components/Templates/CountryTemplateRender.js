@@ -4,7 +4,7 @@
 const CountryTemplate = ({country}) => {
 
     if (country){
-        country = JSON.parse(country)
+        // country = JSON.parse(country)
         return (
             <div className="country-container">
                 <h2>{country.name}</h2>
