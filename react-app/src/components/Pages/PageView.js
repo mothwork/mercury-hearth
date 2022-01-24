@@ -17,7 +17,6 @@ const PageView = () => {
     }, [dispatch])
 
     const pages = useSelector(state => state.pages.pages)
-    console.log('PAGES2', pages)
 
     const page = pages?.[pageId]
 
