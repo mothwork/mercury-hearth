@@ -55,7 +55,7 @@ const Project = () => {
             </>
         )
     } else {
-        // move inside to ul??
+
         return (
         <>
         <div className='user-nav'>
@@ -64,7 +64,6 @@ const Project = () => {
                 <div className='project-container'>
                 <div className='logo'></div>
                     <h1>Projects</h1>
-                    {/* Move outside */}
                     <ProjectModal/>
                     </div>
         </>

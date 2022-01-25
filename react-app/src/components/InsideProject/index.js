@@ -12,13 +12,10 @@ import './InsideProject.css'
 const InsideProject = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-
     const { projectId } = useParams()
     const id = parseInt(projectId)
-    const user = useSelector(state => state.session.user);
 
     const projectsContainer = useSelector(state => state.project)
-
     const projects = projectsContainer?.projects
     const project = projects?.[id]
 
@@ -26,7 +23,6 @@ const InsideProject = () => {
         const confirmed = window.confirm('Deleting a project will delete all pages and cards associated with it. Are you sure?')
         if (confirmed) {
             await dispatch(deleteProject(project))
-            // await dispatch(getProjects())
             history.push('/projects/')
         }
     }

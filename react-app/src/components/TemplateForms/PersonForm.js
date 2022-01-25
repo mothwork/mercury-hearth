@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createPage, getPages } from '../../store/page';
+import { createPage } from '../../store/page';
 import { useParams } from 'react-router-dom';
 
 
-const PersonForm = ({}) => {
+const PersonForm = () => {
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -18,7 +18,6 @@ const PersonForm = ({}) => {
     const [title, setTitle] = useState('')
     const [race, setRace] = useState('')
     const [occupation, setOccupation] = useState('')
-    const [government, setGovernment] = useState('')
     const [born, setBorn] = useState('')
     const [died, setDied] = useState('')
     const [residence, setResidence] = useState('')

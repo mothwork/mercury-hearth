@@ -60,7 +60,7 @@ export const deletePage = (pageToDelete) => async (dispatch) => {
         method: 'DELETE',
         body: JSON.stringify(pageToDelete)
     })
-    const page = await response.json()
+    // const page = await response.json()
     if (response.ok) {
         dispatch(deleteOnePage(pageToDelete))
     }
