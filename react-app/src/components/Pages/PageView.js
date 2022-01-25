@@ -71,7 +71,7 @@ const PageView = () => {
         )
     }
 
-    return (<>Loading</>)
+    return (null)
 }
 
 export default PageView
