@@ -1,8 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import LoginFormModal from './auth/LoginFormModal';
-import LogoutButton from './auth/LogoutButton';
 import SignUpModal from './auth/SignUpModal';
 import "./NavBar.css"
 import { useHistory } from 'react-router-dom';

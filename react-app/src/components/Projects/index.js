@@ -42,7 +42,7 @@ const Project = () => {
                     <ul>
                         {projects && projects.map(project => {
                             return (
-                                <li>
+                                <li key={project.id}>
                                     <NavLink to={`/projects/${project.id}`}>
                                         <button className='project-button'>{project.title}</button>
                                     </NavLink>

@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createPage, getPages } from '../../store/page';
-
-
-
 import { useParams } from 'react-router-dom';
 import './CountryForm.css'
 
