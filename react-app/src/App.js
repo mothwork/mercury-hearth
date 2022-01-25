@@ -40,27 +40,27 @@ function App() {
         <ProtectedRoute path='/projects' exact={true} >
           <Project/>
         </ProtectedRoute>
-        <Route path='/projects/:projectId' exact={true}>
+        <ProtectedRoute path='/projects/:projectId' exact={true}>
           <InsideProject/>
-        </Route>
-        <Route path='/projects/:projectId/new'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/projects/:projectId/new'>
           <div className='new-page-container'>
           <InsideProject/>
           <PageForm/>
           </div>
-        </Route>
-        <Route path='/projects/:projectId/:pageId' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/projects/:projectId/:pageId' exact={true}>
           <div className='new-page-container'>
           <InsideProject/>
           <PageView/>
           </div>
-        </Route>
-        <Route path='/projects/:projectId/:pageId/edit' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/projects/:projectId/:pageId/edit' exact={true}>
           <div className='new-page-container'>
           <InsideProject/>
           <EditPageForm/>
           </div>
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
