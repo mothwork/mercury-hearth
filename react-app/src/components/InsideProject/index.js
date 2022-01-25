@@ -26,7 +26,7 @@ const InsideProject = () => {
         const confirmed = window.confirm('Deleting a project will delete all pages and cards associated with it. Are you sure?')
         if (confirmed) {
             await dispatch(deleteProject(project))
-            await dispatch(getProjects())
+            // await dispatch(getProjects())
             history.push('/projects/')
         }
     }

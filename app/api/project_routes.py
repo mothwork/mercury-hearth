@@ -20,7 +20,7 @@ def all_projects():
         project_list = [{'id': project.id, 'title':project.title, 'description':project.description, 'userId':project.userId} for project in projects]
         return jsonify(project_list)
     else:
-        return jsonify('No Projects Found'), 404
+        return jsonify('No Projects'), 204
 
 # Create project
 @project_routes.route('/', methods=['POST'])
