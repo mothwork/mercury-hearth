@@ -32,7 +32,7 @@ export const getPages = (projectId) => async (dispatch) => {
         const pageArray = []
         dispatch(load(pageArray))
     }
-    if (response.ok) {
+    else if (response.ok) {
         const pageArray = await response.json()
         dispatch(load(pageArray))
     }
