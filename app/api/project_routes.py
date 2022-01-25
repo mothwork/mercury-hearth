@@ -11,12 +11,8 @@ project_routes = Blueprint('projects', __name__)
 @project_routes.route('/')
 @login_required
 def all_projects():
-    # Can I get current_user.id instead?
     if current_user:
-        user = current_user.to_dict()
-
-    projects = Project.query.filter(Project.userId == user['id']).all()
-    # projects = Project.query.all()
+        projects = Project.query.filter(Project.userId == current_user.id).all()
     if projects:
         project_list = [{'id': project.id, 'title':project.title, 'description':project.description, 'userId':project.userId} for project in projects]
         return jsonify(project_list)
@@ -91,7 +87,8 @@ def delete_project(project_id):
 @project_routes.route('/<int:project_id>/pages')
 @login_required
 def all_pages(project_id):
-    pages = Page.query.filter(Page.projectId == int(project_id)).all()
+
+    pages = Page.query.filter(Page.projectId == int(project_id) and Page.userId==current_user.id).all()
 
     if pages:
         page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]

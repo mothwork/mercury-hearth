@@ -22,7 +22,7 @@ const PageView = () => {
     }, [dispatch, projectId])
 
     const pages = useSelector(state => state.pages.pages)
-
+    console.log(pages)
     const page = pages?.[pageId]
 
     const handleDelete = async () => {
