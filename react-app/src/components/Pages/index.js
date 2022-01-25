@@ -18,13 +18,13 @@ const Pages = () => {
     const pages = useSelector(state=> state.pages.pageArray)
 
 
-    
+
     if (pages) {
         return (
             <>
                 <div className='page-container'>
                     <NavLink to={`/projects/${id}/new`}>
-                        <button className='project-button'>+ New Page</button>
+                        <button className='new-project-button'>+ New Page</button>
                     </NavLink>
                     <ul>
                         {pages.map(page => {

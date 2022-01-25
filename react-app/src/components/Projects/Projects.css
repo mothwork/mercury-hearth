@@ -30,9 +30,11 @@
     color: green;
     width: 100px;
     align-self: center;
+    height: 30px;
 
 }
 .new-project-button:hover {
+    cursor: pointer;
     background-color: white;
     color: black;
     border: 1px solid black;

@@ -91,7 +91,7 @@ const CountryForm = ({}) => {
 
         <form>
             <input hidden name='pageType' value={pageType}></input>
-            <label>Title</label>
+            <label>Title:</label>
             <input
                 type='text'
                 name='title'
@@ -155,6 +155,7 @@ const CountryForm = ({}) => {
                 value={exports}
                 autoComplete='off'
             ></input>
+            <label>Main Content</label>
             <textarea
                 type='text'
                 name='content'
