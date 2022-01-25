@@ -88,12 +88,14 @@ def delete_project(project_id):
 @project_routes.route('/<int:project_id>/pages')
 def all_pages(project_id):
     pages = Page.query.filter(Page.projectId == int(project_id)).all()
+
     if pages:
         page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
+
         return jsonify(page_list)
+   
 
 @project_routes.route('/<int:project_id>', methods=['POST'])
-# @login_required Implement this?
 def new_page(project_id):
     data = request.json
     title = data['title']
@@ -141,12 +143,12 @@ def delete_page(project_id, page_id):
 def edit_page(project_id, page_id):
     if current_user.is_authenticated:
         data = request.json
-        print('DATA++++++++++++',data)
+
         page = Page.query.filter(Page.id == page_id).first()
-        print('PAGEFROMQUERY+++++++++++++++',page)
+
         user = current_user.to_dict()
         if user['id'] == page.userId:
-            print('PAGE TITLE +++++++++++',page.title)
+
             page.title = data['title']
             page.content = data['content']
             db.session.commit()

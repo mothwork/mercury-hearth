@@ -41,7 +41,15 @@ const Pages = () => {
             </>
         )
     }
-    return ('No Pages :(')
+    return (
+    <>
+    <div className='page-container'>
+                    <NavLink to={`/projects/${id}/new`}>
+                        <button className='new-project-button'>+ New Page</button>
+                    </NavLink>
+                    </div>
+    </>
+    )
 
 }
 

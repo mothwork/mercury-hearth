@@ -18,7 +18,7 @@ const editOnePage = page => ({
     page
 })
 
-const deleteOnePage = page=> ({
+const deleteOnePage = page => ({
     type: DELETE_ONE,
     page
 })
@@ -41,7 +41,7 @@ export const createPage = (newPage) => async (dispatch) => {
         body: JSON.stringify(newPage)
     })
     const page = await response.json()
-    if (response.ok){
+    if (response.ok) {
         dispatch(addOnePage(page))
         return page
     }
@@ -80,19 +80,25 @@ export const editPage = (pageToEdit) => async (dispatch) => {
 
 const initialState = {}
 
-const pageReducer = (state=initialState, action) => {
-    switch(action.type) {
+const pageReducer = (state = initialState, action) => {
+    switch (action.type) {
         default:
             return state
         case LOAD: {
+            // if (!action.pageArray) return state
+
             const pages = {}
             const pageArray = action.pageArray
-            action.pageArray.forEach(page => {
-                pages[page.id] = page
-            })
-            return {
-                ...state, pages, pageArray
+            if (pageArray) {
+                console.log("PAGEARRAY", pageArray)
+                action.pageArray.forEach(page => {
+                    pages[page.id] = page
+                })
+                return {
+                    ...state, pages, pageArray
+                }
             }
+            return state
         }
         case DELETE_ONE: {
             const page = action.page
