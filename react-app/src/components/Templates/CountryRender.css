@@ -3,9 +3,11 @@
     color: black;
     padding: 10px;
     border-radius: 5px;
-    width: fit-content;
+    max-width: 600px;
+    min-width: fit-content;
     margin-bottom: 20px;
     /* border: 1px solid black; */
+    margin-top: 20px;
 
 }
 

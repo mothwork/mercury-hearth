@@ -7,9 +7,9 @@ const CountryTemplate = ({country}) => {
         // country = JSON.parse(country)
         return (
             <div className="country-container">
-                <h2>{country.name}</h2>
+                {/* <h2>{country.name}</h2> */}
                 <div className="detail-box">
-                    <h3>Details</h3>
+                    <h3>Country Details</h3>
                     <p><span className='detail-title'>Capital:</span> {country.capital}</p>
                     <p><span className='detail-title'>Region:</span> {country.region}</p>
                     <p><span className='detail-title'>Government:</span> {country.government}</p>

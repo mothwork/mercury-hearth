@@ -84,11 +84,11 @@ const PersonForm = ({}) => {
 
     return (
 
-        <form className='-project-form'>
+        <form className='project-form new-page-form'>
             <input hidden name='pageType' readOnly value={pageType}></input>
-            <label>Title</label>
+            {/* <label>Title</label> */}
             <input
-                placeholder='Title'
+                placeholder='Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -96,49 +96,55 @@ const PersonForm = ({}) => {
                 autoComplete='off'
                 required={true}
             ></input>
-            <label>Race:</label>
+            {/* <label>Race:</label> */}
             <input
                 type='text'
                 name='race'
+                placeholder='Race'
                 onChange={updateRace}
                 value={race}
                 autoComplete='off'
             ></input>
-            <label>Occupation:</label>
+            {/* <label>Occupation:</label> */}
             <input
+                placeholder='Occupation'
                 type='text'
                 name='occupation'
                 onChange={updateOccupation}
                 value={occupation}
                 autoComplete='off'
             ></input>
-            <label>Born:</label>
+            {/* <label>Born:</label> */}
             <input
+            placeholder='Born'
                 type='text'
                 name='born'
                 onChange={updateBorn}
                 value={born}
                 autoComplete='off'
             ></input>
-            <label>Died:</label>
+            {/* <label>Died:</label> */}
             <input
+                placeholder='Died'
                 type='text'
                 name='died'
                 onChange={updateDied}
                 value={died}
                 autoComplete='off'
             ></input>
-            <label>Residence:</label>
+            {/* <label>Residence:</label> */}
             <input
+                placeholder='Residence'
                 type='text'
                 name='residence'
                 onChange={updateResidence}
                 value={residence}
                 autoComplete='off'
             ></input>
-            <label>Alias:</label>
+            {/* <label>Alias:</label> */}
             <input
                 type='text'
+                placeholder='Aliases'
                 name='alias'
                 onChange={updateAlias}
                 value={alias}
@@ -150,8 +156,10 @@ const PersonForm = ({}) => {
                 onChange={updateContent}
                 value={content}
                 autoComplete='off'
+                cols={20}
+                rows={20}
             />
-            <button type="submit" onClick={handleSubmit}>Create Person</button>
+            <button className='template-button' type="submit" onClick={handleSubmit}>Create Person</button>
         </form>
     )
 }

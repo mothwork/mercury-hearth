@@ -1,0 +1,22 @@
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+.auth-form > input {
+    background-color: white;
+    color: black;
+    border: solid 1px lightgray;
+    line-height: 30px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.auth-input {
+    background-color: white;
+    color: black;
+    border: solid 1px lightgray;
+    line-height: 30px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    width: 100%;
+}
