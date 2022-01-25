@@ -1,0 +1,9 @@
+
+.new-page-form input {
+    margin-bottom: 10px;
+    width: 400px;
+}
+
+.new-page-form textarea {
+    font-family: serif;
+}

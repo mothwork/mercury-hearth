@@ -14,31 +14,36 @@ const PageForm = () => {
     const history = useHistory()
     let { projectId } = useParams()
     projectId = parseInt(projectId)
-
+    const [showCountryForm, setShowCountryForm] = useState(false)
+    const [showPersonForm, setShowPersonForm] = useState(false)
+    const [label, setLabel] = useState('Page')
 
     useEffect(() => {
         dispatch(getPages(projectId))
     }, [dispatch, projectId])
 
-    const [showCountryForm, setShowCountryForm] = useState(false)
-    const [showPersonForm, setShowPersonForm] = useState(false)
+
 
     const handleCountryClick = ()=> {
         setShowCountryForm(!showCountryForm)
+        setLabel('Country')
         setShowPersonForm(false)
     }
 
     const handlePersonClick = ()=> {
         setShowPersonForm(!showPersonForm)
+        setLabel('Person')
         setShowCountryForm(false)
     }
+
+
 
     return (
         <>
             <div className='page-form'>
-            <h2 className='modal-label'>New Page</h2>
-            <button value='country' onClick={handleCountryClick}>New Country</button>
-            <button value='person' onClick={handlePersonClick}>New Person</button>
+            <h2 className='modal-label'>{`New ${label}`}</h2>
+            <button value='country' className='template-button' onClick={handleCountryClick}>New Country</button>
+            <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
             {showCountryForm && (<CountryForm/>)}
             {showPersonForm && (<PersonForm/>)}
             </div>

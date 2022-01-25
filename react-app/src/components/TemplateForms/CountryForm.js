@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createPage, getPages } from '../../store/page';
 import { useParams } from 'react-router-dom';
+import './CountryForm.css'
 
 
 const CountryForm = ({}) => {
@@ -29,6 +30,9 @@ const CountryForm = ({}) => {
 
     const handleSubmit = async e => {
         e.preventDefault()
+        if (!title.length) {
+
+        }
         const pageContent = {
             pageType,
             capital,
@@ -89,66 +93,76 @@ const CountryForm = ({}) => {
 
     return (
 
-        <form>
+        <form className='project-form new-page-form'>
             <input hidden name='pageType' value={pageType}></input>
-            <label>Title:</label>
+            {/* <label>Country Details:</label> */}
             <input
+                required={true}
+
+                placeholder='Country Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
                 value={title}
                 autoComplete='off'
             ></input>
-            <label>Capital:</label>
+            {/* <label>Capital:</label> */}
             <input
+            placeholder='Capital'
                 type='text'
                 name='capital'
                 onChange={updateCapital}
                 value={capital}
                 autoComplete='off'
             ></input>
-            <label>Region:</label>
+            {/* <label>Region:</label> */}
             <input
+                placeholder='Region'
                 type='text'
                 name='region'
                 onChange={updateRegion}
                 value={region}
                 autoComplete='off'
             ></input>
-            <label>Government Type:</label>
+            {/* <label>Government Type:</label> */}
             <input
+                placeholder='Government Type'
                 type='text'
                 name='governtment'
                 onChange={updateGovernment}
                 value={government}
                 autoComplete='off'
             ></input>
-            <label>Population:</label>
+            {/* <label>Population:</label> */}
             <input
+                placeholder='Population'
                 type='text'
                 name='population'
                 onChange={updatePopulation}
                 value={population}
                 autoComplete='off'
             ></input>
-            <label>Religions:</label>
+            {/* <label>Religions:</label> */}
             <input
+                placeholder='Religions'
                 type='text'
                 name='religions'
                 onChange={updateReligions}
                 value={religions}
                 autoComplete='off'
             ></input>
-            <label>Imports:</label>
+            {/* <label>Imports:</label> */}
             <input
+                placeholder='Imports'
                 type='text'
                 name='imports'
                 onChange={updateImports}
                 value={imports}
                 autoComplete='off'
             ></input>
-            <label>Exports:</label>
+            {/* <label>Exports:</label> */}
             <input
+                placeholder='Exports'
                 type='text'
                 name='exports'
                 onChange={updateExports}
@@ -162,8 +176,10 @@ const CountryForm = ({}) => {
                 onChange={updateContent}
                 value={content}
                 autoComplete='off'
+                cols={20}
+                rows={20}
             />
-            <button type="submit" onClick={handleSubmit}>Create Country</button>
+            <button className='template-button' type="submit" onClick={handleSubmit}>Create Country</button>
         </form>
     )
 }

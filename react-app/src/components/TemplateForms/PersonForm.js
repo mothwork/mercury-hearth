@@ -84,10 +84,11 @@ const PersonForm = ({}) => {
 
     return (
 
-        <form>
+        <form className='-project-form'>
             <input hidden name='pageType' readOnly value={pageType}></input>
             <label>Title</label>
             <input
+                placeholder='Title'
                 type='text'
                 name='title'
                 onChange={updateTitle}
