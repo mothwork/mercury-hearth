@@ -13,7 +13,7 @@ const PageView = () => {
     pageId = parseInt(pageId)
     projectId = parseInt(projectId)
 
-    useEffect(async ()=>{
+    useEffect(async () => {
         await dispatch(getPages(projectId))
     }, [dispatch, projectId])
 
@@ -55,19 +55,21 @@ const PageView = () => {
             <>
                 <div className='page-view-container'>
                     <div className='page-header'>
-                    <h1>{page.title}</h1>
-                    <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
-                        <button className='project-button'>Edit</button>
-                    </NavLink>
-                    <button className='project-button' onClick={handleDelete}>Delete</button>
-                    <TemplateEngine page={page}/>
-                    {/* <CountryTemplate country={page.content}/> */}
+                        <h1>{page.title}</h1>
+                        <div className='option-container'>
+                            <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
+                                <button className='option-button'>Edit</button>
+                            </NavLink>
+                            <button className='option-button' onClick={handleDelete}>Delete</button>
+                        </div>
+                        <TemplateEngine page={page} />
+                        {/* <CountryTemplate country={page.content}/> */}
                     </div>
                 </div>
 
             </>
         )
-        }
+    }
 
     return (<>Loading</>)
 }

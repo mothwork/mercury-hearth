@@ -22,9 +22,16 @@
     cursor:pointer;
 }
 
+.new-project-button {
+    background-color: lightgray;
+    color: green;
+    width: 100px;
+    align-self: center;
+
+}
 .new-project-button:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: green;
 }
 
 .project-description {
@@ -38,18 +45,18 @@
 }
 
 .project-form input {
-    background-color: black;
-    color: white;
-    border-style: none;
+    background-color: white;
+    color: black;
+    border: solid 1px lightgray;
     line-height: 30px;
     border-radius: 2px;
     width: 100%;
 }
 .project-form textarea {
-    border-style: none;
+    border: 1px solid lightgray;
     border-radius: 2px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     font-family: sans-serif;
     width: 100%;
 }

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { createPage, getPages } from '../../store/page';
 import { useParams } from 'react-router-dom'
 import CountryForm from '../TemplateForms/CountryForm'
+import PersonForm from '../TemplateForms/PersonForm';
 
 const PageForm = () => {
 
@@ -28,8 +29,8 @@ const PageForm = () => {
     }
 
     const handlePersonClick = ()=> {
-        setShowCountryForm(!showCountryForm)
-        setShowPersonForm(false)
+        setShowPersonForm(!showPersonForm)
+        setShowCountryForm(false)
     }
 
     return (
@@ -39,7 +40,7 @@ const PageForm = () => {
             <button value='country' onClick={handleCountryClick}>New Country</button>
             <button value='person' onClick={handlePersonClick}>New Person</button>
             {showCountryForm && (<CountryForm/>)}
-            {showPersonForm && (<CountryForm/>)}
+            {showPersonForm && (<PersonForm/>)}
             </div>
         </>
     )

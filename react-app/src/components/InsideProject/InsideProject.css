@@ -8,3 +8,24 @@
     padding-right: 8px;
 }
 
+.project-title {
+    margin-bottom: 5px;
+}
+
+.project-options {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+
+.option-button {
+    margin: 3px;
+    border-style: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.option-button:hover {
+    cursor: pointer;
+}

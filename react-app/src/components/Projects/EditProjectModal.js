@@ -10,7 +10,7 @@ function EditProjectModal() {
     }
     return (
         <>
-            <button className='project-button' onClick={() => setShowModal(true)}>Edit</button>
+            <button className='option-button' onClick={() => setShowModal(true)}>Edit</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditProjectForm modalSetter={modalSetter} />

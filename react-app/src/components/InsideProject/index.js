@@ -5,7 +5,7 @@ import { getProjects } from "../../store/project";
 import EditProjectModal from "../Projects/EditProjectModal";
 import { deleteProject } from '../../store/project';
 import Pages from "../Pages";
-
+import './InsideProject.css'
 
 
 
@@ -33,22 +33,24 @@ const InsideProject = () => {
 
     useEffect(() => {
         dispatch(getProjects())
-    },[dispatch])
+    }, [dispatch])
 
-    if (project){
+    if (project) {
         return (
             <>
-            <div className="project-container">
-                <NavLink  to='/projects'>
-                    <button className='project-button'>Back</button>
-                </NavLink>
-                <h1>{project.title}</h1>
-                <p className="project-description">{project.description}</p>
-                <EditProjectModal/>
-                <button className='project-button' onClick={()=> {handleDelete()}}>Delete</button>
-                <h2>Pages</h2>
-                <Pages/>
-            </div>
+                <div className="project-container">
+                    <NavLink to='/projects'>
+                        <button className='project-button'>Back</button>
+                    </NavLink>
+                    <h1 className="project-title">{project.title}</h1>
+                    <p className="project-description">{project.description}</p>
+                    <div className="project-options">
+                        <EditProjectModal />
+                        <button className='option-button' onClick={() => { handleDelete() }}>Delete</button>
+                    </div>
+                    <h2>Pages</h2>
+                    <Pages />
+                </div>
 
             </>
         )

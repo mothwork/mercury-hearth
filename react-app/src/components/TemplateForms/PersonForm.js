@@ -6,7 +6,7 @@ import { createPage, getPages } from '../../store/page';
 import { useParams } from 'react-router-dom';
 
 
-const CountryForm = ({}) => {
+const PersonForm = ({}) => {
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -14,15 +14,15 @@ const CountryForm = ({}) => {
     projectId = parseInt(projectId)
     const userId = user.id
 
-    const [pageType, setPageType] = useState('country')
+    const [pageType, setPageType] = useState('person')
     const [title, setTitle] = useState('')
-    const [capital, setCapital] = useState('')
-    const [region, setRegion] = useState('')
+    const [race, setRace] = useState('')
+    const [occupation, setOccupation] = useState('')
     const [government, setGovernment] = useState('')
-    const [population, setPopulation] = useState('')
-    const [religions, setReligions] = useState('')
-    const [imports, setImports] = useState('')
-    const [exports, setExports] = useState('')
+    const [born, setBorn] = useState('')
+    const [died, setDied] = useState('')
+    const [residence, setResidence] = useState('')
+    const [alias, setlias] = useState('')
     const [content, setContent] = useState('')
 
 
@@ -31,13 +31,12 @@ const CountryForm = ({}) => {
         e.preventDefault()
         const pageContent = {
             pageType,
-            capital,
-            region,
-            government,
-            population,
-            religions,
-            imports,
-            exports,
+            race,
+            occupation,
+            born,
+            died,
+            residence,
+            alias,
             content
         }
         const page = {
@@ -55,32 +54,28 @@ const CountryForm = ({}) => {
         setTitle(e.target.value)
     }
 
-    const updateCapital = (e) => {
-        setCapital(e.target.value)
+    const updateRace = (e) => {
+        setRace(e.target.value)
     }
 
-    const updateRegion = (e) => {
-        setRegion(e.target.value)
+    const updateOccupation = (e) => {
+        setOccupation(e.target.value)
     }
 
-    const updateGovernment = (e) => {
-        setGovernment(e.target.value)
+    const updateBorn = (e) => {
+        setBorn(e.target.value)
     }
 
-    const updatePopulation = (e) => {
-        setPopulation(e.target.value)
+    const updateDied = (e) => {
+        setDied(e.target.value)
     }
 
-    const updateReligions = (e) => {
-        setReligions(e.target.value)
+    const updateResidence = (e) => {
+        setResidence(e.target.value)
     }
 
-    const updateImports = (e) => {
-        setImports(e.target.value)
-    }
-
-    const updateExports = (e) => {
-        setExports(e.target.value)
+    const updateAlias = (e) => {
+        setlias(e.target.value)
     }
 
     const updateContent = (e) => {
@@ -90,7 +85,7 @@ const CountryForm = ({}) => {
     return (
 
         <form>
-            <input hidden name='pageType' value={pageType}></input>
+            <input hidden name='pageType' readOnly value={pageType}></input>
             <label>Title</label>
             <input
                 type='text'
@@ -98,61 +93,54 @@ const CountryForm = ({}) => {
                 onChange={updateTitle}
                 value={title}
                 autoComplete='off'
+                required={true}
             ></input>
-            <label>Capital:</label>
+            <label>Race:</label>
             <input
                 type='text'
-                name='capital'
-                onChange={updateCapital}
-                value={capital}
+                name='race'
+                onChange={updateRace}
+                value={race}
                 autoComplete='off'
             ></input>
-            <label>Region:</label>
+            <label>Occupation:</label>
             <input
                 type='text'
-                name='region'
-                onChange={updateRegion}
-                value={region}
+                name='occupation'
+                onChange={updateOccupation}
+                value={occupation}
                 autoComplete='off'
             ></input>
-            <label>Government Type:</label>
+            <label>Born:</label>
             <input
                 type='text'
-                name='governtment'
-                onChange={updateGovernment}
-                value={government}
+                name='born'
+                onChange={updateBorn}
+                value={born}
                 autoComplete='off'
             ></input>
-            <label>Population:</label>
+            <label>Died:</label>
             <input
                 type='text'
-                name='population'
-                onChange={updatePopulation}
-                value={population}
+                name='died'
+                onChange={updateDied}
+                value={died}
                 autoComplete='off'
             ></input>
-            <label>Religions:</label>
+            <label>Residence:</label>
             <input
                 type='text'
-                name='religions'
-                onChange={updateReligions}
-                value={religions}
+                name='residence'
+                onChange={updateResidence}
+                value={residence}
                 autoComplete='off'
             ></input>
-            <label>Imports:</label>
+            <label>Alias:</label>
             <input
                 type='text'
-                name='imports'
-                onChange={updateImports}
-                value={imports}
-                autoComplete='off'
-            ></input>
-            <label>Exports:</label>
-            <input
-                type='text'
-                name='exports'
-                onChange={updateExports}
-                value={exports}
+                name='alias'
+                onChange={updateAlias}
+                value={alias}
                 autoComplete='off'
             ></input>
             <textarea
@@ -162,9 +150,9 @@ const CountryForm = ({}) => {
                 value={content}
                 autoComplete='off'
             />
-            <button type="submit" onClick={handleSubmit}>Create Country</button>
+            <button type="submit" onClick={handleSubmit}>Create Person</button>
         </form>
     )
 }
 
-export default CountryForm
+export default PersonForm
