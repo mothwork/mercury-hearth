@@ -6,6 +6,7 @@
     max-width: 200px;
     height: 100vh;
     padding-right: 8px;
+    align-items: center;
 }
 
 .project-button {
@@ -22,9 +23,21 @@
     cursor:pointer;
 }
 
+.new-project-button {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    color: green;
+    width: 100px;
+    align-self: center;
+    height: 30px;
+
+}
 .new-project-button:hover {
-    background-color: black;
-    color: white;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }
 
 .project-description {
@@ -38,18 +51,22 @@
 }
 
 .project-form input {
-    background-color: black;
-    color: white;
-    border-style: none;
+    background-color: white;
+    color: black;
+    border: solid 1px lightgray;
     line-height: 30px;
     border-radius: 2px;
     width: 100%;
 }
 .project-form textarea {
-    border-style: none;
+    border: 1px solid lightgray;
     border-radius: 2px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     font-family: sans-serif;
     width: 100%;
+}
+
+.logo {
+    margin-top: 10px;
 }

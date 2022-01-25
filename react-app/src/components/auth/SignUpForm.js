@@ -39,19 +39,21 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/projects' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='auth-form' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        {/* <label>User Name</label> */}
         <input
+          className='auth-input'
+          placeholder='Username'
           type='text'
           name='username'
           onChange={updateUsername}
@@ -59,8 +61,10 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        {/* <label>Email</label> */}
         <input
+          className='auth-input'
+          placeholder='Email'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -68,8 +72,10 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        {/* <label>Password</label> */}
         <input
+          className='auth-input'
+          placeholder='Password'
           type='password'
           name='password'
           onChange={updatePassword}
@@ -77,8 +83,10 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        {/* <label>Repeat Password</label> */}
         <input
+          className='auth-input'
+          placeholder='Repeat Password'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -86,7 +94,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='option-button' type='submit'>Sign Up</button>
     </form>
   );
 };

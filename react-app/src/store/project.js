@@ -26,6 +26,10 @@ const deleteOneProject = project => ({
 
 export const getProjects = () => async dispatch => {
     const response = await fetch(`/api/projects/`)
+    if (response.status === 204) {
+        const projectArray = []
+        dispatch(load(projectArray))
+    }
     if (response.ok) {
         const projectArray = await response.json()
         dispatch(load(projectArray))
@@ -65,29 +69,32 @@ export const deleteProject = (projectToDelete) => async dispatch => {
 const initialState = {}
 
 const projectReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         default:
             return state
         case LOAD: {
             const projects = {}
             const projectArray = action.projectArray
-            action.projectArray.forEach( project => {
+            action.projectArray.forEach(project => {
                 projects[project.id] = project
             });
             return {
                 ...state, projects, projectArray
             }
         }
-        case ADD_ONE: {
-            let newState = Object.assign({}, state)
-            newState[action.project.id] = action.project
-            return newState
-        }
-        case EDIT_ONE: {
-            let newState = Object.assign({}, state)
-            newState[action.project.id] = action.project
-            return newState
-        }
+        case ADD_ONE:
+        case EDIT_ONE:
+            {
+                let newState = Object.assign({}, state)
+                newState[action.project.id] = action.project
+                return newState
+            }
+        // See how this works
+        // case EDIT_ONE: {
+        //     let newState = Object.assign({}, state)
+        //     newState[action.project.id] = action.project
+        //     return newState
+        // }
     }
 }
 

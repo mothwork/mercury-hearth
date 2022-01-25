@@ -23,3 +23,17 @@
     flex-direction: column;
 
 }
+
+.template-button {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    height: 30px;
+}
+
+.template-button:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}

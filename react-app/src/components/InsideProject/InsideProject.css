@@ -8,3 +8,28 @@
     padding-right: 8px;
 }
 
+.project-title {
+    margin-bottom: 5px;
+}
+
+.project-options {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+
+.option-button {
+    margin: 3px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    background-color: white;
+    padding: 5px;
+    color: lightgray;
+}
+
+.option-button:hover {
+    cursor: pointer;
+    color: black;
+    border: 1px solid black;
+}

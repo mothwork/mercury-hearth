@@ -5,25 +5,26 @@ import { NavLink, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
 import './Pages.css'
 
+
 const Pages = () => {
     const dispatch = useDispatch()
     const { projectId } = useParams()
     const id = parseInt(projectId)
+    const pages = useSelector(state=> state.pages.pageArray)
 
     useEffect(() => {
         dispatch(getPages(id))
     },[dispatch, id])
 
-    const pages = useSelector(state=> state.pages.pageArray)
 
 
-    
+
     if (pages) {
         return (
             <>
                 <div className='page-container'>
                     <NavLink to={`/projects/${id}/new`}>
-                        <button className='project-button'>+ New Page</button>
+                        <button className='new-project-button'>+ New Page</button>
                     </NavLink>
                     <ul>
                         {pages.map(page => {
@@ -40,7 +41,15 @@ const Pages = () => {
             </>
         )
     }
-    return ('No Pages :(')
+    return (
+    <>
+    <div className='page-container'>
+                    <NavLink to={`/projects/${id}/new`}>
+                        <button className='new-project-button'>+ New Page</button>
+                    </NavLink>
+                    </div>
+    </>
+    )
 
 }
 

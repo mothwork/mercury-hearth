@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
 import { deletePage } from '../../store/page';
-
+import CountryTemplate from '../Templates/CountryTemplateRender';
+import TemplateEngine from '../Templates/TemplateEngine'
 
 const PageView = () => {
     const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const PageView = () => {
     pageId = parseInt(pageId)
     projectId = parseInt(projectId)
 
-    useEffect(async ()=>{
+    useEffect(async () => {
         await dispatch(getPages(projectId))
     }, [dispatch, projectId])
 
@@ -29,27 +30,48 @@ const PageView = () => {
         }
     }
 
+    // if (page) {
+    // return (
+    //     <>
+    //         <div className='page-view-container'>
+    //             <div className='page-header'>
+    //             <h1>{page.title}</h1>
+    //             <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
+    //                 <button className='project-button'>Edit</button>
+    //             </NavLink>
+
+    //             <button className='project-button' onClick={handleDelete}>Delete</button>
+    //         <div>
+    //             {page.content}
+    //         </div>
+    //             </div>
+    //         </div>
+
+    //     </>
+    // )
+    // }
     if (page) {
-    return (
-        <>
-            <div className='page-view-container'>
-                <div className='page-header'>
-                <h1>{page.title}</h1>
-                <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
-                    <button className='project-button'>Edit</button>
-                </NavLink>
-
-                <button className='project-button' onClick={handleDelete}>Delete</button>
-            <div>
-                {page.content}
-            </div>
+        return (
+            <>
+                <div className='page-view-container'>
+                    <div className='page-header'>
+                        <h1>{page.title}</h1>
+                        <div className='option-container'>
+                            <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
+                                <button className='option-button'>Edit</button>
+                            </NavLink>
+                            <button className='option-button' onClick={handleDelete}>Delete</button>
+                        </div>
+                        <TemplateEngine page={page} />
+                        {/* <CountryTemplate country={page.content}/> */}
+                    </div>
                 </div>
-            </div>
 
-        </>
-    )
+            </>
+        )
     }
-    return (<>Loading</>)
+
+    return (null)
 }
 
 export default PageView

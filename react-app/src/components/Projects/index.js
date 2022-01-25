@@ -35,10 +35,12 @@ const Project = () => {
                     <LogoutButton/>
                 </div>
                 <div className='project-container'>
+                <div className='logo'></div>
                     <h1>Projects</h1>
+                    {/* Move outside */}
                     <ProjectModal/>
                     <ul>
-                        {projects.map(project => {
+                        {projects && projects.map(project => {
                             return (
                                 <li>
                                     <NavLink to={`/projects/${project.id}`}>
@@ -53,7 +55,20 @@ const Project = () => {
             </>
         )
     } else {
-        return ('No projects')
+        // move inside to ul??
+        return (
+        <>
+        <div className='user-nav'>
+                    <LogoutButton/>
+                </div>
+                <div className='project-container'>
+                <div className='logo'></div>
+                    <h1>Projects</h1>
+                    {/* Move outside */}
+                    <ProjectModal/>
+                    </div>
+        </>
+        )
     }
 
 }

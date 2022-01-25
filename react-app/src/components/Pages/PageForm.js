@@ -2,82 +2,50 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createPage, getPages } from '../../store/page';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
+import CountryForm from '../TemplateForms/CountryForm'
+import PersonForm from '../TemplateForms/PersonForm';
 
 const PageForm = () => {
-    const [errors, setErrors] = useState([]);
-    const [title, setTitle] = useState('')
-    const [content, setContent] =useState('')
+
 
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
     let { projectId } = useParams()
     projectId = parseInt(projectId)
-
+    const [showCountryForm, setShowCountryForm] = useState(false)
+    const [showPersonForm, setShowPersonForm] = useState(false)
+    const [label, setLabel] = useState('Page')
 
     useEffect(() => {
         dispatch(getPages(projectId))
     }, [dispatch, projectId])
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const userId = user.id
 
-        const newPage = {
-            title,
-            content,
-            userId,
-            projectId
-        }
 
-        if (newPage) {
-            const newPageRes = await dispatch(createPage(newPage))
-            await dispatch(getPages(projectId))
-            return history.push(`/projects/${projectId}/${newPageRes.id}`)
-        }
-
+    const handleCountryClick = ()=> {
+        setShowCountryForm(!showCountryForm)
+        setLabel('Country')
+        setShowPersonForm(false)
     }
 
-    const updateTitle = (e) => {
-        setTitle(e.target.value)
+    const handlePersonClick = ()=> {
+        setShowPersonForm(!showPersonForm)
+        setLabel('Person')
+        setShowCountryForm(false)
     }
 
-    const updateContent = (e) => {
-        setContent(e.target.value)
-    }
+
 
     return (
         <>
             <div className='page-form'>
-            <h2 className='modal-label'>New Page</h2>
-            <form autoComplete='off' className='project-form' onSubmit={handleSubmit}>
-                <div>
-                    {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                </div>
-                <label>Page Title</label>
-                <input
-                    type='text'
-                    name='title'
-                    onChange={updateTitle}
-                    value={title}
-                    required
-                    autoComplete='off'
-                    ></input>
-                <label>Content</label>
-                <textarea
-                    type='textarea'
-                    name='description'
-                    onChange={updateContent}
-                    value={content}
-                    autoComplete='off'
-                    cols={50}
-                    rows={20}
-                    ></textarea>
-                <button className='new-project-submit project-button'>Create New Page</button>
-            </form>
+            <h2 className='modal-label'>{`New ${label}`}</h2>
+            <button value='country' className='template-button' onClick={handleCountryClick}>New Country</button>
+            <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
+            {showCountryForm && (<CountryForm/>)}
+            {showPersonForm && (<PersonForm/>)}
             </div>
         </>
     )

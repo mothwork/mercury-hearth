@@ -1,8 +1,8 @@
 import json
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
-from app.models import db, Project, Page
-from flask_login import current_user
+from app.models import db, Project, Page, project
+from flask_login import current_user, login_required
 
 project_routes = Blueprint('projects', __name__)
 
@@ -10,6 +10,7 @@ project_routes = Blueprint('projects', __name__)
 # All projects
 @project_routes.route('/')
 def all_projects():
+    # Can I get current_user.id instead?
     if current_user:
         user = current_user.to_dict()
 
@@ -19,7 +20,7 @@ def all_projects():
         project_list = [{'id': project.id, 'title':project.title, 'description':project.description, 'userId':project.userId} for project in projects]
         return jsonify(project_list)
     else:
-        return jsonify('No Projects Found'), 404
+        return jsonify('No Projects'), 204
 
 # Create project
 @project_routes.route('/', methods=['POST'])
@@ -87,9 +88,14 @@ def delete_project(project_id):
 @project_routes.route('/<int:project_id>/pages')
 def all_pages(project_id):
     pages = Page.query.filter(Page.projectId == int(project_id)).all()
+
     if pages:
+        print('_____INSIDEPAGES________')
         page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
+
         return jsonify(page_list)
+    return jsonify('No content'), 204
+
 
 @project_routes.route('/<int:project_id>', methods=['POST'])
 def new_page(project_id):
@@ -100,8 +106,9 @@ def new_page(project_id):
             'title': data['title'],
             'content': data['content'],
             'userId': data['userId'],
-            'projectId': data['projectId']
+            'projectId': project_id
         }
+        # Clean up so the userId comes from the current_user instead
 
         new_page_db = Page(
             **new_page
@@ -138,12 +145,12 @@ def delete_page(project_id, page_id):
 def edit_page(project_id, page_id):
     if current_user.is_authenticated:
         data = request.json
-        print('DATA++++++++++++',data)
+
         page = Page.query.filter(Page.id == page_id).first()
-        print('PAGEFROMQUERY+++++++++++++++',page)
+
         user = current_user.to_dict()
         if user['id'] == page.userId:
-            print('PAGE TITLE +++++++++++',page.title)
+
             page.title = data['title']
             page.content = data['content']
             db.session.commit()
