@@ -30,7 +30,7 @@ export const getProjects = () => async dispatch => {
         const projectArray = []
         dispatch(load(projectArray))
     }
-    if (response.ok) {
+    else if (response.ok) {
         const projectArray = await response.json()
         dispatch(load(projectArray))
     }

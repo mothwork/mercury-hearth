@@ -11,10 +11,13 @@ const Project = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
-    useEffect(async () => {
-        await dispatch(getProjects())
-    }, [dispatch])
+    // useEffect(async () => {
+    //     await dispatch(getProjects())
+    // }, [dispatch])
 
+    useEffect(() => {
+        dispatch(getProjects())
+    }, [dispatch])
 
 
     let projects = useSelector(state => {

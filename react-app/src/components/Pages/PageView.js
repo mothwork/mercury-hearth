@@ -13,8 +13,12 @@ const PageView = () => {
     pageId = parseInt(pageId)
     projectId = parseInt(projectId)
 
-    useEffect(async () => {
-        await dispatch(getPages(projectId))
+    // useEffect(async () => {
+    //     await dispatch(getPages(projectId))
+    // }, [dispatch, projectId])
+
+    useEffect( () => {
+        dispatch(getPages(projectId))
     }, [dispatch, projectId])
 
     const pages = useSelector(state => state.pages.pages)
