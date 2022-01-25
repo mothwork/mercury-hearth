@@ -90,10 +90,12 @@ def all_pages(project_id):
     pages = Page.query.filter(Page.projectId == int(project_id)).all()
 
     if pages:
+        print('_____INSIDEPAGES________')
         page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
 
         return jsonify(page_list)
-   
+    return jsonify('No content'), 204
+
 
 @project_routes.route('/<int:project_id>', methods=['POST'])
 def new_page(project_id):

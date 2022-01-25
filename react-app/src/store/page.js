@@ -27,6 +27,11 @@ const deleteOnePage = page => ({
 export const getPages = (projectId) => async (dispatch) => {
 
     const response = await fetch(`/api/projects/${projectId}/pages`)
+    console.log('RESPONSE', response)
+    if (response.status === 204) {
+        const pageArray = []
+        dispatch(load(pageArray))
+    }
     if (response.ok) {
         const pageArray = await response.json()
         dispatch(load(pageArray))
@@ -89,8 +94,9 @@ const pageReducer = (state = initialState, action) => {
 
             const pages = {}
             const pageArray = action.pageArray
+
             if (pageArray) {
-                console.log("PAGEARRAY", pageArray)
+
                 action.pageArray.forEach(page => {
                     pages[page.id] = page
                 })
@@ -98,7 +104,7 @@ const pageReducer = (state = initialState, action) => {
                     ...state, pages, pageArray
                 }
             }
-            return state
+            return {}
         }
         case DELETE_ONE: {
             const page = action.page

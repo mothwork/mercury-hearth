@@ -10,12 +10,12 @@ const Pages = () => {
     const dispatch = useDispatch()
     const { projectId } = useParams()
     const id = parseInt(projectId)
+    const pages = useSelector(state=> state.pages.pageArray)
 
     useEffect(() => {
         dispatch(getPages(id))
     },[dispatch, id])
 
-    const pages = useSelector(state=> state.pages.pageArray)
 
 
 
