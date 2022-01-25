@@ -27,7 +27,7 @@ const deleteOnePage = page => ({
 export const getPages = (projectId) => async (dispatch) => {
 
     const response = await fetch(`/api/projects/${projectId}/pages`)
-    console.log('RESPONSE', response)
+    
     if (response.status === 204) {
         const pageArray = []
         dispatch(load(pageArray))

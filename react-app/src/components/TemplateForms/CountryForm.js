@@ -25,8 +25,8 @@ const CountryForm = () => {
     const [imports, setImports] = useState('')
     const [exports, setExports] = useState('')
     const [content, setContent] = useState('')
-    const [pageType, setPageType] = useState('country')
 
+    const pageType = 'country'
 
 
     const handleSubmit = async e => {

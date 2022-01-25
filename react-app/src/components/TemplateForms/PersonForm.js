@@ -13,8 +13,8 @@ const PersonForm = () => {
     let { projectId } = useParams()
     projectId = parseInt(projectId)
     const userId = user.id
-
-    const [pageType, setPageType] = useState('person')
+    const pageType = 'person'
+    
     const [title, setTitle] = useState('')
     const [race, setRace] = useState('')
     const [occupation, setOccupation] = useState('')

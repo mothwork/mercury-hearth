@@ -69,7 +69,6 @@ def edit_project(project_id):
         db.session.commit()
         return jsonify('Project details updated')
     except TypeError as e:
-        print(e)
         return jsonify('Bad data')
 
 @project_routes.route('/<int:project_id>', methods=['DELETE'])
@@ -90,7 +89,6 @@ def all_pages(project_id):
     pages = Page.query.filter(Page.projectId == int(project_id)).all()
 
     if pages:
-        print('_____INSIDEPAGES________')
         page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
 
         return jsonify(page_list)
@@ -129,10 +127,9 @@ def new_page(project_id):
 
 @project_routes.route('/<int:project_id>/<int:page_id>', methods=['DELETE'])
 def delete_page(project_id, page_id):
-    # data = request.json
+
     if current_user.is_authenticated:
         page = Page.query.filter(Page.id == page_id).first()
-        print(page)
         user = current_user.to_dict()
         if user['id'] == page.userId:
             db.session.delete(page)
