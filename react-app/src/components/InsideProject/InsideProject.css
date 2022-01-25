@@ -21,11 +21,15 @@
 
 .option-button {
     margin: 3px;
-    border-style: none;
+    border: 1px solid lightgray;
     border-radius: 3px;
+    background-color: white;
     padding: 5px;
+    color: lightgray;
 }
 
 .option-button:hover {
     cursor: pointer;
+    color: black;
+    border: 1px solid black;
 }

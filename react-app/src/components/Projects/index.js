@@ -35,6 +35,7 @@ const Project = () => {
                     <LogoutButton/>
                 </div>
                 <div className='project-container'>
+                <div className='logo'></div>
                     <h1>Projects</h1>
                     {/* Move outside */}
                     <ProjectModal/>

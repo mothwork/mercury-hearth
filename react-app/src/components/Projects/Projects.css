@@ -6,6 +6,7 @@
     max-width: 200px;
     height: 100vh;
     padding-right: 8px;
+    align-items: center;
 }
 
 .project-button {
@@ -23,7 +24,9 @@
 }
 
 .new-project-button {
-    background-color: lightgray;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 3px;
     color: green;
     width: 100px;
     align-self: center;
@@ -31,7 +34,8 @@
 }
 .new-project-button:hover {
     background-color: white;
-    color: green;
+    color: black;
+    border: 1px solid black;
 }
 
 .project-description {
@@ -59,4 +63,8 @@
     color: black;
     font-family: sans-serif;
     width: 100%;
+}
+
+.logo {
+    margin-top: 10px;
 }
