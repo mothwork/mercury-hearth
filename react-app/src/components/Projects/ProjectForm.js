@@ -5,7 +5,7 @@ import { createProject } from '../../store/project';
 import { getProjects } from '../../store/project';
 
 const ProjectForm = ({modalSetter}) => {
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const user = useSelector(state => state.session.user);
@@ -27,7 +27,7 @@ const ProjectForm = ({modalSetter}) => {
         }
 
         if (newProject) {
-            const newProjectRes = await dispatch(createProject(newProject))
+            await dispatch(createProject(newProject))
             await dispatch(getProjects())
         }
         modalSetter()
@@ -47,9 +47,9 @@ const ProjectForm = ({modalSetter}) => {
             <h2 className='modal-label'>New Project</h2>
             <form autoComplete='off' className='project-form' onSubmit={handleSubmit}>
                 <div>
-                    {errors.map((error, ind) => (
+                    {/* {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
-                    ))}
+                    ))} */}
                 </div>
                 <label>Project Title</label>
                 <input

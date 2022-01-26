@@ -22,7 +22,7 @@ const EditPageForm = () => {
     const page = pages?.[pageId]
 
 
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState(page?.title)
     const [content, setContent] = useState(page?.content)
 
@@ -64,11 +64,11 @@ const EditPageForm = () => {
                     </NavLink>
                     <h2 className='modal-label'>Edit {page.title}</h2>
                     <form autoComplete='off' className='project-form' onSubmit={handleSubmit}>
-                        <div>
+                        {/* <div>
                             {errors.map((error, ind) => (
                                 <div key={ind}>{error}</div>
                             ))}
-                        </div>
+                        </div> */}
                         <label>Page Title</label>
                         <input
                             type='text'

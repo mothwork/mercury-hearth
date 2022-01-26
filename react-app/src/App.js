@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import { authenticate } from './store/session';
 import Project from './components/Projects';
 import Splash from './components/Splash';
@@ -43,27 +40,27 @@ function App() {
         <ProtectedRoute path='/projects' exact={true} >
           <Project/>
         </ProtectedRoute>
-        <Route path='/projects/:projectId' exact={true}>
+        <ProtectedRoute path='/projects/:projectId' exact={true}>
           <InsideProject/>
-        </Route>
-        <Route path='/projects/:projectId/new'>
+        </ProtectedRoute>
+        <ProtectedRoute path='/projects/:projectId/new'>
           <div className='new-page-container'>
           <InsideProject/>
           <PageForm/>
           </div>
-        </Route>
-        <Route path='/projects/:projectId/:pageId' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/projects/:projectId/:pageId' exact={true}>
           <div className='new-page-container'>
           <InsideProject/>
           <PageView/>
           </div>
-        </Route>
-        <Route path='/projects/:projectId/:pageId/edit' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/projects/:projectId/:pageId/edit' exact={true}>
           <div className='new-page-container'>
           <InsideProject/>
           <EditPageForm/>
           </div>
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

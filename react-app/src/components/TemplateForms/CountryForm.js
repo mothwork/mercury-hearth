@@ -1,21 +1,21 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createPage, getPages } from '../../store/page';
+import { createPage } from '../../store/page';
 import { useParams } from 'react-router-dom';
 import './CountryForm.css'
 
 
-const CountryForm = ({}) => {
+const CountryForm = () => {
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
     let { projectId } = useParams()
-    projectId = parseInt(projectId)
-    const userId = user.id
 
-    const [pageType, setPageType] = useState('country')
+    const userId = user.id
+    projectId = parseInt(projectId)
+
     const [title, setTitle] = useState('')
     const [capital, setCapital] = useState('')
     const [region, setRegion] = useState('')
@@ -26,6 +26,7 @@ const CountryForm = ({}) => {
     const [exports, setExports] = useState('')
     const [content, setContent] = useState('')
 
+    const pageType = 'country'
 
 
     const handleSubmit = async e => {

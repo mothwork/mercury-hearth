@@ -9,13 +9,10 @@ project_routes = Blueprint('projects', __name__)
 
 # All projects
 @project_routes.route('/')
+@login_required
 def all_projects():
-    # Can I get current_user.id instead?
     if current_user:
-        user = current_user.to_dict()
-
-    projects = Project.query.filter(Project.userId == user['id']).all()
-    # projects = Project.query.all()
+        projects = Project.query.filter(Project.userId == current_user.id).all()
     if projects:
         project_list = [{'id': project.id, 'title':project.title, 'description':project.description, 'userId':project.userId} for project in projects]
         return jsonify(project_list)
@@ -24,6 +21,7 @@ def all_projects():
 
 # Create project
 @project_routes.route('/', methods=['POST'])
+@login_required
 def new_project():
     data = request.json
     title = data["title"]
@@ -54,6 +52,7 @@ def new_project():
         return jsonify('Data error'), 400
 
 @project_routes.route('/<int:project_id>', methods=['PUT'])
+@login_required
 def edit_project(project_id):
     try:
         project = Project.query.filter(Project.id == project_id).first()
@@ -69,10 +68,10 @@ def edit_project(project_id):
         db.session.commit()
         return jsonify('Project details updated')
     except TypeError as e:
-        print(e)
         return jsonify('Bad data')
 
 @project_routes.route('/<int:project_id>', methods=['DELETE'])
+@login_required
 def delete_project(project_id):
     if current_user.is_authenticated:
         project = Project.query.filter(Project.id == project_id).first()
@@ -86,11 +85,12 @@ def delete_project(project_id):
 
 # Get pages
 @project_routes.route('/<int:project_id>/pages')
+@login_required
 def all_pages(project_id):
-    pages = Page.query.filter(Page.projectId == int(project_id)).all()
+
+    pages = Page.query.filter(Page.projectId == int(project_id) and Page.userId==current_user.id).all()
 
     if pages:
-        print('_____INSIDEPAGES________')
         page_list = [{"id":page.id, "title":page.title, 'content':page.content, 'projectId':page.projectId, 'userId':page.userId} for page in pages]
 
         return jsonify(page_list)
@@ -98,6 +98,7 @@ def all_pages(project_id):
 
 
 @project_routes.route('/<int:project_id>', methods=['POST'])
+@login_required
 def new_page(project_id):
     data = request.json
     title = data['title']
@@ -128,11 +129,11 @@ def new_page(project_id):
         return jsonify('Data error'), 400
 
 @project_routes.route('/<int:project_id>/<int:page_id>', methods=['DELETE'])
+@login_required
 def delete_page(project_id, page_id):
-    # data = request.json
+
     if current_user.is_authenticated:
         page = Page.query.filter(Page.id == page_id).first()
-        print(page)
         user = current_user.to_dict()
         if user['id'] == page.userId:
             db.session.delete(page)
@@ -142,6 +143,7 @@ def delete_page(project_id, page_id):
     return jsonify('Error: Unauthorized'), 401
 
 @project_routes.route('/<int:project_id>/<int:page_id>', methods=['PUT'])
+@login_required
 def edit_page(project_id, page_id):
     if current_user.is_authenticated:
         data = request.json

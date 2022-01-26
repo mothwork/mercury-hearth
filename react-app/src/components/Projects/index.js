@@ -11,17 +11,19 @@ const Project = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 
-    useEffect(async () => {
-        await dispatch(getProjects())
-    }, [dispatch])
+    // useEffect(async () => {
+    //     await dispatch(getProjects())
+    // }, [dispatch])
 
+    useEffect(() => {
+        dispatch(getProjects())
+    }, [dispatch])
 
 
     let projects = useSelector(state => {
         return state.project.projectArray
     })
 
-    console.log(projects)
 
     if (!user) {
         return <Redirect to='/' />
@@ -42,7 +44,7 @@ const Project = () => {
                     <ul>
                         {projects && projects.map(project => {
                             return (
-                                <li>
+                                <li key={project.id}>
                                     <NavLink to={`/projects/${project.id}`}>
                                         <button className='project-button'>{project.title}</button>
                                     </NavLink>
@@ -55,7 +57,7 @@ const Project = () => {
             </>
         )
     } else {
-        // move inside to ul??
+
         return (
         <>
         <div className='user-nav'>
@@ -64,7 +66,6 @@ const Project = () => {
                 <div className='project-container'>
                 <div className='logo'></div>
                     <h1>Projects</h1>
-                    {/* Move outside */}
                     <ProjectModal/>
                     </div>
         </>

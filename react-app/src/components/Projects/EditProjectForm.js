@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { getProjects } from '../../store/project';
 import { editProject } from '../../store/project';
@@ -12,12 +12,12 @@ const ProjectForm = ({modalSetter}) => {
     const projects = projectsContainer?.projects
     const project = projects?.[id]
 
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState(project?.title)
     const [description, setDescription] = useState(project?.description)
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
-    const history = useHistory()
+
 
     useEffect(() => {
         dispatch(getProjects())
@@ -34,7 +34,7 @@ const ProjectForm = ({modalSetter}) => {
         }
 
         if (editedProject) {
-            const newProjectRes = await dispatch(editProject(editedProject))
+            await dispatch(editProject(editedProject))
             await dispatch(getProjects())
         }
         modalSetter()
@@ -54,9 +54,9 @@ const ProjectForm = ({modalSetter}) => {
             <h2 className='modal-label'>Edit Project</h2>
             <form autoComplete='off' className='project-form' onSubmit={handleSubmit}>
                 <div>
-                    {errors.map((error, ind) => (
+                    {/* {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
-                    ))}
+                    ))} */}
                 </div>
                 <label>Project Title</label>
                 <input
