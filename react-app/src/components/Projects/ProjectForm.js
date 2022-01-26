@@ -16,10 +16,12 @@ const ProjectForm = ({modalSetter}) => {
         dispatch(getProjects())
     }, [dispatch])
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         const userId = user.id
-
+      
         const newProject = {
             title,
             description,
@@ -45,32 +47,34 @@ const ProjectForm = ({modalSetter}) => {
     return (
         <>
             <h2 className='modal-label'>New Project</h2>
-            <form autoComplete='off' className='project-form' onSubmit={handleSubmit}>
-                <div>
-                    {/* {errors.map((error, ind) => (
+            <form autoComplete='off' className='auth-form project-form' onSubmit={handleSubmit}>
+                {/* <div>
+                    {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
-                    ))} */}
-                </div>
-                <label>Project Title</label>
+                    ))}
+                </div> */}
+                {/* <label>Project Title</label> */}
                 <input
                     type='text'
                     name='title'
+                    placeholder='Project Title'
                     onChange={updateTitle}
                     value={title}
                     required
                     autoComplete='off'
                     ></input>
-                <label>Description</label>
+                {/* <label>Description</label> */}
                 <textarea
                     type='textarea'
                     name='description'
+                    placeholder='Description'
                     onChange={updateDescription}
                     value={description}
                     autoComplete='off'
                     cols={50}
                     rows={10}
                     ></textarea>
-                <button className='new-project-submit'>Create Project</button>
+                <button className='project-button'>Create Project</button>
             </form>
         </>
     )
