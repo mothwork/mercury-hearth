@@ -93,8 +93,7 @@ const ContinentForm = () => {
             <input hidden name='pageType' value={pageType}></input>
             {/* <label>CCity Details:</label> */}
             <input
-                required={true}
-
+                required
                 placeholder='Continent Name'
                 type='text'
                 name='title'
