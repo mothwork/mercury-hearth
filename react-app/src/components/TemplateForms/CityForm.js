@@ -15,7 +15,7 @@ const CityForm = () => {
 
     const userId = user.id
     projectId = parseInt(projectId)
-
+    const [errors, setErrors] = useState([])
     const [title, setTitle] = useState('')
     const [cityType, setCityType] = useState('')
     const [region, setRegion] = useState('')
@@ -32,7 +32,8 @@ const CityForm = () => {
     const handleSubmit = async e => {
         e.preventDefault()
         if (!title.length) {
-
+            setErrors(['City Name Required'])
+            return null
         }
         const pageContent = {
             pageType,
@@ -95,6 +96,11 @@ const CityForm = () => {
     return (
 
         <form className='project-form new-page-form'>
+            <div className='error-box'>
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
             <input hidden name='pageType' value={pageType}></input>
             {/* <label>CCity Details:</label> */}
             <input

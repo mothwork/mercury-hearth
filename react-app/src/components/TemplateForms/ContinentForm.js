@@ -16,6 +16,7 @@ const ContinentForm = () => {
     const userId = user.id
     projectId = parseInt(projectId)
 
+    const [errors, setErrors] = useState([])
     const [title, setTitle] = useState('')
     const [overview, setOverview] = useState('')
     const [geographyAndEcology, setGeographyAndEcology] = useState('')
@@ -31,7 +32,8 @@ const ContinentForm = () => {
     const handleSubmit = async e => {
         e.preventDefault()
         if (!title.length) {
-
+            setErrors(['Continent Name Required'])
+            return null
         }
         const pageContent = {
             pageType,
@@ -90,6 +92,11 @@ const ContinentForm = () => {
     return (
 
         <form className='project-form new-page-form'>
+            <div className='error-box'>
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
             <input hidden name='pageType' value={pageType}></input>
             {/* <label>CCity Details:</label> */}
             <input

@@ -15,7 +15,7 @@ const CountryForm = () => {
 
     const userId = user.id
     projectId = parseInt(projectId)
-
+    const [errors, setErrors] = useState([])
     const [title, setTitle] = useState('')
     const [capital, setCapital] = useState('')
     const [region, setRegion] = useState('')
@@ -32,7 +32,8 @@ const CountryForm = () => {
     const handleSubmit = async e => {
         e.preventDefault()
         if (!title.length) {
-
+            setErrors(['Country Name Required'])
+            return null
         }
         const pageContent = {
             pageType,
@@ -95,21 +96,25 @@ const CountryForm = () => {
     return (
 
         <form className='project-form new-page-form'>
+            <div className='error-box'>
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
             <input hidden name='pageType' value={pageType}></input>
             {/* <label>Country Details:</label> */}
             <input
-                required={true}
-
                 placeholder='Country Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
                 value={title}
+                required
                 autoComplete='off'
             ></input>
             {/* <label>Capital:</label> */}
             <input
-            placeholder='Capital'
+                placeholder='Capital'
                 type='text'
                 name='capital'
                 onChange={updateCapital}

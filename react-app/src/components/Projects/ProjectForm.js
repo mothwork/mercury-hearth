@@ -5,7 +5,7 @@ import { createProject } from '../../store/project';
 import { getProjects } from '../../store/project';
 
 const ProjectForm = ({modalSetter}) => {
-    // const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const user = useSelector(state => state.session.user);
@@ -20,8 +20,12 @@ const ProjectForm = ({modalSetter}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (!title.length) {
+            setErrors(['Project Title Required'])
+            return null
+        }
         const userId = user.id
-      
+
         const newProject = {
             title,
             description,
@@ -48,11 +52,11 @@ const ProjectForm = ({modalSetter}) => {
         <>
             <h2 className='modal-label'>New Project</h2>
             <form autoComplete='off' className='auth-form project-form' onSubmit={handleSubmit}>
-                {/* <div>
+                <div className='error-box'>
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
-                </div> */}
+                </div>
                 {/* <label>Project Title</label> */}
                 <input
                     type='text'
@@ -60,7 +64,7 @@ const ProjectForm = ({modalSetter}) => {
                     placeholder='Project Title'
                     onChange={updateTitle}
                     value={title}
-                    required
+                    
                     autoComplete='off'
                     ></input>
                 {/* <label>Description</label> */}
