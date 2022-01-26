@@ -33,3 +33,16 @@
     max-width: 600px;
     margin: 10px;
 }
+.overview-box {
+    background-color: rgb(201, 163, 163);
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 600px;
+    min-width: fit-content;
+    margin-bottom: 20px;
+    /* border: 1px solid black; */
+    margin-top: 20px;
+    color:  rgb(87, 87, 87);
+    padding: 20px;
+}
