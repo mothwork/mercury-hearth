@@ -15,8 +15,11 @@
 }
 
 .about-line a {
+    background-color: white;
     color: black;
     text-decoration: none;
+    font-style: italic;
+
 }
 
 
