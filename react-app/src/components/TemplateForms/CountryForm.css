@@ -8,3 +8,7 @@
     font-family: serif;
     margin-bottom: 10px;
 }
+
+.new-page-form label {
+    color: rgb(87, 87, 87);
+}
