@@ -14,7 +14,8 @@ const PersonForm = () => {
     projectId = parseInt(projectId)
     const userId = user.id
     const pageType = 'person'
-    
+
+    const [errors, setErrors] = useState([])
     const [title, setTitle] = useState('')
     const [race, setRace] = useState('')
     const [occupation, setOccupation] = useState('')
@@ -28,6 +29,11 @@ const PersonForm = () => {
 
     const handleSubmit = async e => {
         e.preventDefault()
+        if (!title.length) {
+            setErrors(['Name Required'])
+            return null
+        }
+
         const pageContent = {
             pageType,
             race,
@@ -84,6 +90,11 @@ const PersonForm = () => {
     return (
 
         <form className='project-form new-page-form'>
+            <div className='error-box'>
+                {errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                ))}
+            </div>
             <input hidden name='pageType' readOnly value={pageType}></input>
             {/* <label>Title</label> */}
             <input

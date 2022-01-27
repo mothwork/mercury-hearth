@@ -4,6 +4,8 @@ import { getPages } from '../../store/page';
 import { useParams } from 'react-router-dom'
 import CountryForm from '../TemplateForms/CountryForm'
 import PersonForm from '../TemplateForms/PersonForm';
+import CityForm from '../TemplateForms/CityForm';
+import ContinentForm from '../TemplateForms/ContinentForm';
 
 const PageForm = () => {
 
@@ -14,6 +16,8 @@ const PageForm = () => {
     projectId = parseInt(projectId)
     const [showCountryForm, setShowCountryForm] = useState(false)
     const [showPersonForm, setShowPersonForm] = useState(false)
+    const [showCityForm, setShowCityForm] = useState(false)
+    const [showContinentForm, setShowContinentForm] = useState('')
     const [label, setLabel] = useState('Page')
 
     useEffect(() => {
@@ -26,24 +30,47 @@ const PageForm = () => {
         setShowCountryForm(!showCountryForm)
         setLabel('Country')
         setShowPersonForm(false)
+        setShowCityForm(false)
+        setShowContinentForm(false)
     }
 
     const handlePersonClick = ()=> {
         setShowPersonForm(!showPersonForm)
         setLabel('Person')
         setShowCountryForm(false)
+        setShowCityForm(false)
+        setShowContinentForm(false)
     }
 
+    const handleCityClick = ()=> {
+        setShowCityForm(!showCityForm)
+        setLabel('City')
+        setShowCountryForm(false)
+        setShowPersonForm(false)
+        setShowContinentForm(false)
+    }
+
+    const handleContinentClick = () => {
+        setShowContinentForm(!showContinentForm)
+        setLabel('Continent')
+        setShowPersonForm(false)
+        setShowCountryForm(false)
+        setShowCityForm(false)
+    }
 
 
     return (
         <>
             <div className='page-form'>
             <h2 className='modal-label'>{`New ${label}`}</h2>
+            <button value='continent'className='template-button' onClick={handleContinentClick}>New Continent</button>
             <button value='country' className='template-button' onClick={handleCountryClick}>New Country</button>
+            <button value='city' className='template-button' onClick={handleCityClick}>New City</button>
             <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
             {showCountryForm && (<CountryForm/>)}
             {showPersonForm && (<PersonForm/>)}
+            {showCityForm && (<CityForm/>)}
+            {showContinentForm && (<ContinentForm/>)}
             </div>
         </>
     )

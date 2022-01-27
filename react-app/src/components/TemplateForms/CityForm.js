@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import './CountryForm.css'
 
 
-const CountryForm = () => {
+const CityForm = () => {
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -17,7 +17,7 @@ const CountryForm = () => {
     projectId = parseInt(projectId)
     const [errors, setErrors] = useState([])
     const [title, setTitle] = useState('')
-    const [capital, setCapital] = useState('')
+    const [cityType, setCityType] = useState('')
     const [region, setRegion] = useState('')
     const [government, setGovernment] = useState('')
     const [population, setPopulation] = useState('')
@@ -26,18 +26,18 @@ const CountryForm = () => {
     const [exports, setExports] = useState('')
     const [content, setContent] = useState('')
 
-    const pageType = 'country'
+    const pageType = 'city'
 
 
     const handleSubmit = async e => {
         e.preventDefault()
         if (!title.length) {
-            setErrors(['Country Name Required'])
+            setErrors(['City Name Required'])
             return null
         }
         const pageContent = {
             pageType,
-            capital,
+            cityType,
             region,
             government,
             population,
@@ -61,8 +61,8 @@ const CountryForm = () => {
         setTitle(e.target.value)
     }
 
-    const updateCapital = (e) => {
-        setCapital(e.target.value)
+    const updateCityType = (e) => {
+        setCityType(e.target.value)
     }
 
     const updateRegion = (e) => {
@@ -102,23 +102,24 @@ const CountryForm = () => {
                 ))}
             </div>
             <input hidden name='pageType' value={pageType}></input>
-            {/* <label>Country Details:</label> */}
+            {/* <label>CCity Details:</label> */}
             <input
-                placeholder='Country Name'
+                required={true}
+
+                placeholder='City Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
                 value={title}
-                required
                 autoComplete='off'
             ></input>
             {/* <label>Capital:</label> */}
             <input
-                placeholder='Capital'
+            placeholder='City Type'
                 type='text'
                 name='capital'
-                onChange={updateCapital}
-                value={capital}
+                onChange={updateCityType}
+                value={cityType}
                 autoComplete='off'
             ></input>
             {/* <label>Region:</label> */}
@@ -185,9 +186,9 @@ const CountryForm = () => {
                 cols={20}
                 rows={20}
             />
-            <button className='template-button' type="submit" onClick={handleSubmit}>Create Country</button>
+            <button className='template-button' type="submit" onClick={handleSubmit}>Create City</button>
         </form>
     )
 }
 
-export default CountryForm
+export default CityForm
