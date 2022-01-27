@@ -12,7 +12,7 @@ const EditEngine = ({page}) => {
         default:
             return 'Hitting default'
         case 'country':
-            return (<EditCountryForm country={pageObj} pageTitle={page.title}/>)
+            return (<EditCountryForm country={pageObj} page={page}/>)
         case 'person':
             return (<PersonForm person={pageObj}/>)
         case 'city':

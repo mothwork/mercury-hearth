@@ -24,37 +24,37 @@ const EditPageForm = () => {
 
 
     // const [errors, setErrors] = useState([]);
-    const [title, setTitle] = useState(page?.title)
-    const [content, setContent] = useState(page?.content)
+    // const [title, setTitle] = useState(page?.title)
+    // const [content, setContent] = useState(page?.content)
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const userId = user.id
-        const id = pageId
-        const editedPage = {
-            id,
-            title,
-            content,
-            userId,
-            projectId
-        }
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
+    //     const userId = user.id
+    //     const id = pageId
+    //     const editedPage = {
+    //         id,
+    //         title,
+    //         content,
+    //         userId,
+    //         projectId
+    //     }
 
-        if (editedPage) {
-            const newPageRes = await dispatch(editPage(editedPage))
-            await dispatch(getPages(projectId))
-            return history.push(`/projects/${projectId}/${newPageRes.id}`)
-        }
+    //     if (editedPage) {
+    //         const newPageRes = await dispatch(editPage(editedPage))
+    //         await dispatch(getPages(projectId))
+    //         return history.push(`/projects/${projectId}/${newPageRes.id}`)
+    //     }
 
-        // Send to edited page
-    }
+    //     // Send to edited page
+    // }
 
-    const updateTitle = (e) => {
-        setTitle(e.target.value)
-    }
+    // const updateTitle = (e) => {
+    //     setTitle(e.target.value)
+    // }
 
-    const updateContent = (e) => {
-        setContent(e.target.value)
-    }
+    // const updateContent = (e) => {
+    //     setContent(e.target.value)
+    // }
 
     if (page) {
         return (

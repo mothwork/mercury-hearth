@@ -2,14 +2,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { editPage } from '../../store/page';
+import { editPage, getPages } from '../../store/page';
 import { useParams } from 'react-router-dom';
 import './CountryForm.css'
 
 
-const EditCountryForm = ({country, pageTitle}) => {
-    console.log()
-    console.log('COUNTRY', country)
+const EditCountryForm = ({country, page}) => {
+
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -17,7 +16,7 @@ const EditCountryForm = ({country, pageTitle}) => {
     const userId = user.id
     projectId = parseInt(projectId)
     const [errors, setErrors] = useState([])
-    const [title, setTitle] = useState(pageTitle)
+    const [title, setTitle] = useState(page.title)
     const [capital, setCapital] = useState(country.capital)
     const [region, setRegion] = useState(country.region)
     const [government, setGovernment] = useState(country.government)
@@ -28,7 +27,7 @@ const EditCountryForm = ({country, pageTitle}) => {
     const [content, setContent] = useState(country.content)
 
     const pageType = 'country'
-
+    const id = page.id
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -48,13 +47,15 @@ const EditCountryForm = ({country, pageTitle}) => {
             content
         }
         const page = {
+            id,
             title,
             userId,
             projectId,
         }
         page.content = JSON.stringify(pageContent)
-        const newPage = await dispatch(editPage(page))
-        history.push(`/projects/${newPage.projectId}/${newPage.id}`)
+        const editedPage = await dispatch(editPage(page))
+        await dispatch(getPages(projectId))
+        history.push(`/projects/${editedPage.projectId}/${editedPage.id}`)
 
     }
 
@@ -103,7 +104,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 ))}
             </div>
             <input hidden name='pageType' value={pageType}></input>
-            {/* <label>Country Details:</label> */}
+            <label>Country Name</label>
             <input
                 placeholder='Country Name'
                 type='text'
@@ -113,7 +114,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 required
                 autoComplete='off'
             ></input>
-            {/* <label>Capital:</label> */}
+            <label>Capital</label>
             <input
                 placeholder='Capital'
                 type='text'
@@ -122,7 +123,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 value={capital}
                 autoComplete='off'
             ></input>
-            {/* <label>Region:</label> */}
+            <label>Region</label>
             <input
                 placeholder='Region'
                 type='text'
@@ -131,7 +132,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 value={region}
                 autoComplete='off'
             ></input>
-            {/* <label>Government Type:</label> */}
+            <label>Government Type</label>
             <input
                 placeholder='Government Type'
                 type='text'
@@ -140,7 +141,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 value={government}
                 autoComplete='off'
             ></input>
-            {/* <label>Population:</label> */}
+            <label>Population</label>
             <input
                 placeholder='Population'
                 type='text'
@@ -149,7 +150,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 value={population}
                 autoComplete='off'
             ></input>
-            {/* <label>Religions:</label> */}
+            <label>Religions</label>
             <input
                 placeholder='Religions'
                 type='text'
@@ -158,7 +159,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 value={religions}
                 autoComplete='off'
             ></input>
-            {/* <label>Imports:</label> */}
+            <label>Imports</label>
             <input
                 placeholder='Imports'
                 type='text'
@@ -167,7 +168,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 value={imports}
                 autoComplete='off'
             ></input>
-            {/* <label>Exports:</label> */}
+            <label>Exports</label>
             <input
                 placeholder='Exports'
                 type='text'
@@ -186,7 +187,7 @@ const EditCountryForm = ({country, pageTitle}) => {
                 cols={20}
                 rows={20}
             />
-            <button className='template-button' type="submit" onClick={handleSubmit}>Create Country</button>
+            <button className='template-button' type="submit" onClick={handleSubmit}>Edit Country</button>
         </form>
     )
 }
