@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createPage } from '../../store/page';
+import { editPage } from '../../store/page';
 import { useParams } from 'react-router-dom';
 import './CountryForm.css'
 
 
-const CountryForm = () => {
+const EditCountryForm = ({country, pageTitle}) => {
+    console.log()
+    console.log('COUNTRY', country)
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -15,15 +17,15 @@ const CountryForm = () => {
     const userId = user.id
     projectId = parseInt(projectId)
     const [errors, setErrors] = useState([])
-    const [title, setTitle] = useState('')
-    const [capital, setCapital] = useState('')
-    const [region, setRegion] = useState('')
-    const [government, setGovernment] = useState('')
-    const [population, setPopulation] = useState('')
-    const [religions, setReligions] = useState('')
-    const [imports, setImports] = useState('')
-    const [exports, setExports] = useState('')
-    const [content, setContent] = useState('')
+    const [title, setTitle] = useState(pageTitle)
+    const [capital, setCapital] = useState(country.capital)
+    const [region, setRegion] = useState(country.region)
+    const [government, setGovernment] = useState(country.government)
+    const [population, setPopulation] = useState(country.population)
+    const [religions, setReligions] = useState(country.religions)
+    const [imports, setImports] = useState(country.imports)
+    const [exports, setExports] = useState(country.exports)
+    const [content, setContent] = useState(country.content)
 
     const pageType = 'country'
 
@@ -51,7 +53,7 @@ const CountryForm = () => {
             projectId,
         }
         page.content = JSON.stringify(pageContent)
-        const newPage = await dispatch(createPage(page))
+        const newPage = await dispatch(editPage(page))
         history.push(`/projects/${newPage.projectId}/${newPage.id}`)
 
     }
@@ -189,4 +191,4 @@ const CountryForm = () => {
     )
 }
 
-export default CountryForm
+export default EditCountryForm

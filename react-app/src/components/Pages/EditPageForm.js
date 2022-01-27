@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useHistory } from 'react-router-dom';
 import { editPage, getPages } from '../../store/page';
 import { useParams } from 'react-router-dom';
+import EditEngine from '../TemplateForms/EditEngine';
 
 const EditPageForm = () => {
     const user = useSelector(state => state.session.user);
@@ -63,12 +64,13 @@ const EditPageForm = () => {
                         <button className='project-button'>Back</button>
                     </NavLink>
                     <h2 className='modal-label'>Edit {page.title}</h2>
-                    <form autoComplete='off' className='project-form' onSubmit={handleSubmit}>
+                    <EditEngine page={page}/>
+                    {/* <form autoComplete='off' className='project-form' onSubmit={handleSubmit}>
                         {/* <div>
                             {errors.map((error, ind) => (
                                 <div key={ind}>{error}</div>
                             ))}
-                        </div> */}
+                        </div>
                         <label>Page Title</label>
                         <input
                             type='text'
@@ -89,7 +91,7 @@ const EditPageForm = () => {
                             rows={20}
                         ></textarea>
                         <button className='new-project-submit project-button'>Save Changes</button>
-                    </form>
+                    </form> */}
                 </div>
             </>
         )
