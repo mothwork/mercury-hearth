@@ -1,3 +1,7 @@
 # Mercury Hearth
 
-Mercury Hearth (Not final name) is a application that helps with the creative process of worldbuilding or mythcreation. Seperated into projects, a user can create pages which might detail a specific thing- for example a character or a city. Using templates, a user can quickly write down details about a city or a person, or start fresh with a blank page. Each page has a card view, which will allow the user to post images, either to function as figures for things written about on the page- or as a mood board to help with the creative process of creating fantastical worlds, locales, and peoples.
+Mercury Hearth is a application that helps with the creative process of worldbuilding.
+
+Seperated into projects, a user can create pages which might detail a specific thing- for example a character or a city. Using templates, a user can quickly write down details about a continent, country, city, or a person.
+
+
