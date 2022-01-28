@@ -1,5 +1,9 @@
 /* TODO Add site wide styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital@0;1&display=swap');
+
+* {font-family: 'Alegreya', serif;}
+
 ul {
     list-style: none;
     padding: 0;
