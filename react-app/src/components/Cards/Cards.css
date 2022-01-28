@@ -1,10 +1,24 @@
-card-view-container {
+.card-view-container {
+    max-height: 1000px;
+    max-width: auto;
+    overflow: scroll;
+    background-color:rgb(46, 46, 46);
+    margin:auto;
+    padding: 50px;
     display: grid;
     gap: 20px 20px;
-    grid-auto-columns: 200px;
+    grid-template-columns: 300px 300px 300px;
+    grid-auto-rows: 300px;
+    grid-auto-flow: row;
+    justify-content: center;
 }
 
-card-container {
-    max-width: 200px;
-    max-height: 200px;
+.card-container {
+    max-width:auto;
+    max-height:300px;
+}
+
+.card-container img {
+    width: 300px;
+    height: 300px;
 }
