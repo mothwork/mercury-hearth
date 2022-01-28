@@ -10,6 +10,7 @@ import InsideProject from './components/InsideProject'
 import PageForm from './components/Pages/PageForm';
 import PageView from './components/Pages/PageView'
 import EditPageForm from './components/Pages/EditPageForm';
+import Cards from './components/Cards';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,8 @@ function App() {
           </div>
         </Route>
 
+
+
         <ProtectedRoute path='/projects' exact={true} >
           <Project/>
         </ProtectedRoute>
@@ -60,6 +63,10 @@ function App() {
           <InsideProject/>
           <EditPageForm/>
           </div>
+        </ProtectedRoute>
+        <ProtectedRoute path='/pages/:pageId' exact={true}>
+          <InsideProject/>
+          <Cards/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

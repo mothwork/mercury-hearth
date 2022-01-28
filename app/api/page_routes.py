@@ -13,7 +13,7 @@ def page_cards(page_id):
     if current_user:
         cards = Card.query.filter(Card.pageId == page_id and Card.id == current_user.id).all()
     if cards:
-        card_list = [{'id': card.id, 'title':card.title, 'description':card.description, 'userId':card.userId, 'pageId':card.projectId} for card in cards]
+        card_list = [{'id': card.id, 'imageUrl':card.imageUrl, 'title':card.title, 'description':card.description, 'userId':card.userId, 'pageId':card.pageId} for card in cards]
         return jsonify(card_list)
     else:
         return jsonify('No Cards'), 204
@@ -55,7 +55,7 @@ def create_card(page_id):
 
 @page_routes.route('/<int:page_id>/<int:card_id>', methods=['PUT'])
 @login_required
-def create_card(page_id, card_id):
+def edit_card(page_id, card_id):
 
     try:
         card = Card.query.filter(Card.id == card_id and current_user.id == Card.userId).first()
@@ -76,7 +76,7 @@ def create_card(page_id, card_id):
 
 @page_routes.route('/<int:page_id>/<int:cardId>', methods=['DELETE'])
 @login_required
-def create_card(page_id, card_id):
+def delete_card(page_id, card_id):
     if current_user.is_authenticated:
         card = Card.query.filter(Card.id == card_id).first()
         user = current_user.to_dict()
