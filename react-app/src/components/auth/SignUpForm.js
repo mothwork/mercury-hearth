@@ -12,8 +12,14 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+
+
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    if (password !== repeatPassword){
+      setErrors(['Passwords must match'])
+    }
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -44,7 +50,7 @@ const SignUpForm = () => {
 
   return (
     <form className='auth-form' onSubmit={onSignUp}>
-      <div>
+      <div className='error-box'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
