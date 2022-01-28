@@ -43,7 +43,9 @@
   }
 
   .error-box {
-      height: 30px;
+      min-height: 30px;
+      max-height: fit-content;
+      width: 400px;
       box-sizing: border-box;
       color: red;
       margin-bottom: 10px;
