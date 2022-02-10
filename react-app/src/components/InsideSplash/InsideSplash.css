@@ -1,0 +1,15 @@
+.inside-splash-page-container {
+    display: flex;
+}
+
+.project-splash {
+
+    width: 100vw;
+    height: 100vh;
+    margin-left: 8px;
+}
+
+.project-splash img {
+    width: 100;
+    height: 100%;
+}
