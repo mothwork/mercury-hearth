@@ -32,7 +32,7 @@ const Project = () => {
 
     if (projects) {
         return (
-            <>
+            <div>
                 <div className='user-nav'>
                     <LogoutButton/>
                 </div>
@@ -54,7 +54,7 @@ const Project = () => {
                         })}
                     </ul>
                 </div>
-            </>
+            </div>
         )
     } else {
 
