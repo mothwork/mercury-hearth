@@ -11,6 +11,13 @@ Mercury Hearth is a application that helps with the creative process of worldbui
 ![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-black?logo=sqlalchemy)
 ![PostgreSQL](https://img.shields.io/badge/-PostgeSQL-black?logo=postgresql)
 
+## Screenshots
+### Splash
+![Splash](https://user-images.githubusercontent.com/59124348/152610830-13ef8fc4-9d75-4b50-b044-7a072b67fd56.png)
+### Inside Project View
+
+
+
 ## Overview
 Mercury Hearth is an application that allows users to create projects, and within those projects pages. Pages can be constructed of templates- as of right now the following templates are availible:
 
@@ -30,5 +37,6 @@ Each of these have fields which are relevant to the type of page- for example a 
 * [Wireframes](https://github.com/mothwork/mercury-hearth/wiki/Wireframes)
 
 
-Future Stuff
+## Future Features
+* Rich Text Editing
 * Fantasy & Scifi name generators to autofill via 3rd-party API
