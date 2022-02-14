@@ -32,6 +32,7 @@ Each of these have fields which are relevant to the type of page- for example a 
 * [Feature List](https://github.com/mothwork/mercury-hearth/wiki/Features)
 * [Frontend Routes](https://github.com/mothwork/mercury-hearth/wiki/Frontend-Routes)
 * [DB Schema](https://github.com/mothwork/mercury-hearth/wiki/DB-Schema)
+* [React Components](https://github.com/mothwork/mercury-hearth/wiki/React-Components)
 * [Wireframes](https://github.com/mothwork/mercury-hearth/wiki/Wireframes)
 
 
