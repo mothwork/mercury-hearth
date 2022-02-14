@@ -15,7 +15,7 @@ Mercury Hearth is a application that helps with the creative process of worldbui
 ### Splash
 ![Splash](https://user-images.githubusercontent.com/59124348/152610830-13ef8fc4-9d75-4b50-b044-7a072b67fd56.png)
 ### Inside Project View
-
+![Inside Project](https://user-images.githubusercontent.com/59124348/153924319-7371c3fe-a3c2-4741-ac3b-dd0d85bf66cd.png)
 
 
 ## Overview
@@ -31,9 +31,7 @@ Each of these have fields which are relevant to the type of page- for example a 
 ## Information
 * [Feature List](https://github.com/mothwork/mercury-hearth/wiki/Features)
 * [Frontend Routes](https://github.com/mothwork/mercury-hearth/wiki/Frontend-Routes)
-<!-- * [API Routes]() -->
 * [DB Schema](https://github.com/mothwork/mercury-hearth/wiki/DB-Schema)
-<!-- * [Redux Store Tree]() -->
 * [Wireframes](https://github.com/mothwork/mercury-hearth/wiki/Wireframes)
 
 
