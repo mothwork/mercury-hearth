@@ -17,7 +17,7 @@ const ContinentTemplate = ({continent}) => {
                     <p><span className='detail-title'>Cultures:</span> {continent.culture}</p>
                     <p><span className='detail-title'>Trade:</span> {continent.trade}</p>
                 </div>
-                <div className='content-box'>{continent.content}</div>
+                <div className='content-box' id='content-box' dangerouslySetInnerHTML={{__html: continent.content}}></div>
             </div>
 
         )

@@ -18,7 +18,7 @@ const CountryTemplate = ({country}) => {
                     <p><span className='detail-title'>Imports:</span> {country.imports}</p>
                     <p><span className='detail-title'>Exports:</span> {country.exports}</p>
                 </div>
-                <div className='content-box'>{country.content}</div>
+                <div className='content-box' id='content-box' dangerouslySetInnerHTML={{__html: country.content}}></div>
             </div>
 
         )

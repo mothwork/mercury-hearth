@@ -17,7 +17,7 @@ const personTemplate = ({person}) => {
                     <p><span className='detail-title'>Residence:</span> {person.residence}</p>
                     <p><span className='detail-title'>Aliases:</span> {person.alias}</p>
                 </div>
-                <div className='content-box'>{person.content}</div>
+                <div className='content-box' id='content-box' dangerouslySetInnerHTML={{__html: person.content}}></div>
             </div>
 
         )
