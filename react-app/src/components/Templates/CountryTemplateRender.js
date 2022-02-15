@@ -4,10 +4,9 @@ import './CountryRender.css'
 const CountryTemplate = ({country}) => {
 
     if (country){
-        // country = JSON.parse(country)
+
         return (
             <div className="country-container">
-                {/* <h2>{country.name}</h2> */}
                 <div className="detail-box">
                     <h3>Country Details</h3>
                     <p><span className='detail-title'>Capital:</span> {country.capital}</p>

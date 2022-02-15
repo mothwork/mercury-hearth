@@ -37,6 +37,37 @@
     border: 1px solid black;
     cursor: pointer;
 }
+.page-image {
+    height: 200px;
+    width: 800px;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    border-radius: 3px;
+}
+.page-image img {
+    height: 100;
+    width: 800px;
+}
+
+.page-icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position:absolute;
+    left: 260px;
+    top: 180px;
+    z-index: 100;
+    background-color: grey;
+    overflow: hidden;
+}
+
+.page-icon img {
+    height: 100px;
+    width: 100px;
+
+
+}
+
 
 .quill {
     width: 400px;
