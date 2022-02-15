@@ -5,6 +5,9 @@ import { useHistory } from 'react-router-dom';
 import { editPage, getPages } from '../../store/page';
 import { useParams } from 'react-router-dom';
 import './CountryForm.css'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 
 
 const EditCountryForm = ({country, page}) => {
@@ -178,15 +181,9 @@ const EditCountryForm = ({country, page}) => {
                 autoComplete='off'
             ></input>
             <label>Main Content</label>
-            <textarea
-                type='text'
-                name='content'
-                onChange={updateContent}
-                value={content}
-                autoComplete='off'
-                cols={20}
-                rows={20}
-            />
+            <div className='quilltainer'>
+            <ReactQuill theme='snow' value={content} onChange={setContent}/>
+            </div>
             <button className='template-button' type="submit" onClick={handleSubmit}>Edit Country</button>
         </form>
     )
