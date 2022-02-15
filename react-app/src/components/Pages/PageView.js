@@ -34,11 +34,34 @@ const PageView = () => {
         }
     }
 
+    const generateImage = (obj) => {
+        const type = obj.pageType
+        if (type === 'country') {
+            return 'https://images.unsplash.com/photo-1596319682968-c8d4875a6f17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'
+        }
+        if (type === 'continent') {
+            return 'https://images.unsplash.com/photo-1543191879-742cb35a3a4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'
+        }
+        else return 'https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80'
+    }
+
     if (page) {
+        const pageContent = JSON.parse(page.content);
+        console.log(pageContent)
+        const image = generateImage(pageContent)
+
+
         return (
             <>
                 <div className='page-view-container'>
+                        <div className='page-image'>
+                            <img alt='' src={image}></img>
+                        </div>
+                        <div className='page-icon'>
+                            <img alt='' src='https://i.imgur.com/u86SbyS.png'></img>
+                        </div>
                     <div className='page-header'>
+
                         <h1>{page.title}</h1>
                         <div className='option-container'>
                             <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
