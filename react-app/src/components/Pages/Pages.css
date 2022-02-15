@@ -37,3 +37,13 @@
     border: 1px solid black;
     cursor: pointer;
 }
+
+.quill {
+    width: 400px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.quilltainer {
+
+}

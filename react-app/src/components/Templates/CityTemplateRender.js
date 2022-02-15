@@ -5,9 +5,11 @@ const CityTemplate = ({city}) => {
 
     if (city){
         // city = JSON.parse(city)
+
+
         return (
             <div className="city-container">
-                
+
                 <div className="detail-box">
                     <h3>City Details</h3>
                     <p><span className='detail-title'>City Type:</span> {city.cityType}</p>
@@ -18,7 +20,8 @@ const CityTemplate = ({city}) => {
                     <p><span className='detail-title'>Imports:</span> {city.imports}</p>
                     <p><span className='detail-title'>Exports:</span> {city.exports}</p>
                 </div>
-                <div className='content-box'>{city.content}</div>
+
+                <div className='content-box' id='content-box' dangerouslySetInnerHTML={{__html: city.content}}></div>
             </div>
 
         )
