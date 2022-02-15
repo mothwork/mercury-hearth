@@ -88,9 +88,9 @@ const EditContinentForm = ({continent, page}) => {
     }
 
 
-    const updateContent = (e) => {
-        setContent(e.target.value)
-    }
+    // const updateContent = (e) => {
+    //     setContent(e.target.value)
+    // }
 
     return (
 

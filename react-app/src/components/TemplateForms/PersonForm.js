@@ -84,9 +84,9 @@ const PersonForm = () => {
         setlias(e.target.value)
     }
 
-    const updateContent = (e) => {
-        setContent(e.target.value)
-    }
+    // const updateContent = (e) => {
+    //     setContent(e.target.value)
+    // }
 
     return (
 

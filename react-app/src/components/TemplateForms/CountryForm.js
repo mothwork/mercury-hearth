@@ -90,9 +90,9 @@ const CountryForm = () => {
         setExports(e.target.value)
     }
 
-    const updateContent = (e) => {
-        setContent(e.target.value)
-    }
+    // const updateContent = (e) => {
+    //     setContent(e.target.value)
+    // }
 
     return (
 
@@ -180,7 +180,7 @@ const CountryForm = () => {
             <div className='quilltainer'>
             <ReactQuill theme='snow' value={content} onChange={setContent}/>
             </div>
-            
+
             <button className='template-button' type="submit" onClick={handleSubmit}>Create Country</button>
         </form>
     )

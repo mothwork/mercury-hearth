@@ -86,9 +86,9 @@ const EditPersonForm = ({person, page}) => {
         setlias(e.target.value)
     }
 
-    const updateContent = (e) => {
-        setContent(e.target.value)
-    }
+    // const updateContent = (e) => {
+    //     setContent(e.target.value)
+    // }
 
     return (
 
