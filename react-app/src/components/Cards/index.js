@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { getCards } from '../../store/card';
+import { getProjects } from '../../store/project';
 import './Cards.css'
+import CardModal from './CardModal';
 
 const Cards = () => {
     const dispatch = useDispatch()
@@ -13,6 +15,7 @@ const Cards = () => {
     const cards = useSelector(state => state.cards.cardArray)
 
     useEffect(() => {
+        dispatch(getProjects())
         dispatch(getCards(pageId))
     }, [dispatch, pageId])
 
@@ -21,6 +24,10 @@ const Cards = () => {
     if (cards) {
         return (
             <>
+                <div>
+                    <button className='project-button'>Back</button>
+                    <CardModal/>
+                </div>
                 <div className='card-view-container'>
 
                     {cards.map(card => {
