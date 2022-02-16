@@ -12,6 +12,7 @@ import PageView from './components/Pages/PageView'
 import EditPageForm from './components/Pages/EditPageForm';
 import Cards from './components/Cards';
 import InsideSplash from './components/InsideSplash';
+import UploadPicture from './components/UploadPicture';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -73,6 +74,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/pages/:pageId' exact={true}>
           <InsideProject/>
+          <UploadPicture/>
           <Cards/>
         </ProtectedRoute>
       </Switch>
