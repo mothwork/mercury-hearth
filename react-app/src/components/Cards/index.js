@@ -24,7 +24,7 @@ const Cards = () => {
     if (cards) {
         return (
             <>
-                <div>
+                <div className='card-header'>
                     <button className='project-button'>Back</button>
                     <CardModal/>
                 </div>
@@ -32,7 +32,7 @@ const Cards = () => {
 
                     {cards.map(card => {
                         return (
-                            <div className='card-container' >
+                            <div key={card.id} className='card-container' >
                                 <img alt={card.title} src={card.imageUrl} />
                                 <div className='card-description'>
                                     <h3>{card.title}</h3>

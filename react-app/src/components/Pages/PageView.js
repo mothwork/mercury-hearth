@@ -68,6 +68,9 @@ const PageView = () => {
                                 <button className='option-button'>Edit</button>
                             </NavLink>
                             <button className='option-button' onClick={handleDelete}>Delete</button>
+                            <NavLink to={`/pages/${pageId}`}>
+                                <button className='option-button'>Card View</button>
+                            </NavLink>
                         </div>
                         <TemplateEngine page={page} />
                     </div>

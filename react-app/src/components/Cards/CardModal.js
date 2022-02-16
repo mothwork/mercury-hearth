@@ -10,7 +10,7 @@ function CardModal() {
     }
     return (
         <>
-            <button className='project-button new-project-button' onClick={() => setShowModal(true)}>+ New Card</button>
+            <button className=' add-card' onClick={() => setShowModal(true)}>+</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CardForm modalSetter={modalSetter} />

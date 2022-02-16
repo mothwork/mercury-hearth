@@ -73,8 +73,6 @@ function App() {
           </div>
         </ProtectedRoute>
         <ProtectedRoute path='/pages/:pageId' exact={true}>
-          <InsideProject/>
-          <UploadPicture/>
           <Cards/>
         </ProtectedRoute>
       </Switch>
