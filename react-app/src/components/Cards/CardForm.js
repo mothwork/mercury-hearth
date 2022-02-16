@@ -33,10 +33,14 @@ const CardForm = ({ modalSetter }) => {
         }
         const formData = new FormData();
         formData.append("image", image);
-        formData.append("title", title);
-        formData.append("description", description)
-        formData.append('userId', userId)
+        formData.set("title", title);
+        formData.set("description", description)
+        formData.set('userId', userId)
 
+
+        for (const key of formData.entries()) {
+            console.log(key[0], key[1])
+        }
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);

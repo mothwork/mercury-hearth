@@ -1,4 +1,5 @@
 import json
+import re
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
 from app.models import db, Card
@@ -27,11 +28,18 @@ def page_cards(page_id):
 @login_required
 def create_card(page_id):
 
-    data = request.json
-    title = data["title"]
-    if len(title) < 1:
-        return jsonify('Title is required.')
+    # data = request.json
+    # title = data["title"]
+    # if len(title) < 1:
+    #     return jsonify('Title is required.')
     image = request.files["image"]
+    print('BEFORE Title')
+    print('____________________REQUEST', request.form)
+    title = request.form["title"]
+    print('After Title')
+    description = request.form["description"]
+    userId = request.form["userId"]
+    pageId = page_id
 
     if not allowed_file(image.filename):
         return {"errors": "file type not permitted"}, 400
@@ -39,7 +47,7 @@ def create_card(page_id):
     image.filename = get_unique_filename(image.filename)
 
     upload = upload_file_to_s3(image)
-
+    print(upload)
     if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
@@ -50,11 +58,11 @@ def create_card(page_id):
 
     try:
         new_card = {
-            'title': data['title'],
-            'description': data['description'],
-            'imgUrl': url,
-            'userId': current_user.id,
-            'pageId': data['pageId']
+            'title': title,
+            'description': description,
+            'imageUrl': url,
+            'userId': userId,
+            'pageId': pageId
         }
 
         new_card_db = Card(
@@ -68,6 +76,7 @@ def create_card(page_id):
             'title': new_card_db.title,
             'userId': new_card_db.userId,
             'description': new_card_db.description,
+            'imageUrl': new_card_db.imageUrl
         }
         return jsonify(new_card_return)
     except IntegrityError as e:
