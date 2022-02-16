@@ -11,6 +11,7 @@ import PageForm from './components/Pages/PageForm';
 import PageView from './components/Pages/PageView'
 import EditPageForm from './components/Pages/EditPageForm';
 import Cards from './components/Cards';
+import InsideSplash from './components/InsideSplash';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,10 +42,16 @@ function App() {
 
 
         <ProtectedRoute path='/projects' exact={true} >
+          <div className='inside-splash-page-container'>
           <Project/>
+          <InsideSplash page={'projects'}/>
+          </div>
         </ProtectedRoute>
         <ProtectedRoute path='/projects/:projectId' exact={true}>
+        <div className='inside-splash-page-container'>
           <InsideProject/>
+          <InsideSplash page={'pages'}/>
+          </div>
         </ProtectedRoute>
         <ProtectedRoute path='/projects/:projectId/new'>
           <div className='new-page-container'>

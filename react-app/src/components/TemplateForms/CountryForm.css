@@ -12,3 +12,15 @@
 .new-page-form label {
     color: rgb(87, 87, 87);
 }
+
+.quill {
+    width: 400px;
+    height: 400px;
+    padding: auto;
+    margin: auto;
+}
+
+.quilltainer {
+    height: 450px;
+    overflow:auto
+}

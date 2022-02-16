@@ -22,10 +22,10 @@ const Pages = () => {
     if (pages) {
         return (
             <>
-                <div className='page-container'>
                     <NavLink to={`/projects/${id}/new`}>
-                        <button className='new-project-button'>+ New Page</button>
+                        <button className='new-project-button new-page-button'>+ New Page</button>
                     </NavLink>
+                <div className='page-container'>
                     <ul>
                         {pages.map(page => {
                             return (

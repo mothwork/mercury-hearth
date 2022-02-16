@@ -4,10 +4,9 @@ import './CountryRender.css'
 const CountryTemplate = ({country}) => {
 
     if (country){
-        // country = JSON.parse(country)
+
         return (
             <div className="country-container">
-                {/* <h2>{country.name}</h2> */}
                 <div className="detail-box">
                     <h3>Country Details</h3>
                     <p><span className='detail-title'>Capital:</span> {country.capital}</p>
@@ -18,7 +17,7 @@ const CountryTemplate = ({country}) => {
                     <p><span className='detail-title'>Imports:</span> {country.imports}</p>
                     <p><span className='detail-title'>Exports:</span> {country.exports}</p>
                 </div>
-                <div className='content-box'>{country.content}</div>
+                <div className='content-box' id='content-box' dangerouslySetInnerHTML={{__html: country.content}}></div>
             </div>
 
         )

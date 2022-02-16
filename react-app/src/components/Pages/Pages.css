@@ -4,8 +4,14 @@
 }
 
 .page-form {
-    margin-top: 50px;
-    margin-left: 50px;
+    /* margin-top: 50px;
+    margin-left: 50px; */
+    /* margin-right: 150px;
+    width: 550px; */
+    padding-left: 50px;
+    padding-right: 50px;
+    max-height: 1000px;
+    overflow: scroll;
 }
 
 
@@ -14,8 +20,12 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-left: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
     margin-top: 50px;
+    max-height: 1000px;
+    overflow: scroll;
+    position: relative;
 }
 
 .page-header {
@@ -36,4 +46,57 @@
 .template-button:hover {
     border: 1px solid black;
     cursor: pointer;
+}
+.page-image {
+    min-height: 200px;
+    max-height: 200px;
+    width: 800px;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    border-radius: 3px;
+}
+.page-image img {
+    height: 100;
+    width: 800px;
+}
+
+.page-icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position:absolute;
+    /* right: 350px; */
+    left: 20px;
+    top: 120px;
+    z-index: 100;
+    background-color: grey;
+    overflow: hidden;
+}
+
+.page-icon img {
+    height: 100px;
+    width: 100px;
+
+
+}
+
+
+
+.new-page-button {
+    margin: 10px;
+}
+
+.page-container {
+    overflow: scroll;
+}
+
+
+.quill {
+    width: 400px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.quilltainer {
+
 }
