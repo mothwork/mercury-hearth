@@ -68,7 +68,7 @@ export const deleteCard = (cardToDelete) => async (dispatch) => {
 
 export const editCard = (cardToEdit) => async (dispatch) => {
     const cardId = cardToEdit.id
-    const pageId = cardToEdit.pafgeId
+    const pageId = cardToEdit.pageId
 
     const response = await fetch(`/api/pages/${pageId}/${cardId}`, {
         method: 'PUT',

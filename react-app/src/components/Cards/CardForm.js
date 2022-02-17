@@ -54,8 +54,8 @@ const CardForm = ({ modalSetter }) => {
             await res.json();
             setImageLoading(false);
             modalSetter()
-            dispatch(getCards())
-            // history.push(`/pages/${projectId}/${pageId}`);
+            await dispatch(getCards(pageId))
+
         }
         else {
             setImageLoading(false);

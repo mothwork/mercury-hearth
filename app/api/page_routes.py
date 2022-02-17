@@ -106,10 +106,12 @@ def edit_card(page_id, card_id):
 
 @page_routes.route('/<int:page_id>/<int:cardId>', methods=['DELETE'])
 @login_required
-def delete_card(page_id, card_id):
+def delete_card(page_id, cardId):
     if current_user.is_authenticated:
-        card = Card.query.filter(Card.id == card_id).first()
+        card = Card.query.filter(Card.id == cardId).first()
+        print(card)
         user = current_user.to_dict()
+        print(user)
         if user['id'] == card.userId:
             db.session.delete(card)
             db.session.commit()
