@@ -14,7 +14,7 @@ const InsideProject = () => {
     const history = useHistory()
     const { projectId } = useParams()
     const id = parseInt(projectId)
-    dispatch(getProjects())
+    
     const projectsContainer = useSelector(state => state.project)
     const projects = projectsContainer?.projects
     const project = projects?.[1]
@@ -31,7 +31,7 @@ const InsideProject = () => {
         dispatch(getProjects())
     }, [dispatch])
 
-    
+
     if (project) {
         return (
             <>

@@ -1,6 +1,8 @@
 .new-page-container {
     display: flex;
     flex-direction: row;
+
+
 }
 
 .page-form {
@@ -8,10 +10,22 @@
     margin-left: 50px; */
     /* margin-right: 150px;
     width: 550px; */
+    padding-top: 50px;
     padding-left: 50px;
     padding-right: 50px;
     max-height: 1000px;
     overflow: scroll;
+
+}
+
+input::placeholder {
+    padding-left: 10px;
+}
+
+textarea::placeholder {
+        padding-top: 5px;
+        padding-left: 10px;
+
 }
 
 
@@ -54,6 +68,8 @@
     /* border: 1px solid black; */
     overflow: hidden;
     border-radius: 3px;
+    margin-bottom: 20px;
+
 }
 .page-image img {
     height: 100;
@@ -66,8 +82,8 @@
     border-radius: 50%;
     position:absolute;
     /* right: 350px; */
-    left: 20px;
-    top: 120px;
+    left: 75px;
+    top: 130px;
     z-index: 100;
     background-color: grey;
     overflow: hidden;
@@ -76,7 +92,6 @@
 .page-icon img {
     height: 100px;
     width: 100px;
-
 
 }
 
@@ -92,11 +107,24 @@
 
 
 .quill {
-    width: 400px;
+    width: auto;
     height: auto;
     margin-bottom: 10px;
+    overflow: visible;
+}
+
+.quill * {
+    overflow: visible;
+}
+
+.ql-tooltip .ql-editing {
+    z-index: 100;
 }
 
 .quilltainer {
+    overflow: visible;
+}
 
+button.ql-link, button.ql-clean  {
+    visibility: hidden;
 }

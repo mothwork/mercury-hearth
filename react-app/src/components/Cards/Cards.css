@@ -1,7 +1,8 @@
 .card-view-container {
-    margin-top: 5px;
+
     max-height: auto;
     max-width: auto;
+    min-height: 1000px;
     /* min-height: 100%; */
     overflow: scroll;
     background-color:rgb(46, 46, 46);
@@ -13,6 +14,7 @@
     grid-auto-rows: 300px;
     grid-auto-flow: row;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .card-container {
@@ -28,17 +30,20 @@
 .card-container img {
     width: 300px;
     height: 300px;
+    border-radius: 10px;
 }
 
 .card-container:hover {
-    max-width: 600px;
+
+    width: 300px;
     height: 500px;
     display: flex;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     flex-direction: column;
     color: black;
     /* overflow: visible; */
+
     z-index: 100;
     overflow: scroll;
     border-radius: 10px;

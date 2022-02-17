@@ -21,7 +21,7 @@ const Cards = () => {
 
     const handleClick = (e) => {
         e.preventDefault()
-        
+
     }
 
     console.log('CARDS CARDS CARDS', cards)
@@ -36,7 +36,6 @@ const Cards = () => {
                     <CardModal/>
                 </div>
                 <div className='card-view-container'>
-
                     {cards.map(card => {
                         return (
                             <div key={card.id} className='card-container' onClick={handleClick} >

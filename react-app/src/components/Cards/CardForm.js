@@ -12,10 +12,11 @@ const CardForm = ({ modalSetter }) => {
     const [description, setDescription] = useState('')
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    const [disableButton, setDisableButton] = useState(false)
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
-    const { pageId } = useParams()
+    const { pageId, projectId } = useParams()
     const id = parseInt(pageId)
 
     useEffect(() => {
@@ -44,7 +45,7 @@ const CardForm = ({ modalSetter }) => {
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
-
+        setDisableButton(true)
         const res = await fetch(`/api/pages/${id}`, {
             method: "POST",
             body: formData,
@@ -53,7 +54,8 @@ const CardForm = ({ modalSetter }) => {
             await res.json();
             setImageLoading(false);
             modalSetter()
-            history.push("/projects");
+            dispatch(getCards())
+            // history.push(`/pages/${projectId}/${pageId}`);
         }
         else {
             setImageLoading(false);
@@ -113,7 +115,7 @@ const CardForm = ({ modalSetter }) => {
                     rows={10}
                 ></textarea>
 
-                <button className='project-button'>Create Card</button>
+                <button disabled={disableButton} className='project-button'>Create Card</button>
             </form>
         </>
     )
