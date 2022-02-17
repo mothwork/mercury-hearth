@@ -72,7 +72,7 @@ function App() {
           <EditPageForm/>
           </div>
         </ProtectedRoute>
-        <ProtectedRoute path='/pages/:pageId' exact={true}>
+        <ProtectedRoute path='/pages/:projectId/:pageId' exact={true}>
           <Cards/>
         </ProtectedRoute>
       </Switch>

@@ -68,7 +68,7 @@ const PageView = () => {
                                 <button className='option-button'>Edit</button>
                             </NavLink>
                             <button className='option-button' onClick={handleDelete}>Delete</button>
-                            <NavLink to={`/pages/${pageId}`}>
+                            <NavLink to={`/pages/${projectId}/${pageId}`}>
                                 <button className='option-button'>Card View</button>
                             </NavLink>
                         </div>
