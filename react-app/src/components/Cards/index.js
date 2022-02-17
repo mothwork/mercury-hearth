@@ -19,6 +19,11 @@ const Cards = () => {
         dispatch(getCards(pageId))
     }, [dispatch, pageId])
 
+    const handleClick = (e) => {
+        e.preventDefault()
+        
+    }
+
     console.log('CARDS CARDS CARDS', cards)
 
     if (cards) {
@@ -34,8 +39,12 @@ const Cards = () => {
 
                     {cards.map(card => {
                         return (
-                            <div key={card.id} className='card-container' >
-                                <img alt={card.title} src={card.imageUrl} />
+                            <div key={card.id} className='card-container' onClick={handleClick} >
+                                <img className='card-image' alt={card.title} src={card.imageUrl} />
+                                <div className='options'>
+                                    <button className='option-button'>Edit</button>
+                                    <button className='option-button'>Delete</button>
+                                </div>
                                 <div className='card-description'>
                                     <h3>{card.title}</h3>
                                     <p>{card.description}</p>
