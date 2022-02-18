@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import projectReducer from './project';
 import pageReducer from './page';
+import cardReducer from './card';
 
 const rootReducer = combineReducers({
   session,
   project: projectReducer,
-  pages: pageReducer
+  pages: pageReducer,
+  cards: cardReducer
 });
 
 

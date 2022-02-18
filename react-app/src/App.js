@@ -10,7 +10,9 @@ import InsideProject from './components/InsideProject'
 import PageForm from './components/Pages/PageForm';
 import PageView from './components/Pages/PageView'
 import EditPageForm from './components/Pages/EditPageForm';
+import Cards from './components/Cards';
 import InsideSplash from './components/InsideSplash';
+import UploadPicture from './components/UploadPicture';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +39,8 @@ function App() {
           <Splash/>
           </div>
         </Route>
+
+
 
         <ProtectedRoute path='/projects' exact={true} >
           <div className='inside-splash-page-container'>
@@ -67,6 +71,9 @@ function App() {
           <InsideProject/>
           <EditPageForm/>
           </div>
+        </ProtectedRoute>
+        <ProtectedRoute path='/pages/:projectId/:pageId' exact={true}>
+          <Cards/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
