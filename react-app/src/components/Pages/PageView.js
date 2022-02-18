@@ -45,10 +45,18 @@ const PageView = () => {
         else return 'https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80'
     }
 
+    const generateIcon = (obj) => {
+        const type = Object.pageType;
+        if (type === 'country') {
+        }
+        return 'https://i.imgur.com/2UGR9i7.png'
+    }
+
     if (page) {
         const pageContent = JSON.parse(page.content);
         console.log(pageContent)
         const image = generateImage(pageContent)
+        const icon = generateIcon(pageContent)
 
 
         return (
@@ -58,19 +66,21 @@ const PageView = () => {
                             <img alt='' src={image}></img>
                         </div>
                         <div className='page-icon'>
-                            <img alt='' src='https://i.imgur.com/u86SbyS.png'></img>
+                            {/* <img alt='' src={icon}></img> */}
                         </div>
                     <div className='page-header'>
 
                         <h1>{page.title}</h1>
                         <div className='option-container'>
+                            <NavLink to={`/pages/${projectId}/${pageId}`}>
+                                <button className='card-button'>Card View</button>
+                            </NavLink>
+                            <div>
                             <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
                                 <button className='option-button'>Edit</button>
                             </NavLink>
                             <button className='option-button' onClick={handleDelete}>Delete</button>
-                            <NavLink to={`/pages/${projectId}/${pageId}`}>
-                                <button className='option-button'>Card View</button>
-                            </NavLink>
+                            </div>
                         </div>
                         <TemplateEngine page={page} />
                     </div>

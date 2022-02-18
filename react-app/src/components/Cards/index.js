@@ -40,7 +40,7 @@ const Cards = () => {
 
 
 
-    if (cards) {
+    if (cards && cards.length > 0) {
         return (
             <>
                 <div className='card-header'>
@@ -71,7 +71,25 @@ const Cards = () => {
         )
     }
     return (
-        'No cards?'
+        <>
+        <div className='card-header'>
+                    <NavLink to={`/projects/${projectId}/${pageId}`}>
+                    <button className='project-button'>Back</button>
+                    </NavLink>
+                    <CardModal/>
+                </div>
+                <div className='card-view-container'>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                    <div className='card-placeholder'></div>
+                </div>
+                </>
     )
 }
 

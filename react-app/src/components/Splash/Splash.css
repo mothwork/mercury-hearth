@@ -6,11 +6,16 @@
     display: flex;
     flex-direction: row;
 
+
+}
+
+.splash-header {
+    padding-left:20px;
 }
 
 .splash-header img {
     max-width: 1000px;
-    
+
     /* height: 100%; */
     border-radius: 5px;
 }

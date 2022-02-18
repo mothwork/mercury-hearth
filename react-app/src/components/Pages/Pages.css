@@ -85,13 +85,21 @@ textarea::placeholder {
     left: 75px;
     top: 130px;
     z-index: 100;
-    background-color: grey;
-    overflow: hidden;
+    background-color: white;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(217deg, rgba(171, 27, 184, 0.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(127deg, rgba(106, 0, 255, 0.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(336deg, rgba(0, 187, 255, 0.8), rgba(0,0,255,0) 70.71%),
+                white;
+
 }
 
 .page-icon img {
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
 
 }
 
@@ -127,4 +135,26 @@ textarea::placeholder {
 
 button.ql-link, button.ql-clean  {
     visibility: hidden;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-button {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px
+}
+
+.card-button:hover {
+
+    background-color: white;
+    border: 1px solid black;
+    color: green;
+    cursor: pointer;
 }
