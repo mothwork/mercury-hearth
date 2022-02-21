@@ -10,16 +10,21 @@ Mercury Hearth is a application that helps with the creative process of worldbui
 ![Flask](https://img.shields.io/badge/-Flask-black?logo=flask)
 ![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-black?logo=sqlalchemy)
 ![PostgreSQL](https://img.shields.io/badge/-PostgeSQL-black?logo=postgresql)
+![AmazonS3](https://img.shields.io/badge/-Amazon%20S3-black?logo=amazons3)
 
 ## Screenshots
 ### Splash
 ![Splash](https://user-images.githubusercontent.com/59124348/152610830-13ef8fc4-9d75-4b50-b044-7a072b67fd56.png)
 ### Inside Project View
-![Inside Project](https://user-images.githubusercontent.com/59124348/153924319-7371c3fe-a3c2-4741-ac3b-dd0d85bf66cd.png)
-
+![Inside Project](https://user-images.githubusercontent.com/59124348/154995118-90cce7aa-d24c-4d19-9ead-f26d24e00ab7.png)
+### Card View
+![Card View](https://user-images.githubusercontent.com/59124348/154995626-f9d23970-9613-4020-9646-bc76aacac33e.png)
 
 ## Overview
-Mercury Hearth is an application that allows users to create projects, and within those projects pages. Pages can be constructed of templates- as of right now the following templates are availible:
+Mercury Hearth is an application that allows users to create projects, and within those projects pages.
+
+### Pages
+Pages can be constructed of templates- as of right now the following templates are availible:
 
 * Continents
 * Countries
@@ -27,6 +32,9 @@ Mercury Hearth is an application that allows users to create projects, and withi
 * People
 
 Each of these have fields which are relevant to the type of page- for example a Continent template has field for all the countries that are located on it, while a Country template has a field for its capital. More templates are planned from Galaxy down to Object.
+
+### Card View
+Each page also has Card View- this card view acts as a moodboard for the specific page. Users can upload pictures and provide a title and description. This feature is meant to help the user with the creative process, either by establishing the mood fo the page, or uploading art created for the the project. 
 
 ## Information
 * [Feature List](https://github.com/mothwork/mercury-hearth/wiki/Features)
