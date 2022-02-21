@@ -50,6 +50,7 @@ const SignUpForm = () => {
 
   return (
     <form className='auth-form' onSubmit={onSignUp}>
+      <h2>Sign Up</h2>
       <div className='error-box'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -97,7 +98,7 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+          // required={true}
         ></input>
       </div>
       <button className='option-button' type='submit'>Sign Up</button>
