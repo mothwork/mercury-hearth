@@ -14,7 +14,7 @@ Mercury Hearth is a application that helps with the creative process of worldbui
 
 ## Screenshots
 ### Splash
-![Splash](https://user-images.githubusercontent.com/59124348/152610830-13ef8fc4-9d75-4b50-b044-7a072b67fd56.png)
+![Splash](https://user-images.githubusercontent.com/59124348/154997849-25628fb2-66c8-49b0-98fd-3333c3ba1788.png)
 ### Inside Project View
 ![Inside Project](https://user-images.githubusercontent.com/59124348/154995118-90cce7aa-d24c-4d19-9ead-f26d24e00ab7.png)
 ### Card View
@@ -31,10 +31,10 @@ Pages can be constructed of templates- as of right now the following templates a
 * Cities
 * People
 
-Each of these have fields which are relevant to the type of page- for example a Continent template has field for all the countries that are located on it, while a Country template has a field for its capital. More templates are planned from Galaxy down to Object.
+Each of these have fields which are relevant to the type of page- for example a Continent template has field for all the countries that are located on it, while a Country template has a field for its capital. Each page has a main content field where the user can type in rich text- the formatting is retained when the user views the page.
 
 ### Card View
-Each page also has Card View- this card view acts as a moodboard for the specific page. Users can upload pictures and provide a title and description. This feature is meant to help the user with the creative process, either by establishing the mood fo the page, or uploading art created for the the project. 
+Each page also has Card View- this card view acts as a moodboard for the specific page. Users can upload pictures and provide a title and description. This feature is meant to help the user with the creative process, either by establishing the mood fo the page, or uploading art created for the the project.
 
 ## Information
 * [Feature List](https://github.com/mothwork/mercury-hearth/wiki/Features)
