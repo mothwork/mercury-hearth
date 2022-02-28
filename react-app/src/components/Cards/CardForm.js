@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
-import { createProject } from '../../store/project';
-import { getProjects } from '../../store/project';
+
 import { getCards } from '../../store/card';
 import { useParams } from 'react-router-dom';
 
@@ -15,8 +13,8 @@ const CardForm = ({ modalSetter }) => {
     const [disableButton, setDisableButton] = useState(false)
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch()
-    const history = useHistory()
-    const { pageId, projectId } = useParams()
+
+    const { pageId } = useParams()
     const id = parseInt(pageId)
 
     useEffect(() => {
@@ -39,9 +37,7 @@ const CardForm = ({ modalSetter }) => {
         formData.set('userId', userId)
 
 
-        for (const key of formData.entries()) {
-            console.log(key[0], key[1])
-        }
+
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
@@ -61,7 +57,7 @@ const CardForm = ({ modalSetter }) => {
             setImageLoading(false);
             // a real app would probably use more advanced
             // error handling
-            console.log("error");
+
         }
     }
 
