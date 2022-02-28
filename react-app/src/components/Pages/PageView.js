@@ -45,18 +45,13 @@ const PageView = () => {
         else return 'https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80'
     }
 
-    const generateIcon = (obj) => {
-        const type = Object.pageType;
-        if (type === 'country') {
-        }
-        return 'https://i.imgur.com/2UGR9i7.png'
-    }
+    
 
     if (page) {
         const pageContent = JSON.parse(page.content);
-        console.log(pageContent)
+
         const image = generateImage(pageContent)
-        const icon = generateIcon(pageContent)
+
 
 
         return (
@@ -73,7 +68,7 @@ const PageView = () => {
                         <h1>{page.title}</h1>
                         <div className='option-container'>
                             <NavLink to={`/pages/${projectId}/${pageId}`}>
-                                <button className='card-button'>Card View</button>
+                                <button className='card-button'>Mood Board</button>
                             </NavLink>
                             <div>
                             <NavLink to={`/projects/${projectId}/${pageId}/edit`}>

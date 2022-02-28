@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+
 import { getCards} from '../../store/card';
 import { editCard } from '../../store/card';
 import { useParams } from 'react-router-dom';
@@ -12,12 +12,12 @@ const CardForm = ({ modalSetter, card }) => {
     // const [image, setImage] = useState(card.imageUrl);
     // const [imageLoading, setImageLoading] = useState(false);
     // const [disableButton, setDisableButton] = useState(false)
-    const user = useSelector(state => state.session.user);
+
     const dispatch = useDispatch()
     // const history = useHistory()
     let { pageId } = useParams()
     const id = card.id
-    console.log(id)
+
     pageId = parseInt(pageId)
 
 
@@ -29,8 +29,8 @@ const CardForm = ({ modalSetter, card }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('HUH INSIDED')
-        const userId = user.id
+
+
         if (!title.length) {
             setErrors(['Project Title Required'])
             return null

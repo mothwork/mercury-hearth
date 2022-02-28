@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink, useHistory, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { deleteCard, getCards } from '../../store/card';
 import { getProjects } from '../../store/project';
 import './Cards.css'
@@ -24,10 +24,10 @@ const Cards = () => {
     const handleDelete = async (e) => {
         e.preventDefault()
         const confirmed = window.confirm('This card will be permanently deleted. Are you sure?')
-        console.log(e.target)
+
         const id = parseInt(e.target.title)
         const card = cardObj[id]
-        console.log(card)
+
         if (card && confirmed) {
             await dispatch(deleteCard(cardObj[id]))
             await dispatch(getCards(pageId))

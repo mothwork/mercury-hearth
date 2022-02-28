@@ -24,7 +24,7 @@ const Project = () => {
         return state.project.projectArray
     })
 
-    console.log("______Projects",projects)
+    
 
     if (!user) {
         return <Redirect to='/' />
