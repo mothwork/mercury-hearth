@@ -9,7 +9,7 @@ const RegionTemplate = ({region}) => {
             <div className="country-container">
                 <div className="detail-box">
                     <h3>Region Details</h3>
-                    <p><span className='detail-title'>Location:</span> {region.capital}</p>
+                    <p><span className='detail-title'>Location:</span> {region.location}</p>
                     <p><span className='detail-title'>Geography Types:</span> {region.geoType}</p>
                     <p><span className='detail-title'>Weather:</span> {region.weather}</p>
                     <p><span className='detail-title'>Civilization Types:</span> {region.civType}</p>
