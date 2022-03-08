@@ -105,7 +105,7 @@ const RegionForm = () => {
             <input hidden name='pageType' value={pageType}></input>
             {/* <label>Country Details:</label> */}
             <input
-                placeholder='Country Name'
+                placeholder='Region Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -119,7 +119,7 @@ const RegionForm = () => {
                 type='text'
                 name='Location'
                 onChange={updateLocation}
-                value={Location}
+                value={location}
                 autoComplete='off'
             ></input>
             {/* <label>Region:</label> */}
