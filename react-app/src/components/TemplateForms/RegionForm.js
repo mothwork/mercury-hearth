@@ -133,47 +133,47 @@ const RegionForm = () => {
             ></input>
             {/* <label>Government Type:</label> */}
             <input
-                placeholder='Government Type'
+                placeholder='Weather'
                 type='text'
-                name='governtment'
-                onChange={updateGovernment}
-                value={government}
+                name='weather'
+                onChange={updateWeather}
+                value={weather}
                 autoComplete='off'
             ></input>
             {/* <label>Population:</label> */}
             <input
-                placeholder='Population'
+                placeholder='Civilization Types'
                 type='text'
-                name='population'
-                onChange={updatePopulation}
-                value={population}
+                name='civTypes'
+                onChange={updateCivType}
+                value={civType}
                 autoComplete='off'
             ></input>
             {/* <label>Religions:</label> */}
             <input
-                placeholder='Religions'
+                placeholder='Travel Safety'
                 type='text'
-                name='religions'
-                onChange={updateReligions}
-                value={religions}
+                name='travelSafety'
+                onChange={updateTravelSafety}
+                value={travelSafety}
                 autoComplete='off'
             ></input>
             {/* <label>Imports:</label> */}
             <input
-                placeholder='Imports'
+                placeholder='Government'
                 type='text'
                 name='imports'
-                onChange={updateImports}
-                value={imports}
+                onChange={updateGovernment}
+                value={government}
                 autoComplete='off'
             ></input>
             {/* <label>Exports:</label> */}
             <input
-                placeholder='Exports'
+                placeholder='Population Centers'
                 type='text'
-                name='exports'
-                onChange={updateExports}
-                value={exports}
+                name='popCenters'
+                onChange={updatePopCenters}
+                value={popCenters}
                 autoComplete='off'
             ></input>
             <label>Main Content</label>
