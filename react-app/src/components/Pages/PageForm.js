@@ -6,6 +6,7 @@ import CountryForm from '../TemplateForms/CountryForm'
 import PersonForm from '../TemplateForms/PersonForm';
 import CityForm from '../TemplateForms/CityForm';
 import ContinentForm from '../TemplateForms/ContinentForm';
+import RegionForm from '../TemplateForms/RegionForm';
 
 
 const PageForm = () => {
@@ -18,7 +19,8 @@ const PageForm = () => {
     const [showCountryForm, setShowCountryForm] = useState(false)
     const [showPersonForm, setShowPersonForm] = useState(false)
     const [showCityForm, setShowCityForm] = useState(false)
-    const [showContinentForm, setShowContinentForm] = useState('')
+    const [showContinentForm, setShowContinentForm] = useState(false)
+    const [showRegionForm, setShowRegionForm] = useState(false)
     const [label, setLabel] = useState('Page')
 
     useEffect(() => {
@@ -59,6 +61,15 @@ const PageForm = () => {
         setShowCityForm(false)
     }
 
+    const handleRegionClick = () => {
+        setShowRegionForm(!showRegionForm)
+        setLabel('Region')
+        setShowContinentForm(false)
+        setShowPersonForm(false)
+        setShowCountryForm(false)
+        setShowCityForm(false)
+    }
+
 
     return (
         <>
@@ -68,10 +79,12 @@ const PageForm = () => {
             <button value='country' className='template-button' onClick={handleCountryClick}>New Country</button>
             <button value='city' className='template-button' onClick={handleCityClick}>New City</button>
             <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
+            <button value='region' className='template-button' onClick={handleRegionClick}>New Region</button>
             {showCountryForm && (<CountryForm/>)}
             {showPersonForm && (<PersonForm/>)}
             {showCityForm && (<CityForm/>)}
             {showContinentForm && (<ContinentForm/>)}
+            {showRegionForm && (<RegionForm/>)}
             </div>
         </>
     )

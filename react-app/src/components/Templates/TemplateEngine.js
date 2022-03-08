@@ -2,6 +2,7 @@ import CountryTemplate from "./CountryTemplateRender"
 import PersonTemplateRender from './PersonTemplateRender'
 import CityTemplateRender from './CityTemplateRender'
 import ContinentTemplateRender from './ContinentTemplateRender'
+import RegionTemplate from "./RegionTemplateRender"
 
 const TemplateEngine = ({page}) => {
 
@@ -16,8 +17,8 @@ const TemplateEngine = ({page}) => {
             return (<PersonTemplateRender person={pageObj}/>)
         case 'city':
             return (<CityTemplateRender city={pageObj}/>)
-        // case 'region':
-
+        case 'region':
+            return (<RegionTemplate region={pageObj}/>)
         case 'continent':
             return (<ContinentTemplateRender continent={pageObj}/>)
     }
