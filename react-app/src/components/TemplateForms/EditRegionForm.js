@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createPage } from '../../store/page';
+// import { createPage } from '../../store/page';
+import { editPage, getPages } from '../../store/page';
 import { useParams } from 'react-router-dom';
 import './CountryForm.css'
 import ReactQuill from 'react-quill';
@@ -16,6 +17,7 @@ const EditRegionForm = ({region, page}) => {
     let { projectId } = useParams()
     const userId = user.id
     projectId = parseInt(projectId)
+    
     const [errors, setErrors] = useState([])
     const [title, setTitle] = useState(page.title)
     const [location, setLocation] = useState(region.location)
@@ -28,7 +30,7 @@ const EditRegionForm = ({region, page}) => {
     const [content, setContent] = useState(region.content)
 
     const pageType = 'region'
-
+    const id = page.id
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -48,13 +50,15 @@ const EditRegionForm = ({region, page}) => {
             content
         }
         const page = {
+            id,
             title,
             userId,
             projectId,
         }
         page.content = JSON.stringify(pageContent)
-        const newPage = await dispatch(createPage(page))
-        history.push(`/projects/${newPage.projectId}/${newPage.id}`)
+        const editedPage = await dispatch(editPage(page))
+        await dispatch(getPages(projectId))
+        history.push(`/projects/${editedPage.projectId}/${editedPage.id}`)
 
     }
 
@@ -103,9 +107,9 @@ const EditRegionForm = ({region, page}) => {
                 ))}
             </div>
             <input hidden name='pageType' value={pageType}></input>
-            {/* <label>Country Details:</label> */}
+            <label>Region Name:</label>
             <input
-                placeholder='Country Name'
+                placeholder='Region Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -113,7 +117,7 @@ const EditRegionForm = ({region, page}) => {
                 required
                 autoComplete='off'
             ></input>
-            {/* <label>Location:</label> */}
+            <label>Location:</label>
             <input
                 placeholder='Location'
                 type='text'
@@ -122,7 +126,7 @@ const EditRegionForm = ({region, page}) => {
                 value={location}
                 autoComplete='off'
             ></input>
-            {/* <label>Region:</label> */}
+            <label>Geography Types:</label>
             <input
                 placeholder='Geography Types'
                 type='text'
@@ -131,7 +135,7 @@ const EditRegionForm = ({region, page}) => {
                 value={geoType}
                 autoComplete='off'
             ></input>
-            {/* <label>Government Type:</label> */}
+            <label>Weather:</label>
             <input
                 placeholder='Weather'
                 type='text'
@@ -140,7 +144,7 @@ const EditRegionForm = ({region, page}) => {
                 value={weather}
                 autoComplete='off'
             ></input>
-            {/* <label>Population:</label> */}
+            <label>Civilization Types:</label>
             <input
                 placeholder='Civilization Types'
                 type='text'
@@ -149,7 +153,7 @@ const EditRegionForm = ({region, page}) => {
                 value={civType}
                 autoComplete='off'
             ></input>
-            {/* <label>Religions:</label> */}
+            <label>Travel Safety:</label>
             <input
                 placeholder='Travel Safety'
                 type='text'
@@ -158,7 +162,7 @@ const EditRegionForm = ({region, page}) => {
                 value={travelSafety}
                 autoComplete='off'
             ></input>
-            {/* <label>Imports:</label> */}
+            <label>Government:</label>
             <input
                 placeholder='Government'
                 type='text'
@@ -167,7 +171,7 @@ const EditRegionForm = ({region, page}) => {
                 value={government}
                 autoComplete='off'
             ></input>
-            {/* <label>Exports:</label> */}
+            <label>Population Centers:</label>
             <input
                 placeholder='Population Centers'
                 type='text'
@@ -181,7 +185,7 @@ const EditRegionForm = ({region, page}) => {
             <ReactQuill theme='snow' value={content} onChange={setContent}/>
             </div>
 
-            <button className='template-button' type="submit" onClick={handleSubmit}>Create Region</button>
+            <button className='template-button' type="submit" onClick={handleSubmit}>Edit Region</button>
         </form>
     )
 }
