@@ -117,9 +117,9 @@ const EditRegionForm = ({region, page}) => {
             <input
                 placeholder='Location'
                 type='text'
-                name='Location'
+                name='location'
                 onChange={updateLocation}
-                value={Location}
+                value={location}
                 autoComplete='off'
             ></input>
             {/* <label>Region:</label> */}
