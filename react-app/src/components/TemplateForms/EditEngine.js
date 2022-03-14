@@ -22,6 +22,7 @@ const EditEngine = ({page}) => {
             return (<EditRegionForm region={pageObj} page={page}/>)
         case 'continent':
             return (<EditContinentForm continent={pageObj} page={page}/>)
+        
     }
 }
 

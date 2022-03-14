@@ -7,6 +7,7 @@ import PersonForm from '../TemplateForms/PersonForm';
 import CityForm from '../TemplateForms/CityForm';
 import ContinentForm from '../TemplateForms/ContinentForm';
 import RegionForm from '../TemplateForms/RegionForm';
+import ObjectForm from '../TemplateForms/ObjectForm';
 
 
 const PageForm = () => {
@@ -21,6 +22,7 @@ const PageForm = () => {
     const [showCityForm, setShowCityForm] = useState(false)
     const [showContinentForm, setShowContinentForm] = useState(false)
     const [showRegionForm, setShowRegionForm] = useState(false)
+    const [showObjectForm, setShowObjectForm] = useState(false)
     const [label, setLabel] = useState('Page')
 
     useEffect(() => {
@@ -70,21 +72,33 @@ const PageForm = () => {
         setShowCityForm(false)
     }
 
+    const handleObjectClick = () => {
+        setShowObjectForm(!showObjectForm)
+        setLabel('Object')
+        setShowRegionForm(false)
+        setShowContinentForm(false)
+        setShowPersonForm(false)
+        setShowCountryForm(false)
+        setShowCityForm(false)
+    }
+
 
     return (
         <>
             <div className='page-form'>
             <h2 className='modal-label'>{`New ${label}`}</h2>
             <button value='continent'className='template-button' onClick={handleContinentClick}>New Continent</button>
+            <button value='region' className='template-button' onClick={handleRegionClick}>New Region</button>
             <button value='country' className='template-button' onClick={handleCountryClick}>New Country</button>
             <button value='city' className='template-button' onClick={handleCityClick}>New City</button>
             <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
-            <button value='region' className='template-button' onClick={handleRegionClick}>New Region</button>
+            <button value='object' className='template-button' onClick={handleObjectClick}>New Object</button>
             {showCountryForm && (<CountryForm/>)}
             {showPersonForm && (<PersonForm/>)}
             {showCityForm && (<CityForm/>)}
             {showContinentForm && (<ContinentForm/>)}
             {showRegionForm && (<RegionForm/>)}
+            {showObjectForm && (<ObjectForm/>)}
             </div>
         </>
     )
