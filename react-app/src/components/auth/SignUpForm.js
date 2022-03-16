@@ -16,11 +16,14 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-
+    setErrors([])
+    if (!(email.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))){
+      setErrors(['Please enter a valid email'])
+    }
     if (password !== repeatPassword){
       setErrors(['Passwords must match'])
     }
-    if (password === repeatPassword) {
+    if (password === repeatPassword && errors.length === 0) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
