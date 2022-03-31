@@ -33,8 +33,8 @@ Pages can be constructed of templates- as of right now the following templates a
 
 Each of these have fields which are relevant to the type of page- for example a Continent template has field for all the countries that are located on it, while a Country template has a field for its capital. Each page has a main content field where the user can type in rich text- the formatting is retained when the user views the page.
 
-### Card View
-Each page also has Card View- this card view acts as a moodboard for the specific page. Users can upload pictures and provide a title and description. This feature is meant to help the user with the creative process, either by establishing the mood fo the page, or uploading art created for the the project.
+### Mood Board View
+Each page also has Mood Board View- this card view acts as a moodboard for the specific page. Users can upload pictures and provide a title and description. This feature is meant to help the user with the creative process, either by establishing the mood fo the page, or uploading art created for the the project.
 
 ## Information
 * [Feature List](https://github.com/mothwork/mercury-hearth/wiki/Features)
