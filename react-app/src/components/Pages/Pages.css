@@ -10,7 +10,8 @@
     margin-left: 50px; */
     /* margin-right: 150px;
     width: 550px; */
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 50px;
     padding-left: 50px;
     padding-right: 50px;
@@ -34,7 +35,8 @@ textarea::placeholder {
 
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 50px;

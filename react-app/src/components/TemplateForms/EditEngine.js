@@ -1,10 +1,10 @@
-import EditCountryForm from './EditCountryForm'
+// import EditCountryForm from './EditCountryForm'
 import EditPersonForm from './EditPersonForm'
 import EditCityForm from './EditCityForm'
 import EditContinentForm from './EditContinentForm'
 import EditRegionForm from './EditRegionForm'
 import EditObjectForm from './EditObjectForm'
-
+import CountryForm from './CountryFormRefactor'
 
 const EditEngine = ({page}) => {
 
@@ -14,7 +14,7 @@ const EditEngine = ({page}) => {
         default:
             return 'Hitting default'
         case 'country':
-            return (<EditCountryForm country={pageObj} page={page}/>)
+            return (<CountryForm country={pageObj} page={page} action='Edit'/>)
         case 'person':
             return (<EditPersonForm person={pageObj} page={page}/>)
         case 'city':

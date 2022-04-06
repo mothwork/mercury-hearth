@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { getPages } from '../../store/page';
 import { useParams } from 'react-router-dom'
-import CountryForm from '../TemplateForms/CountryForm'
+// import CountryForm from '../TemplateForms/CountryForm'
+import CountryForm from '../TemplateForms/CountryFormRefactor';
 import PersonForm from '../TemplateForms/PersonForm';
 import CityForm from '../TemplateForms/CityForm';
 import ContinentForm from '../TemplateForms/ContinentForm';
@@ -93,7 +94,7 @@ const PageForm = () => {
             <button value='city' className='template-button' onClick={handleCityClick}>New City</button>
             <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
             <button value='object' className='template-button' onClick={handleObjectClick}>New Object</button>
-            {showCountryForm && (<CountryForm/>)}
+            {showCountryForm && (<CountryForm page={null} country={null} action='New'/>)}
             {showPersonForm && (<PersonForm/>)}
             {showCityForm && (<CityForm/>)}
             {showContinentForm && (<ContinentForm/>)}
