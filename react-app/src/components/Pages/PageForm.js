@@ -35,9 +35,11 @@ const PageForm = () => {
     const handleCountryClick = ()=> {
         setShowCountryForm(!showCountryForm)
         setLabel('Country')
+        setShowRegionForm(false)
         setShowPersonForm(false)
         setShowCityForm(false)
         setShowContinentForm(false)
+        setShowObjectForm(false)
     }
 
     const handlePersonClick = ()=> {
@@ -46,6 +48,8 @@ const PageForm = () => {
         setShowCountryForm(false)
         setShowCityForm(false)
         setShowContinentForm(false)
+        setShowRegionForm(false)
+        setShowObjectForm(false)
     }
 
     const handleCityClick = ()=> {
@@ -54,14 +58,20 @@ const PageForm = () => {
         setShowCountryForm(false)
         setShowPersonForm(false)
         setShowContinentForm(false)
+        setShowRegionForm(false)
+        setShowObjectForm(false)
+
     }
 
     const handleContinentClick = () => {
         setShowContinentForm(!showContinentForm)
         setLabel('Continent')
+        setShowRegionForm(false)
         setShowPersonForm(false)
         setShowCountryForm(false)
         setShowCityForm(false)
+        setShowObjectForm(false)
+        setShowObjectForm(false)
     }
 
     const handleRegionClick = () => {
@@ -71,6 +81,7 @@ const PageForm = () => {
         setShowPersonForm(false)
         setShowCountryForm(false)
         setShowCityForm(false)
+        setShowObjectForm(false)
     }
 
     const handleObjectClick = () => {
