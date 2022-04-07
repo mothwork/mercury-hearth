@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { getPages } from '../../store/page';
 import { useParams } from 'react-router-dom'
-import CountryForm from '../TemplateForms/CountryForm'
+// import CountryForm from '../TemplateForms/CountryForm'
+import CountryForm from '../TemplateForms/CountryFormRefactor';
 import PersonForm from '../TemplateForms/PersonForm';
 import CityForm from '../TemplateForms/CityForm';
 import ContinentForm from '../TemplateForms/ContinentForm';
@@ -34,9 +35,11 @@ const PageForm = () => {
     const handleCountryClick = ()=> {
         setShowCountryForm(!showCountryForm)
         setLabel('Country')
+        setShowRegionForm(false)
         setShowPersonForm(false)
         setShowCityForm(false)
         setShowContinentForm(false)
+        setShowObjectForm(false)
     }
 
     const handlePersonClick = ()=> {
@@ -45,6 +48,8 @@ const PageForm = () => {
         setShowCountryForm(false)
         setShowCityForm(false)
         setShowContinentForm(false)
+        setShowRegionForm(false)
+        setShowObjectForm(false)
     }
 
     const handleCityClick = ()=> {
@@ -53,14 +58,20 @@ const PageForm = () => {
         setShowCountryForm(false)
         setShowPersonForm(false)
         setShowContinentForm(false)
+        setShowRegionForm(false)
+        setShowObjectForm(false)
+
     }
 
     const handleContinentClick = () => {
         setShowContinentForm(!showContinentForm)
         setLabel('Continent')
+        setShowRegionForm(false)
         setShowPersonForm(false)
         setShowCountryForm(false)
         setShowCityForm(false)
+        setShowObjectForm(false)
+        setShowObjectForm(false)
     }
 
     const handleRegionClick = () => {
@@ -70,6 +81,7 @@ const PageForm = () => {
         setShowPersonForm(false)
         setShowCountryForm(false)
         setShowCityForm(false)
+        setShowObjectForm(false)
     }
 
     const handleObjectClick = () => {
@@ -93,7 +105,7 @@ const PageForm = () => {
             <button value='city' className='template-button' onClick={handleCityClick}>New City</button>
             <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
             <button value='object' className='template-button' onClick={handleObjectClick}>New Object</button>
-            {showCountryForm && (<CountryForm/>)}
+            {showCountryForm && (<CountryForm page={null} country={null} action='New'/>)}
             {showPersonForm && (<PersonForm/>)}
             {showCityForm && (<CityForm/>)}
             {showContinentForm && (<ContinentForm/>)}
