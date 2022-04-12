@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { getPages } from '../../store/page';
 import { useParams } from 'react-router-dom'
-// import CountryForm from '../TemplateForms/CountryForm'
+
 import CountryForm from '../TemplateForms/CountryFormRefactor';
 import PersonForm from '../TemplateForms/PersonForm';
 import CityForm from '../TemplateForms/CityForm';
-import ContinentForm from '../TemplateForms/ContinentForm';
+// import ContinentForm from '../TemplateForms/ContinentForm';
+import ContinentForm from '../TemplateForms/ContinentFormRefactor';
 import RegionForm from '../TemplateForms/RegionForm';
 import ObjectForm from '../TemplateForms/ObjectForm';
 
@@ -108,7 +109,7 @@ const PageForm = () => {
             {showCountryForm && (<CountryForm page={null} country={null} action='New'/>)}
             {showPersonForm && (<PersonForm/>)}
             {showCityForm && (<CityForm/>)}
-            {showContinentForm && (<ContinentForm/>)}
+            {showContinentForm && (<ContinentForm page={null} country={null} action='New'/>)}
             {showRegionForm && (<RegionForm/>)}
             {showObjectForm && (<ObjectForm/>)}
             </div>
