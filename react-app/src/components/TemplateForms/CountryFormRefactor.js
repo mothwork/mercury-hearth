@@ -221,13 +221,13 @@ const CountryForm = ({ country, page, action }) => {
                     value={exports}
                     autoComplete='off'
                 ></input>
+            <button className='template-button' type="submit" onClick={handleSubmit}>{action} Country</button>
             </div>
             <div>
-            <label>Main Content</label>
+            {/* <label>Main Content</label> */}
             <div className='quilltainer'>
                 <ReactQuill theme='snow' value={content} onChange={setContent} />
             </div>
-            <button className='template-button' type="submit" onClick={handleSubmit}>{action} Country</button>
             </div>
         </form>
     )

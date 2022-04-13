@@ -1,7 +1,7 @@
 
 .new-page-form input {
     margin-bottom: 10px;
-    width: 400px;
+    width: 20vw;
 
 }
 
@@ -15,8 +15,9 @@
 }
 
 .quill {
-    width: 50vw;
-    height: 80vh;
+    width: 50vh;
+    height: 80vmin;
+
     padding: auto;
     margin: auto;
 }

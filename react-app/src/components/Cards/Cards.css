@@ -2,7 +2,7 @@
 
     max-height: auto;
     max-width: auto;
-    min-height: 1000px;
+    /* min-height: 1000px; */
     /* min-height: 100%; */
     overflow: scroll;
     background-color:rgb(46, 46, 46);
