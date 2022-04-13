@@ -10,7 +10,7 @@ import 'react-quill/dist/quill.snow.css';
 
 
 
-const CountryForm = ({country, page, action}) => {
+const CountryForm = ({ country, page, action }) => {
 
 
     const user = useSelector(state => state.session.user);
@@ -141,90 +141,94 @@ const CountryForm = ({country, page, action}) => {
     return (
 
         <form className='project-form new-page-form'>
-            <div className='error-box'>
-                {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
-                ))}
+            <div>
+                <div className='error-box'>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
+                <input hidden name='pageType' value={pageType}></input>
+                {/* <label>Country Name</label> */}
+                <input
+                    placeholder='Country Name'
+                    type='text'
+                    name='title'
+                    onChange={updateTitle}
+                    value={title}
+                    required
+                    autoComplete='off'
+                ></input>
+                {/* <label>Capital</label> */}
+                <input
+                    placeholder='Capital'
+                    type='text'
+                    name='capital'
+                    onChange={updateCapital}
+                    value={capital}
+                    autoComplete='off'
+                ></input>
+                {/* <label>Region</label> */}
+                <input
+                    placeholder='Region'
+                    type='text'
+                    name='region'
+                    onChange={updateRegion}
+                    value={region}
+                    autoComplete='off'
+                ></input>
+                {/* <label>Government Type</label> */}
+                <input
+                    placeholder='Government Type'
+                    type='text'
+                    name='governtment'
+                    onChange={updateGovernment}
+                    value={government}
+                    autoComplete='off'
+                ></input>
+                {/* <label>Population</label> */}
+                <input
+                    placeholder='Population'
+                    type='text'
+                    name='population'
+                    onChange={updatePopulation}
+                    value={population}
+                    autoComplete='off'
+                ></input>
+                {/* <label>Religions</label> */}
+                <input
+                    placeholder='Religions'
+                    type='text'
+                    name='religions'
+                    onChange={updateReligions}
+                    value={religions}
+                    autoComplete='off'
+                ></input>
+                {/* <label>Imports</label> */}
+                <input
+                    placeholder='Imports'
+                    type='text'
+                    name='imports'
+                    onChange={updateImports}
+                    value={imports}
+                    autoComplete='off'
+                ></input>
+                {/* <label>Exports</label> */}
+                <input
+                    placeholder='Exports'
+                    type='text'
+                    name='exports'
+                    onChange={updateExports}
+                    value={exports}
+                    autoComplete='off'
+                ></input>
             </div>
-            <input hidden name='pageType' value={pageType}></input>
-            <label>Country Name</label>
-            <input
-                placeholder='Country Name'
-                type='text'
-                name='title'
-                onChange={updateTitle}
-                value={title}
-                required
-                autoComplete='off'
-            ></input>
-            <label>Capital</label>
-            <input
-                placeholder='Capital'
-                type='text'
-                name='capital'
-                onChange={updateCapital}
-                value={capital}
-                autoComplete='off'
-            ></input>
-            <label>Region</label>
-            <input
-                placeholder='Region'
-                type='text'
-                name='region'
-                onChange={updateRegion}
-                value={region}
-                autoComplete='off'
-            ></input>
-            <label>Government Type</label>
-            <input
-                placeholder='Government Type'
-                type='text'
-                name='governtment'
-                onChange={updateGovernment}
-                value={government}
-                autoComplete='off'
-            ></input>
-            <label>Population</label>
-            <input
-                placeholder='Population'
-                type='text'
-                name='population'
-                onChange={updatePopulation}
-                value={population}
-                autoComplete='off'
-            ></input>
-            <label>Religions</label>
-            <input
-                placeholder='Religions'
-                type='text'
-                name='religions'
-                onChange={updateReligions}
-                value={religions}
-                autoComplete='off'
-            ></input>
-            <label>Imports</label>
-            <input
-                placeholder='Imports'
-                type='text'
-                name='imports'
-                onChange={updateImports}
-                value={imports}
-                autoComplete='off'
-            ></input>
-            <label>Exports</label>
-            <input
-                placeholder='Exports'
-                type='text'
-                name='exports'
-                onChange={updateExports}
-                value={exports}
-                autoComplete='off'
-            ></input>
+            <div>
             <label>Main Content</label>
             <div className='quilltainer'>
-            <ReactQuill theme='snow' value={content} onChange={setContent}/>
+                <ReactQuill theme='snow' value={content} onChange={setContent} />
             </div>
             <button className='template-button' type="submit" onClick={handleSubmit}>{action} Country</button>
+            </div>
         </form>
     )
 }

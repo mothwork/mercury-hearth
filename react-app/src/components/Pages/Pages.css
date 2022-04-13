@@ -15,8 +15,9 @@
     padding-top: 50px;
     padding-left: 50px;
     padding-right: 50px;
-    max-height: 100vh;
-    overflow: scroll;
+    /* min-height: 100vh; */
+    /* overflow: scroll; */
+
 
 }
 
@@ -40,7 +41,7 @@ textarea::placeholder {
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 50px;
-    max-height: 1000px;
+    /* max-height: 1000px; */
     overflow: scroll;
     position: relative;
 }
