@@ -4,7 +4,8 @@ import { getPages } from '../../store/page';
 import { useParams } from 'react-router-dom'
 
 import CountryForm from '../TemplateForms/CountryFormRefactor';
-import PersonForm from '../TemplateForms/PersonForm';
+// import PersonForm from '../TemplateForms/PersonForm';
+import PersonForm from '../TemplateForms/PersonFormRefactor';
 import CityForm from '../TemplateForms/CityFormRefactor';
 // import CityForm from '../TemplateForms/CityForm';
 // import ContinentForm from '../TemplateForms/ContinentForm';
@@ -110,7 +111,7 @@ const PageForm = () => {
                 <button value='object' className='template-button' onClick={handleObjectClick}>New Object</button>
 
                 {showCountryForm && (<CountryForm page={null} country={null} action='New' />)}
-                {showPersonForm && (<PersonForm />)}
+                {showPersonForm && (<PersonForm page={null} country={null} action='New' />)}
                 {showCityForm && (<CityForm page={null} country={null} action={'New'} />)}
                 {showContinentForm && (<ContinentForm page={null} country={null} action='New' />)}
                 {showRegionForm && (<RegionForm page={null} country={null} action='New' />)}
