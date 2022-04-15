@@ -1,6 +1,7 @@
 // import EditCountryForm from './EditCountryForm'
 import EditPersonForm from './EditPersonForm'
-import EditCityForm from './EditCityForm'
+// import EditCityForm from './EditCityForm'
+import CityForm from './CityFormRefactor'
 import ContinentForm from './ContinentFormRefactor'
 import EditRegionForm from './EditRegionForm'
 import EditObjectForm from './EditObjectForm'
@@ -18,7 +19,7 @@ const EditEngine = ({page}) => {
         case 'person':
             return (<EditPersonForm person={pageObj} page={page}/>)
         case 'city':
-            return (<EditCityForm city={pageObj} page={page}/>)
+            return (<CityForm city={pageObj} page={page} action={'Edit'}/>)
         case 'region':
             return (<EditRegionForm region={pageObj} page={page}/>)
         case 'continent':
