@@ -4,15 +4,11 @@ import { getPages } from '../../store/page';
 import { useParams } from 'react-router-dom'
 
 import CountryForm from '../TemplateForms/CountryFormRefactor';
-// import PersonForm from '../TemplateForms/PersonForm';
 import PersonForm from '../TemplateForms/PersonFormRefactor';
 import CityForm from '../TemplateForms/CityFormRefactor';
-// import CityForm from '../TemplateForms/CityForm';
-// import ContinentForm from '../TemplateForms/ContinentForm';
 import ContinentForm from '../TemplateForms/ContinentFormRefactor';
-// import RegionForm from '../TemplateForms/RegionForm';
 import RegionForm from '../TemplateForms/RegionFromRefactor';
-import ObjectForm from '../TemplateForms/ObjectForm';
+import ObjectForm from '../TemplateForms/ObjectFormRefactor';
 
 
 const PageForm = () => {
