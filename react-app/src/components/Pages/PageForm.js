@@ -9,7 +9,8 @@ import CityForm from '../TemplateForms/CityFormRefactor';
 // import CityForm from '../TemplateForms/CityForm';
 // import ContinentForm from '../TemplateForms/ContinentForm';
 import ContinentForm from '../TemplateForms/ContinentFormRefactor';
-import RegionForm from '../TemplateForms/RegionForm';
+// import RegionForm from '../TemplateForms/RegionForm';
+import RegionForm from '../TemplateForms/RegionFromRefactor';
 import ObjectForm from '../TemplateForms/ObjectForm';
 
 
@@ -34,7 +35,7 @@ const PageForm = () => {
 
 
 
-    const handleCountryClick = ()=> {
+    const handleCountryClick = () => {
         setShowCountryForm(!showCountryForm)
         setLabel('Country')
         setShowRegionForm(false)
@@ -44,7 +45,7 @@ const PageForm = () => {
         setShowObjectForm(false)
     }
 
-    const handlePersonClick = ()=> {
+    const handlePersonClick = () => {
         setShowPersonForm(!showPersonForm)
         setLabel('Person')
         setShowCountryForm(false)
@@ -54,7 +55,7 @@ const PageForm = () => {
         setShowObjectForm(false)
     }
 
-    const handleCityClick = ()=> {
+    const handleCityClick = () => {
         setShowCityForm(!showCityForm)
         setLabel('City')
         setShowCountryForm(false)
@@ -100,19 +101,20 @@ const PageForm = () => {
     return (
         <>
             <div className='page-form'>
-            <h2 className='modal-label'>{`New ${label}`}</h2>
-            <button value='continent'className='template-button' onClick={handleContinentClick}>New Continent</button>
-            <button value='region' className='template-button' onClick={handleRegionClick}>New Region</button>
-            <button value='country' className='template-button' onClick={handleCountryClick}>New Country</button>
-            <button value='city' className='template-button' onClick={handleCityClick}>New City</button>
-            <button value='person'className='template-button' onClick={handlePersonClick}>New Person</button>
-            <button value='object' className='template-button' onClick={handleObjectClick}>New Object</button>
-            {showCountryForm && (<CountryForm page={null} country={null} action='New'/>)}
-            {showPersonForm && (<PersonForm/>)}
-            {showCityForm && (<CityForm page={null} country={null} action={'New'}/>)}
-            {showContinentForm && (<ContinentForm page={null} country={null} action='New'/>)}
-            {showRegionForm && (<RegionForm/>)}
-            {showObjectForm && (<ObjectForm/>)}
+                <h2 className='modal-label'>{`New ${label}`}</h2>
+                <button value='continent' className='template-button' onClick={handleContinentClick}>New Continent</button>
+                <button value='region' className='template-button' onClick={handleRegionClick}>New Region</button>
+                <button value='country' className='template-button' onClick={handleCountryClick}>New Country</button>
+                <button value='city' className='template-button' onClick={handleCityClick}>New City</button>
+                <button value='person' className='template-button' onClick={handlePersonClick}>New Person</button>
+                <button value='object' className='template-button' onClick={handleObjectClick}>New Object</button>
+
+                {showCountryForm && (<CountryForm page={null} country={null} action='New' />)}
+                {showPersonForm && (<PersonForm />)}
+                {showCityForm && (<CityForm page={null} country={null} action={'New'} />)}
+                {showContinentForm && (<ContinentForm page={null} country={null} action='New' />)}
+                {showRegionForm && (<RegionForm page={null} country={null} action='New' />)}
+                {showObjectForm && (<ObjectForm />)}
             </div>
         </>
     )
