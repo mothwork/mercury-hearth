@@ -19,7 +19,7 @@ const CityForm = ({city, page, action}) => {
 
     if (!city) {
         city = {
-            pageType: "",
+
             cityType: "",
             region: "",
             government: "",

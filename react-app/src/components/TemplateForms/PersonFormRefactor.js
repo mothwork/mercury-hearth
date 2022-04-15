@@ -17,7 +17,6 @@ const PersonForm = ({person, page, action}) => {
 
     if (!person) {
         person = {
-            pageType: "",
             race: "",
             occupation: "",
             born: "",

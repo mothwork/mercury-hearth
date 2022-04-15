@@ -21,7 +21,6 @@ const RegionForm = ({region, page, action}) => {
 
     if (!region) {
         region = {
-            pageType: "",
             location: "",
             geoType: "",
             weather: "",
