@@ -66,10 +66,9 @@ def create_card(page_id):
     # if len(title) < 1:
     #     return jsonify('Title is required.')
     image = request.files["image"]
-    print('BEFORE Title')
-    print('____________________REQUEST', request.form)
+
     title = request.form["title"]
-    print('After Title')
+
     description = request.form["description"]
     userId = request.form["userId"]
     pageId = page_id
@@ -80,7 +79,7 @@ def create_card(page_id):
     image.filename = get_unique_filename(image.filename)
 
     upload = upload_file_to_s3(image)
-    print(upload)
+    
     if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
