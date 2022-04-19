@@ -2,7 +2,7 @@ import json
 import re
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
-from app.models import db, Card
+from app.models import db, Card, Page
 from flask_login import current_user, login_required
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -23,6 +23,39 @@ def page_cards(page_id):
     else:
         return jsonify('No Cards'), 204
 
+@page_routes.route('/<int:page_id>', methods=['PATCH'])
+@login_required
+def upload_page_image(page_id):
+    user = current_user.to_dict()
+    if user['id'] == page.userId:
+        image = request.files["image"]
+        userId = request.form["userId"]
+        pageId = page_id
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
+
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+        print(upload)
+        if "url" not in upload:
+            return upload, 400
+
+        url = upload["url"]
+        page = Page.query.filter(Page.id == page_id).first()
+
+        db.session.commit()
+        edit_page_return = {
+            'id': page.id,
+            'image': url,
+            'title': page.title,
+            'content': page.content,
+            'projectId': page.projectId,
+            'userId': page.userId
+        }
+
+        return jsonify(edit_page_return)
+    return jsonify('Error: Unauthorized'), 401
 
 @page_routes.route('/<int:page_id>', methods=['POST'])
 @login_required

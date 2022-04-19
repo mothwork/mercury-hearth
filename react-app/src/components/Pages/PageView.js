@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { getPages } from '../../store/page';
 import { deletePage } from '../../store/page';
-
+import ImageModal from './ImageModal';
 import TemplateEngine from '../Templates/TemplateEngine'
 
 const PageView = () => {
@@ -45,21 +45,24 @@ const PageView = () => {
         else return 'https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80'
     }
 
-    
+
 
     if (page) {
         const pageContent = JSON.parse(page.content);
-
+        
         const image = generateImage(pageContent)
 
 
-
+        //TODO Add in photo uploads
         return (
             <>
                 <div className='page-view-container'>
+
                         <div className='page-image'>
                             <img alt='' src={image}></img>
                         </div>
+                        <ImageModal/>
+
                         <div className='page-icon'>
                             {/* <img alt='' src={icon}></img> */}
                         </div>

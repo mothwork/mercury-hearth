@@ -142,6 +142,7 @@ def delete_page(project_id, page_id):
         return jsonify('Error: Unauthorized'), 401
     return jsonify('Error: Unauthorized'), 401
 
+# Edit Page
 @project_routes.route('/<int:project_id>/<int:page_id>', methods=['PUT'])
 @login_required
 def edit_page(project_id, page_id):
