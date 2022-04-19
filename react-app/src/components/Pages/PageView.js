@@ -68,9 +68,7 @@ const PageView = () => {
                         </div>
                         <ImageModal/>
 
-                        <div className='page-icon'>
-                            {/* <img alt='' src={icon}></img> */}
-                        </div>
+                        
                     <div className='page-header'>
 
                         <h1>{page.title}</h1>

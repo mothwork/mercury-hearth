@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom';
+import { getPages } from '../../store/page';
 
 const PageImageForm = ({ modalSetter }) => {
     const [errors, setErrors] = useState([]);
@@ -12,6 +13,9 @@ const PageImageForm = ({ modalSetter }) => {
 
     const { pageId } = useParams()
     const id = parseInt(pageId)
+    const page = useSelector(state => state.pages.pages[id])
+    const projectId = page.projectId
+
 
     useEffect(() => {
 
@@ -38,7 +42,8 @@ const PageImageForm = ({ modalSetter }) => {
             await res.json();
             setImageLoading(false);
             modalSetter()
-            // await dispatch() //TODO see what we need to do
+            await dispatch(getPages(projectId)) //TODO see what we need to do
+
 
         }
         else {
