@@ -8,6 +8,7 @@ class Page(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(250), nullable=False)
+    image = db.Column(db.String(250), nullable=True)
     content = db.Column(db.Text, nullable=True)
     userId = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     projectId = db.Column(db.Integer, db.ForeignKey(Project.id), nullable=False)
