@@ -50,8 +50,8 @@ const PageView = () => {
     if (page) {
         const pageContent = JSON.parse(page.content);
         let image;
-        console.log(page)
-        if (page.image !== undefined ) {
+
+        if (page.image !== null ) {
             image = page.image
         } else {
             image = generateImage(pageContent)
@@ -66,9 +66,12 @@ const PageView = () => {
                         <div className='page-image'>
                             <img alt='' src={image}></img>
                         </div>
+                        <div className='add-image'>
+
+                        </div>
                         <ImageModal/>
 
-                        
+
                     <div className='page-header'>
 
                         <h1>{page.title}</h1>

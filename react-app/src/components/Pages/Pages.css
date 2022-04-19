@@ -161,3 +161,28 @@ button.ql-link, button.ql-clean  {
     color: green;
     cursor: pointer;
 }
+
+.add-image {
+
+    /* border: 1px solid white; */
+    border: 1px solid rgba(0, 187, 255, 0);
+    background-color: rgba(0, 187, 255, 0);
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+    /* border-radius: 50%; */
+    z-index: 100;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.add-image:hover {
+    /* background-color: rgb(46, 46, 46); */
+    z-index: 100;
+
+    color: green;
+    cursor: pointer;
+}
