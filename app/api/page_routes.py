@@ -27,35 +27,35 @@ def page_cards(page_id):
 @login_required
 def upload_page_image(page_id):
     user = current_user.to_dict()
-    if user['id'] == page.userId:
-        image = request.files["image"]
-        userId = request.form["userId"]
-        pageId = page_id
-        if not allowed_file(image.filename):
-            return {"errors": "file type not permitted"}, 400
 
-        image.filename = get_unique_filename(image.filename)
+    image = request.files["image"]
+    userId = request.form["userId"]
+    pageId = page_id
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
 
-        upload = upload_file_to_s3(image)
-        print(upload)
-        if "url" not in upload:
-            return upload, 400
+    image.filename = get_unique_filename(image.filename)
 
-        url = upload["url"]
-        page = Page.query.filter(Page.id == page_id).first()
+    upload = upload_file_to_s3(image)
+    print(upload)
+    if "url" not in upload:
+        return upload, 400
 
-        db.session.commit()
-        edit_page_return = {
-            'id': page.id,
-            'image': url,
-            'title': page.title,
-            'content': page.content,
-            'projectId': page.projectId,
-            'userId': page.userId
-        }
+    url = upload["url"]
+    page = Page.query.filter(Page.id == page_id).first()
+    page.image = url
+    db.session.commit()
+    edit_page_return = {
+        'id': page.id,
+        'image': url,
+        'title': page.title,
+        'content': page.content,
+        'projectId': page.projectId,
+        'userId': page.userId
+    }
 
-        return jsonify(edit_page_return)
-    return jsonify('Error: Unauthorized'), 401
+    return jsonify(edit_page_return)
+
 
 @page_routes.route('/<int:page_id>', methods=['POST'])
 @login_required

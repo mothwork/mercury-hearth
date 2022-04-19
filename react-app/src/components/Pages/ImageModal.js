@@ -10,7 +10,7 @@ function ImageModal() {
     }
     return (
         <>
-            <button className=' add-card' onClick={() => setShowModal(true)}>+</button>
+            <button className=' add-card' onClick={() => setShowModal(true)}> + </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <PageImageForm modalSetter={modalSetter} />

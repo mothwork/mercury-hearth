@@ -49,8 +49,13 @@ const PageView = () => {
 
     if (page) {
         const pageContent = JSON.parse(page.content);
-        
-        const image = generateImage(pageContent)
+        let image;
+        console.log(page)
+        if (page.image !== undefined ) {
+            image = page.image
+        } else {
+            image = generateImage(pageContent)
+        }
 
 
         //TODO Add in photo uploads

@@ -38,7 +38,7 @@ const PageImageForm = ({ modalSetter }) => {
             await res.json();
             setImageLoading(false);
             modalSetter()
-            await dispatch() //TODO see what we need to do
+            // await dispatch() //TODO see what we need to do
 
         }
         else {
