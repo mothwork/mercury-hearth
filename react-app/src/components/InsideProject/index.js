@@ -14,10 +14,10 @@ const InsideProject = () => {
     const history = useHistory()
     const { projectId } = useParams()
     const id = parseInt(projectId)
-    
+
     const projectsContainer = useSelector(state => state.project)
     const projects = projectsContainer?.projects
-    const project = projects?.[1]
+    const project = projects?.[id]
 
     const handleDelete = async () => {
         const confirmed = window.confirm('Deleting a project will delete all pages and cards associated with it. Are you sure?')

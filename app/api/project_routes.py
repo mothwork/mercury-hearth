@@ -1,7 +1,9 @@
+
 import json
 from sqlite3 import IntegrityError
 from flask import Blueprint, jsonify, request
-from jinja2 import Undefined
+
+from sqlalchemy import null
 from app.models import db, Project, Page, project
 from flask_login import current_user, login_required
 
@@ -106,7 +108,7 @@ def new_page(project_id):
     try:
         new_page = {
             'title': data['title'],
-            'image': Undefined,
+            'image': 'null',
             'content': data['content'],
             'userId': data['userId'],
             'projectId': project_id
@@ -164,6 +166,7 @@ def edit_page(project_id, page_id):
             edit_page_return = {
                 'id': page.id,
                 'title': page.title,
+                'image':page.image,
                 'content': page.content,
                 'projectId': page.projectId,
                 'userId': page.userId

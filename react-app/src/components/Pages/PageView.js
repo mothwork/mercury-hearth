@@ -17,7 +17,7 @@ const PageView = () => {
     //     await dispatch(getPages(projectId))
     // }, [dispatch, projectId])
 
-    useEffect( () => {
+    useEffect(() => {
         dispatch(getPages(projectId))
     }, [dispatch, projectId])
 
@@ -50,8 +50,8 @@ const PageView = () => {
     if (page) {
         const pageContent = JSON.parse(page.content);
         let image;
-
-        if (page.image !== null ) {
+        console.log(page.image)
+        if (page.image !== null) {
             image = page.image
         } else {
             image = generateImage(pageContent)
@@ -63,31 +63,32 @@ const PageView = () => {
             <>
                 <div className='page-view-container'>
 
-                        <div className='page-image'>
-                            <img alt='' src={image}></img>
-                        </div>
-                        <div className='add-image'>
 
-                        </div>
-                        <ImageModal/>
+                    <div className='page-image'>
+                        <img alt='' src={image}></img>
+                    </div>
+                    <div className='add-image'>
+
+                    </div>
+                    <ImageModal />
 
 
                     <div className='page-header'>
+                <div className='option-container'>
+                    <NavLink to={`/pages/${projectId}/${pageId}`}>
+                        <button className='card-button'>Mood Board</button>
+                    </NavLink>
+                    <div>
+                        <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
+                            <button className='option-button'>Edit</button>
+                        </NavLink>
+                        <button className='option-button' onClick={handleDelete}>Delete</button>
+                    </div>
+                </div>
 
                         <h1>{page.title}</h1>
-                        <div className='option-container'>
-                            <NavLink to={`/pages/${projectId}/${pageId}`}>
-                                <button className='card-button'>Mood Board</button>
-                            </NavLink>
-                            <div>
-                            <NavLink to={`/projects/${projectId}/${pageId}/edit`}>
-                                <button className='option-button'>Edit</button>
-                            </NavLink>
-                            <button className='option-button' onClick={handleDelete}>Delete</button>
-                            </div>
-                        </div>
-                        <TemplateEngine page={page} />
                     </div>
+                    <TemplateEngine page={page} />
                 </div>
 
             </>
