@@ -61,17 +61,18 @@ const PageImageForm = ({ modalSetter }) => {
         <>
 
             <form autoComplete='off' className='auth-form project-form' onSubmit={handleSubmit}>
-                <div className='error-box'>
-                    {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                </div>
+                <h2>Change cover photo</h2>
                 <input
                     type="file"
                     accept="image/*"
                     onChange={updateImage}
                 />
 
+                <div className='error-box'>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
                 {(imageLoading) && <p>Loading...</p>}
                 {/* <label>Project Title</label> */}
 
