@@ -177,7 +177,7 @@ button.ql-link, button.ql-clean  {
     width: 30px;
     height: 30px;
     position: absolute;
-    right: 70px;
+    /* right: 70px; */
     font-size: 20px;
     text-align: center;
 }
