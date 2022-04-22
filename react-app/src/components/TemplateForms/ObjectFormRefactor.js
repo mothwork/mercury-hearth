@@ -95,7 +95,7 @@ const ObjectForm = ({object, page, action}) => {
             <input hidden name='pageType' readOnly value={pageType}></input>
             <label>Title</label>
             <input
-                placeholder='Title'
+
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -105,7 +105,7 @@ const ObjectForm = ({object, page, action}) => {
             ></input>
             <label>Object Type</label>
             <input
-                placeholder='Object Type'
+                
                 type='text'
                 name='objectType'
                 onChange={updateObjectType}

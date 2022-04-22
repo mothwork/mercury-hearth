@@ -149,7 +149,7 @@ const CountryForm = ({country, page, action}) => {
             <input hidden name='pageType' value={pageType}></input>
             <label>Country Name</label>
             <input
-                placeholder='Country Name'
+
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -159,7 +159,7 @@ const CountryForm = ({country, page, action}) => {
             ></input>
             <label>Capital</label>
             <input
-                placeholder='Capital'
+
                 type='text'
                 name='capital'
                 onChange={updateCapital}
@@ -168,7 +168,7 @@ const CountryForm = ({country, page, action}) => {
             ></input>
             <label>Region</label>
             <input
-                placeholder='Region'
+
                 type='text'
                 name='region'
                 onChange={updateRegion}
@@ -177,7 +177,7 @@ const CountryForm = ({country, page, action}) => {
             ></input>
             <label>Government Type</label>
             <input
-                placeholder='Government Type'
+
                 type='text'
                 name='governtment'
                 onChange={updateGovernment}
@@ -186,7 +186,7 @@ const CountryForm = ({country, page, action}) => {
             ></input>
             <label>Population</label>
             <input
-                placeholder='Population'
+
                 type='text'
                 name='population'
                 onChange={updatePopulation}
@@ -195,7 +195,7 @@ const CountryForm = ({country, page, action}) => {
             ></input>
             <label>Religions</label>
             <input
-                placeholder='Religions'
+
                 type='text'
                 name='religions'
                 onChange={updateReligions}
@@ -204,7 +204,7 @@ const CountryForm = ({country, page, action}) => {
             ></input>
             <label>Imports</label>
             <input
-                placeholder='Imports'
+
                 type='text'
                 name='imports'
                 onChange={updateImports}
@@ -213,7 +213,7 @@ const CountryForm = ({country, page, action}) => {
             ></input>
             <label>Exports</label>
             <input
-                placeholder='Exports'
+                
                 type='text'
                 name='exports'
                 onChange={updateExports}

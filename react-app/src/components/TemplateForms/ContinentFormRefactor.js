@@ -138,7 +138,6 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Continent Name</label>
             <input
                 required
-                placeholder='Continent Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -148,7 +147,7 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Overview</label>
             <textarea
                 type='text'
-                placeholder='Overview'
+
                 name='overview'
                 onChange={updateOverview}
                 value={overview}
@@ -159,7 +158,7 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Geography and Ecology</label>
             <textarea
                 type='text'
-                placeholder='Geography and Ecology'
+
                 name='geo'
                 onChange={updateGeo}
                 value={geographyAndEcology}
@@ -170,7 +169,7 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Countries</label>
             <textarea
                 type='text'
-                placeholder='Countries'
+
                 name='countries'
                 onChange={updateCountries}
                 value={countries}
@@ -181,7 +180,7 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Peoples</label>
             <textarea
                 type='text'
-                placeholder='Peoples'
+
                 name='peoples'
                 onChange={updatePeoples}
                 value={peoples}
@@ -192,7 +191,7 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Cultures</label>
             <textarea
                 type='text'
-                placeholder='Cultures'
+
                 name='cultures'
                 onChange={updateCulture}
                 value={culture}
@@ -203,7 +202,7 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Trade</label>
             <textarea
                 type='text'
-                placeholder='Trade'
+                
                 name='trade'
                 onChange={updateTrade}
                 value={trade}

@@ -144,7 +144,7 @@ const RegionForm = ({region, page, action}) => {
             <input hidden name='pageType' value={pageType}></input>
             <label>Region Name:</label>
             <input
-                placeholder='Region Name'
+
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -154,7 +154,7 @@ const RegionForm = ({region, page, action}) => {
             ></input>
             <label>Location:</label>
             <input
-                placeholder='Location'
+
                 type='text'
                 name='location'
                 onChange={updateLocation}
@@ -163,7 +163,7 @@ const RegionForm = ({region, page, action}) => {
             ></input>
             <label>Geography Types:</label>
             <input
-                placeholder='Geography Types'
+
                 type='text'
                 name='geoTypes'
                 onChange={updateGeoType}
@@ -172,7 +172,7 @@ const RegionForm = ({region, page, action}) => {
             ></input>
             <label>Weather:</label>
             <input
-                placeholder='Weather'
+
                 type='text'
                 name='weather'
                 onChange={updateWeather}
@@ -181,7 +181,7 @@ const RegionForm = ({region, page, action}) => {
             ></input>
             <label>Civilization Types:</label>
             <input
-                placeholder='Civilization Types'
+
                 type='text'
                 name='civTypes'
                 onChange={updateCivType}
@@ -190,7 +190,7 @@ const RegionForm = ({region, page, action}) => {
             ></input>
             <label>Travel Safety:</label>
             <input
-                placeholder='Travel Safety'
+
                 type='text'
                 name='travelSafety'
                 onChange={updateTravelSafety}
@@ -199,7 +199,7 @@ const RegionForm = ({region, page, action}) => {
             ></input>
             <label>Government:</label>
             <input
-                placeholder='Government'
+
                 type='text'
                 name='imports'
                 onChange={updateGovernment}
@@ -208,7 +208,7 @@ const RegionForm = ({region, page, action}) => {
             ></input>
             <label>Population Centers:</label>
             <input
-                placeholder='Population Centers'
+                
                 type='text'
                 name='popCenters'
                 onChange={updatePopCenters}

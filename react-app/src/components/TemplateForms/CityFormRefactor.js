@@ -143,8 +143,6 @@ const CityForm = ({city, page, action}) => {
             <label>City Name</label>
             <input
                 required={true}
-
-                placeholder='City Name'
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -153,7 +151,7 @@ const CityForm = ({city, page, action}) => {
             ></input>
             <label>Capital</label>
             <input
-            placeholder='City Type'
+
                 type='text'
                 name='capital'
                 onChange={updateCityType}
@@ -162,7 +160,7 @@ const CityForm = ({city, page, action}) => {
             ></input>
             <label>Region</label>
             <input
-                placeholder='Region'
+
                 type='text'
                 name='region'
                 onChange={updateRegion}
@@ -171,7 +169,7 @@ const CityForm = ({city, page, action}) => {
             ></input>
             <label>Government Type</label>
             <input
-                placeholder='Government Type'
+
                 type='text'
                 name='governtment'
                 onChange={updateGovernment}
@@ -180,7 +178,7 @@ const CityForm = ({city, page, action}) => {
             ></input>
             <label>Population</label>
             <input
-                placeholder='Population'
+
                 type='text'
                 name='population'
                 onChange={updatePopulation}
@@ -189,7 +187,7 @@ const CityForm = ({city, page, action}) => {
             ></input>
             <label>Religions</label>
             <input
-                placeholder='Religions'
+
                 type='text'
                 name='religions'
                 onChange={updateReligions}
@@ -198,7 +196,7 @@ const CityForm = ({city, page, action}) => {
             ></input>
             <label>Imports</label>
             <input
-                placeholder='Imports'
+
                 type='text'
                 name='imports'
                 onChange={updateImports}
@@ -207,7 +205,7 @@ const CityForm = ({city, page, action}) => {
             ></input>
             <label>Exports</label>
             <input
-                placeholder='Exports'
+        
                 type='text'
                 name='exports'
                 onChange={updateExports}

@@ -132,7 +132,7 @@ const PersonForm = ({person, page, action}) => {
             <input hidden name='pageType' readOnly value={pageType}></input>
             <label>Name</label>
             <input
-                placeholder='Name'
+
                 type='text'
                 name='title'
                 onChange={updateTitle}
@@ -144,14 +144,14 @@ const PersonForm = ({person, page, action}) => {
             <input
                 type='text'
                 name='race'
-                placeholder='Race'
+
                 onChange={updateRace}
                 value={race}
                 autoComplete='off'
             ></input>
             <label>Occupation:</label>
             <input
-                placeholder='Occupation'
+
                 type='text'
                 name='occupation'
                 onChange={updateOccupation}
@@ -160,7 +160,7 @@ const PersonForm = ({person, page, action}) => {
             ></input>
             <label>Born</label>
             <input
-            placeholder='Born'
+
                 type='text'
                 name='born'
                 onChange={updateBorn}
@@ -169,7 +169,7 @@ const PersonForm = ({person, page, action}) => {
             ></input>
             <label>Died</label>
             <input
-                placeholder='Died'
+
                 type='text'
                 name='died'
                 onChange={updateDied}
@@ -178,7 +178,7 @@ const PersonForm = ({person, page, action}) => {
             ></input>
             <label>Residence</label>
             <input
-                placeholder='Residence'
+
                 type='text'
                 name='residence'
                 onChange={updateResidence}
@@ -188,7 +188,7 @@ const PersonForm = ({person, page, action}) => {
             <label>Alias</label>
             <input
                 type='text'
-                placeholder='Aliases'
+                
                 name='alias'
                 onChange={updateAlias}
                 value={alias}
