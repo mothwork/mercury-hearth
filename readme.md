@@ -17,7 +17,7 @@ Mercury Hearth is a application that helps with the creative process of worldbui
 ![Splash](https://user-images.githubusercontent.com/59124348/154997849-25628fb2-66c8-49b0-98fd-3333c3ba1788.png)
 ### Inside Project View
 ![Inside Project](https://user-images.githubusercontent.com/59124348/154995118-90cce7aa-d24c-4d19-9ead-f26d24e00ab7.png)
-### Card View
+### Mood Board View
 ![Card View](https://user-images.githubusercontent.com/59124348/154995626-f9d23970-9613-4020-9646-bc76aacac33e.png)
 
 ## Overview
@@ -45,5 +45,4 @@ Each page also has Mood Board View- this card view acts as a moodboard for the s
 
 
 ## Future Features
-* Rich Text Editing
 * Fantasy & Scifi name generators to autofill via 3rd-party API
