@@ -111,7 +111,7 @@ const PageForm = () => {
                 {showCityForm && (<CityForm page={null} country={null} action={'New'} />)}
                 {showContinentForm && (<ContinentForm page={null} country={null} action='New' />)}
                 {showRegionForm && (<RegionForm page={null} country={null} action='New' />)}
-                {showObjectForm && (<ObjectForm />)}
+                {showObjectForm && (<ObjectForm page={null} object={null} action='New' />)}
             </div>
         </>
     )
