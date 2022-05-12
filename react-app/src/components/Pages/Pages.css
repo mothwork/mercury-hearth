@@ -121,7 +121,7 @@ textarea::placeholder {
 }
 
 
-.quill {
+/* .quill {
     width: auto;
     height: auto;
     margin-bottom: 10px;
@@ -130,7 +130,7 @@ textarea::placeholder {
 
 .quill * {
     overflow: visible;
-}
+} */
 
 .ql-tooltip .ql-editing {
     z-index: 100;
