@@ -1,10 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getPages } from '../../store/page'
-import getProjects from '../../store/project'
 
 
-const Stats = ({type}) => {
+
+const Stats = () => {
 
     let pageState = useSelector(state => state.pages)
     let pageArray = pageState.pageArray
