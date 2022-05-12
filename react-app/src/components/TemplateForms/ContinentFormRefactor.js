@@ -121,11 +121,6 @@ const ContinentForm = ({continent, page, action}) => {
         setTrade(e.target.value)
     }
 
-
-    // const updateContent = (e) => {
-    //     setContent(e.target.value)
-    // }
-
     return (
 
         <form className='project-form new-page-form'>
@@ -147,7 +142,6 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Overview</label>
             <textarea
                 type='text'
-
                 name='overview'
                 onChange={updateOverview}
                 value={overview}
@@ -158,7 +152,6 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Geography and Ecology</label>
             <textarea
                 type='text'
-
                 name='geo'
                 onChange={updateGeo}
                 value={geographyAndEcology}
@@ -169,7 +162,6 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Countries</label>
             <textarea
                 type='text'
-
                 name='countries'
                 onChange={updateCountries}
                 value={countries}
@@ -180,7 +172,6 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Peoples</label>
             <textarea
                 type='text'
-
                 name='peoples'
                 onChange={updatePeoples}
                 value={peoples}
@@ -191,7 +182,6 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Cultures</label>
             <textarea
                 type='text'
-
                 name='cultures'
                 onChange={updateCulture}
                 value={culture}
@@ -202,7 +192,6 @@ const ContinentForm = ({continent, page, action}) => {
             <label>Trade</label>
             <textarea
                 type='text'
-                
                 name='trade'
                 onChange={updateTrade}
                 value={trade}
