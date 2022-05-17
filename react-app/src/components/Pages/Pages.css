@@ -37,13 +37,12 @@ textarea::placeholder {
 
     display: flex;
     flex-direction: column;
-    /* margin-left: auto;
-    margin-right: auto; */
-    padding-left: 20%;
-    padding-right: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10%;
+    padding-right: 10%;
     margin-top: 10px;
     margin-bottom: 20px;
-    /* max-height: 1000px; */
     overflow: scroll;
     position: relative;
 }
