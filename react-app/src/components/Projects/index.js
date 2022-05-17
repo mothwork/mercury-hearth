@@ -24,7 +24,7 @@ const Project = () => {
         return state.project.projectArray
     })
 
-    
+
 
     if (!user) {
         return <Redirect to='/' />
@@ -34,10 +34,11 @@ const Project = () => {
     if (projects) {
         return (
             <div>
+
+                <div className='project-container'>
                 <div className='user-nav'>
                     <LogoutButton/>
                 </div>
-                <div className='project-container'>
                 <div className='logo'></div>
                     <h1>Projects</h1>
                     {/* Move outside */}

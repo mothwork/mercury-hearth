@@ -83,17 +83,17 @@ textarea::placeholder {
     width: 800px;
 }
 
-.page-icon {
+/* .page-icon {
     height: 100px;
     width: 100px;
     border-radius: 50%;
     position:absolute;
-    /* right: 350px; */
+    
     left: 75px;
     top: 130px;
     z-index: 100;
     background-color: white;
-    /* overflow: hidden; */
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,7 +102,7 @@ textarea::placeholder {
                 linear-gradient(336deg, rgba(0, 187, 255, 0.8), rgba(0,0,255,0) 70.71%),
                 white;
 
-}
+} */
 
 .page-icon img {
     height: 75px;
@@ -117,6 +117,7 @@ textarea::placeholder {
 }
 
 .page-container {
+    border-top: 1px solid lightgray;
     overflow: scroll;
 }
 

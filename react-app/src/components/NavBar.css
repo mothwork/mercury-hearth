@@ -33,17 +33,17 @@ nav {
 }
 
 
-.logo {
+/* .logo {
     height: 100px;
     width: 100px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     border-radius: 50%;
     box-sizing: border-box;
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(43, 0, 255, 0.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(157, 0, 255, 0.8), rgba(0,0,255,0) 70.71%);
 
-}
+} */
 
 
 
