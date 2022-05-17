@@ -78,7 +78,7 @@ const ProjectForm = ({modalSetter}) => {
                     cols={50}
                     rows={10}
                     ></textarea>
-                <button className='new-project-submit project-button'>Save Changes</button>
+                <button className='new-project-submit new-project-button'>Save Changes</button>
             </form>
         </>
     )

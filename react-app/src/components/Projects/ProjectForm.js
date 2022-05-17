@@ -64,7 +64,7 @@ const ProjectForm = ({modalSetter}) => {
                     placeholder='Project Title'
                     onChange={updateTitle}
                     value={title}
-                    
+
                     autoComplete='off'
                     ></input>
                 {/* <label>Description</label> */}
@@ -78,7 +78,7 @@ const ProjectForm = ({modalSetter}) => {
                     cols={50}
                     rows={10}
                     ></textarea>
-                <button className='project-button'>Create Project</button>
+                <button className='new-project-button'>Create Project</button>
             </form>
         </>
     )
