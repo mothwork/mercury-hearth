@@ -27,7 +27,7 @@ nav {
     justify-content: flex-start;
 
     width: 200px;
-    border-right: solid black 1px;
+    border-right: solid lightgray 1px;
     text-align: center;
 
 }
@@ -50,8 +50,10 @@ nav {
 
 .nav-buttons {
     border: none;
+    border-radius: 3px;
     background-color: white;
     font-family: serif;
+    font-size: larger;
 }
 
 .nav-buttons:hover {

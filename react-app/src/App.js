@@ -11,8 +11,6 @@ import PageForm from './components/Pages/PageForm';
 import PageView from './components/Pages/PageView'
 import EditPageForm from './components/Pages/EditPageForm';
 import Cards from './components/Cards';
-import InsideSplash from './components/InsideSplash';
-import UploadPicture from './components/UploadPicture';
 import Stats from './components/Stats';
 
 function App() {
@@ -36,7 +34,7 @@ function App() {
       <Switch>
         <Route path='/' exact={true}>
           <div className='splash-container'>
-          <NavBar />
+          
           <Splash/>
           </div>
         </Route>
@@ -54,7 +52,7 @@ function App() {
         <div className='inside-splash-page-container'>
           <InsideProject/>
           <Stats />
-          
+
           </div>
         </ProtectedRoute>
         <ProtectedRoute path='/projects/:projectId/new'>

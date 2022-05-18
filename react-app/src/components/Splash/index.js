@@ -1,17 +1,44 @@
 
+import React from 'react';
 import './Splash.css'
+import '../NavBar.css'
+import LoginFormModal from '../auth/LoginFormModal'
+import SignUpModal from '../auth/SignUpModal'
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/session';
 
 const Splash = () => {
-
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const demoLogin = async () => {
+        await dispatch(login('demo@aa.io', 'password'));
+        return history.push(`/projects`);
+    }
 
     return (
         <>
             <div className="splash-container">
+
                 <div className="splash-header">
-                    <h1> Mercury Hearth</h1>
-                    <p className='about-line'>Mercury Hearth is a tool for the  <a href='https://en.wikipedia.org/wiki/Worldbuilding'>creation of worlds</a> and everything within them.</p>
+                <div className='login-links'>
+                    <ul>
+                        <li>
+                            <LoginFormModal />
+                        </li>
+                        <li>
+                            <SignUpModal />
+                        </li>
+                        <li>
+                            <button className='nav-buttons' onClick={demoLogin}>Demo Now</button>
+                        </li>
+                    </ul>
+                </div>
+                    <h1>Mercury Hearth</h1>
+                    <p className='about-line'>Mercury Hearth is a worldbuilding application that allows you to create expansive worlds for your Table top rpg, fiction, and video game projects.</p>
+
                     <p className='about-line'>Built by Brett Hageft <a target='_blank' rel='noreferrer' href='https://github.com/mothwork'>github</a>::<a rel='noreferrer' target='_blank' href='https://www.linkedin.com/in/mothwork'>LinkedIn</a></p>
-                    <img alt='' src='https://images.unsplash.com/photo-1642606440166-2bd57032ea92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8'></img>
+
                 </div>
             </div>
 
