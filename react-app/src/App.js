@@ -34,48 +34,49 @@ function App() {
       <Switch>
         <Route path='/' exact={true}>
           <div className='splash-container'>
-          
+
           <Splash/>
           </div>
         </Route>
 
-
-
         <ProtectedRoute path='/projects' exact={true} >
           <div className='inside-splash-page-container'>
           <Project/>
-          <Stats />
-
           </div>
         </ProtectedRoute>
+
         <ProtectedRoute path='/projects/:projectId' exact={true}>
         <div className='inside-splash-page-container'>
           <InsideProject/>
           <Stats />
-
           </div>
         </ProtectedRoute>
+
         <ProtectedRoute path='/projects/:projectId/new'>
           <div className='new-page-container'>
           <InsideProject/>
           <PageForm/>
           </div>
         </ProtectedRoute>
+
         <ProtectedRoute path='/projects/:projectId/:pageId' exact={true}>
           <div className='new-page-container'>
           <InsideProject/>
           <PageView/>
           </div>
         </ProtectedRoute>
+
         <ProtectedRoute path='/projects/:projectId/:pageId/edit' exact={true}>
           <div className='new-page-container'>
           <InsideProject/>
           <EditPageForm/>
           </div>
         </ProtectedRoute>
+
         <ProtectedRoute path='/pages/:projectId/:pageId' exact={true}>
           <Cards/>
         </ProtectedRoute>
+
       </Switch>
     </BrowserRouter>
   );

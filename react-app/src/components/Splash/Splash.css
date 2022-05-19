@@ -2,18 +2,25 @@
 
 .splash-container {
     height: 100%;
-    width: 100%;
+    width:100%;
     display: flex;
     flex-direction: row;
-
-
+    background-image: url('https://images.unsplash.com/photo-1565214975484-3cfa9e56f914');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
 }
 
 .splash-header {
+    color: aliceblue;
     padding-left:20px;
     margin: auto;
     width: 50%;
     text-align: center;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+
 }
 
 .splash-header img {
@@ -24,8 +31,8 @@
 }
 
 .about-line a {
-    background-color: white;
-    color: black;
+    /* background-color: white; */
+    color: aliceblue;
     text-decoration: none;
     font-style: italic;
 
@@ -41,5 +48,21 @@
 .login-links ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.img-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.img-div {
+
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
 }

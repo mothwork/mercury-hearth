@@ -51,7 +51,8 @@ nav {
 .nav-buttons {
     border: none;
     border-radius: 3px;
-    background-color: white;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0);
     font-family: serif;
     font-size: larger;
 }
