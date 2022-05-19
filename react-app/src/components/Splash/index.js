@@ -35,7 +35,7 @@ const Splash = () => {
                     </ul>
                 </div>
                     <h1>Mercury Hearth</h1>
-                    <p className='about-line'>Mercury Hearth is a worldbuilding application that allows you to create expansive worlds for your Table top rpg, fiction, and video game projects.</p>
+                    <p className='about-line'>Mercury Hearth is a worldbuilding application that allows you to create expansive worlds for your Tabletop role-playing games, fiction, and video game projects.</p>
 
                     <p className='about-line'>Built by Brett Hageft <a target='_blank' rel='noreferrer' href='https://github.com/mothwork'>github</a>::<a rel='noreferrer' target='_blank' href='https://www.linkedin.com/in/mothwork'>LinkedIn</a></p>
 
