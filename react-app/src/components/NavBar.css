@@ -52,13 +52,14 @@ nav {
     border: none;
     border-radius: 3px;
     color: aliceblue;
-    background-color: rgba(0, 0, 0, 0);
-    font-family: serif;
+    background-color: black;
+    background-color: #333;
+    /* font-family: serif; */
     font-size: larger;
 }
 
 .nav-buttons:hover {
     cursor: pointer;
-    background-color: black;
-    color: white;
+    
+    color: black;
 }
